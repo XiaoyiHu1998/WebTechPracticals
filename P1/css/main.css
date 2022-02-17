@@ -13,6 +13,7 @@ body {
 }
 
 #header__restaurant__name{
+    text-align: center;
     font-weight: 525;
     font-size: larger;
 }
