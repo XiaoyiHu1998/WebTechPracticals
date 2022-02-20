@@ -26,11 +26,11 @@ table{
     padding: 20px;
 }
 
-.personelArticles{
+.personel__article{
     float: right;
 }
 
-.personelArticles_Image{
+.personel__image{
     float: left;
     max-width: 200px;
     max-height: 200px;
@@ -64,12 +64,9 @@ table{
 }
 
 .footer{
-    position:static;
+    clear: both;
+    text-align: center;
     bottom:0%;
     height:3%;
     width:100%;
-}
-
-.footerLinks{
-    text-align: center;
 }
