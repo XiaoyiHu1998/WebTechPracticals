@@ -20,6 +20,12 @@ a:hover{
     background-color:sandybrown;
 }
 
+table{
+    text-align: left;
+    float: left;
+    padding: 20px;
+}
+
 #header__restaurant__name{
     text-align: center;
     font-weight: 525;
