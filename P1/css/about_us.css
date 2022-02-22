@@ -1,0 +1,11 @@
+@import url("main.css");
+
+.personel__article{
+    float: right;
+}
+
+.personel__image{
+    float: left;
+    max-width: 200px;
+    max-height: 200px;
+}

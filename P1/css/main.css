@@ -1,9 +1,10 @@
 body {
     background-color: rgb(199, 148, 129);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 450;
+    font-weight: 500;
     font-size: large;
 }
+
 a{
     color:black;
     text-decoration: none;
@@ -13,11 +14,25 @@ a:hover{
     color:darkred;
 }
 
+table{
+    text-align: left;
+    float: left;
+    padding: 20px;
+}
+
 .header{
     top: 0%;
     height:5%;
     width:100%;
     background-color:sandybrown;
+}
+
+.footer{
+    clear: both;
+    text-align: center;
+    bottom:0%;
+    height:3%;
+    width:100%;
 }
 
 #header__restaurant__name{
@@ -40,19 +55,4 @@ a:hover{
 .navigationbarLinks > a:hover{
     text-align: center;
     color:darkred;
-}
-
-.mainpageArticles{
-    text-align: center;
-}
-
-.footer{
-    position:fixed;
-    bottom:0%;
-    height:3%;
-    width:100%;
-}
-
-.footerLinks{
-    text-align: center;
 }
