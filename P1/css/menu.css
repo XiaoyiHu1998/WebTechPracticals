@@ -1,0 +1,8 @@
+@import url("./main.css");
+
+.dish {
+	border-style: inset; 
+	border-width: 5px;
+	border-color:black;
+}
+

@@ -1,2 +1,7 @@
-@import url("index.css");
-@import url("about_us.css");
+@import url("./index.css");
+@import url("./about_us.css");
+@import url("./jobs.css");
+@import url("./contact.css");
+@import url("./main.css");
+@import url("./locations.css");
+@import url("./menu.css");
