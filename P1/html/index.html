@@ -11,7 +11,7 @@
 
     <head>
         <title>The AntiPastor</title>
-        <link rel="stylesheet" href="./../css/include.css">
+        <link rel="stylesheet" href="./include.css">
         <meta charset="UTF-8">
         <meta name="keywords"       content="Restaurant, Website, Menu, Delivery,">
         <meta name="description"    content="Website for The AntiPastor">
@@ -27,14 +27,14 @@
                 The AntiPastor
             </p>
             <!-- horizontal navigationbar in header -->
-            <nav class="navigationbarLinks">
-                    <a href="index.html">       Home       </a>
-                    <a href="menu.html">        Menu       </a>
-                    <a href="about_us.html">    About Us   </a>
-                    <a href="locations.html">   Locations  </a>
-                    <a href="jobs.html">        Jobs       </a>
-                    <a href="contact.html">     Contact    </a>
-            </nav>
+            <ul>
+                    <li><a href="index.html">       Home       </a></li>
+                    <li><a href="menu.html">        Menu       </a></li>
+                    <li><a href="locations.html">   Locations  </a></li>
+                    <li><a href="jobs.html">        Jobs       </a></li>
+                    <li><a href="contact.html">     Contact    </a></li>
+		    <li style="float:right"><a class="about" href="about_us.html">    About Us   </a></li>
+            </ul>
         </header>
 
         <section>
@@ -48,6 +48,7 @@
                     Our restaurant in 2006 with this goal in mind and has since grown in size and reputation with a michelin star as testament to oud dedication, we invite anyone to come by and enjoy a good meal with friends.
                 </p>
             </article>
+	    <hr></hr>
 
             <article class="mainpageArticle">
                 <h1>
@@ -57,6 +58,7 @@
                     Italy is well known for its delicious wines, but also has a wide array of refreshing locally popular cocktails. We offer a wide array of beverages to give you a chance to experience them, of course coffees are also on the menu!
                 </p>
             </article>
+	    <hr></hr>
 
             <article class="mainpageArticle">
                 <h1>
@@ -67,10 +69,11 @@
                     <br>
                     We also offer several arrangements from business dinners to private events. Please contact us in advance so we can offer the best experience.
                 </p>
-                <button>
+                <button class="button">
                     Make a reservation
                 </button>
             </article>
+            <hr></hr>
 
             <article>
                 <h1>Opening Times and Locations</h1>
@@ -121,6 +124,8 @@
                 </table>
 
             </article>
+
+            <hr></hr>
         </section>
 
         <footer class="footer">
