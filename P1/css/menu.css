@@ -6,3 +6,22 @@
 	border-color:black;
 }
 
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+table, th, td{
+    text-align: left;
+    width: 100%;
+    padding: 0px;
+    border: 1px solid black;
+}
+
+h1{
+	font-size: large;
+	font-style: oblique;
+}
+h2{
+	font-size: medium;
+}
