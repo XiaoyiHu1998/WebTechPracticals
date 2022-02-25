@@ -24,15 +24,16 @@ hr {width: 80%;margin-left: auto;margin-right: auto;background-color:#cc5200;opa
     top: 0%;
     height:5%;
     width:100%;
+    padding: 0%;
+    margin: 0%;
     background-color:sandybrown;
 }
 /*restaurant name parameters*/
 #header__restaurant__name{
     text-align: center;
-    height: center;
     font-weight: 525;
     font-size: 40px;
-    font-family:Brush Script MT, Brush Script Std, cursive;
+    font-family: "Brush Script MT", "Brush Script Std", "cursive";
 }
 
 
