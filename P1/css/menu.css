@@ -18,4 +18,12 @@
 
 .menupage__img{
 	max-width: 645px;
+	height: auto;
+}
+
+@media screen and (max-width: 600px) {
+	.menupage__img {
+		 width: 100%;
+		 height: auto;
+	}
 }
