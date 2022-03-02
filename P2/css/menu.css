@@ -1,0 +1,29 @@
+@import url("./main.css");
+
+ .menupage__table > th, td, tr{
+    text-align: left;
+    width: 100%;
+    padding: 0px;
+    border: 1px solid black;
+    border-collapse: collapse;
+ }
+
+.menupage__h1{
+	font-size: large;
+	font-style: oblique;
+}
+.menupage__h2{
+	font-size: medium;
+}
+
+.menupage__img{
+	max-width: 645px;
+	height: auto;
+}
+
+@media screen and (max-width: 600px) {
+	.menupage__img {
+		 width: 100%;
+		 height: auto;
+	}
+}
