@@ -1,10 +1,6 @@
 @import url("./main.css");
 
 
-#menupage__menucontainer{
-	margin: 10px auto;
-	width: 40%;
-}
 
 .menupage__table > th, td, tr{
 	text-align: left;
@@ -64,11 +60,25 @@
 		 width: 300px;
 		 height: auto;
 	}
+
+	#menupage__menucontainer{
+		margin: 10px auto;
+		width: 40%;
+	}
 }
 
 @media screen and (max-width: 800px) {
 	.menupage__img {
 		 width: 100%;
 		 height: auto;
+	}
+
+	#menupage__menucontainer{
+		margin: 5px auto;
+		width: 100%;
+	}
+
+	.menupage__table{
+		margin: 10px 5px;
 	}
 }
