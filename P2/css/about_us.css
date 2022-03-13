@@ -1,11 +1,23 @@
 @import url("./main.css");
 
 .personel__article{
-    float: right;
+    margin: 20px 30px;
+    float: left;
+}
+
+.personel__article > p{
+    /* float: right; */
+    max-width: 400px;
 }
 
 .personel__image{
-    float: left;
+    /* display: block; */
+    /* float: left; */
     max-width: 200px;
     max-height: 200px;
+}
+
+.personel{
+    margin: auto;
+    max-width: 80%;
 }
