@@ -10,6 +10,10 @@ table{
     border: none;
 }
 
+table > thead{
+    text-align: left;
+}
+
 @media screen and (min-width: 800px) {
     .mainpage__timetable{
         /* display: block; */
@@ -18,6 +22,7 @@ table{
         max-width: 15%;
         text-align: left;
     }
+
     .mainpage__timetable td{
         min-width: 100px;
     }
