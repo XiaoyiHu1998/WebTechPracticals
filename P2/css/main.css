@@ -45,7 +45,7 @@ hr {
 /* navigation bar section */
 a{
   color: darkred;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover{
@@ -54,6 +54,7 @@ a:hover{
 
 footer a{
   color:black;
+  text-decoration: none;
   font-weight: 700;
 }
 
