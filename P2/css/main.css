@@ -44,12 +44,8 @@ hr {
 
 /* navigation bar section */
 a{
-    color:black;
+    color: darkred;
     text-decoration: none;
-}
-
-a:hover{
-    color:darkred;
 }
 
 li {
@@ -61,6 +57,14 @@ li {
 li a {
   display: block;
   color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  display: block;
+  color: darkred;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
