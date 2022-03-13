@@ -21,7 +21,22 @@
 	height: auto;
 }
 
-@media screen and (max-width: 600px) {
+.menupage__dishfigures > figure{
+	float: left;
+}
+
+.menupage__dishfigure__header{
+	text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+	.menupage__img {
+		 width: 300px;
+		 height: auto;
+	}
+}
+
+@media screen and (max-width: 800px) {
 	.menupage__img {
 		 width: 100%;
 		 height: auto;
