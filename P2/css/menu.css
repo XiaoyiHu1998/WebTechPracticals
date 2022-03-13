@@ -1,12 +1,27 @@
 @import url("./main.css");
 
- .menupage__table > th, td, tr{
-    text-align: left;
-    width: 100%;
-    padding: 0px;
-    border: 1px solid black;
-    border-collapse: collapse;
- }
+
+#menupage__menucontainer{
+	margin: 10px auto;
+	width: 40%;
+}
+
+.menupage__table > th, td, tr{
+	text-align: left;
+	width: 100%;
+	padding: 0px;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.menupage__table{
+	float: left;
+	margin: 10px 50px;
+}
+
+.menupage__table > td, tr{
+	background-color: #ffcc99;
+}
 
 .menupage__h1{
 	font-size: large;
@@ -21,12 +36,21 @@
 	height: auto;
 }
 
+.menupage__dishfigures{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
 .menupage__dishfigures > figure{
 	float: left;
+	margin: 10px 25px;
 }
 
 .menupage__dishfigure__header{
 	text-align: center;
+	margin: 5px;
 }
 
 @media screen and (min-width: 800px) {

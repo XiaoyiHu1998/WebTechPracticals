@@ -88,14 +88,14 @@ th{
 }
 
 table, th, td{
-    text-align: left;
+    /* text-align: left;
     width: 20%;
-    padding: 0px;
+    padding: 0px;*/
     border: 10px;
     border-collapse: collapse;
 }
 
-tr:nth-child(even) {background-color: #ffcc99;}
+/* tr:nth-child(even) {background-color: #ffcc99;} */
 
 
 /*button class section*/
