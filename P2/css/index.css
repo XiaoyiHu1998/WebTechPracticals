@@ -1,5 +1,52 @@
 @import url("./main.css");
 
-.mainpageArticles{
+.mainpage__article{
     text-align: center;
+    margin: 10px 15px;
+}
+
+table{
+    margin: 30px;
+    border: none;
+}
+
+@media screen and (min-width: 800px) {
+    .mainpage__timetable{
+        /* display: block; */
+        float: left;
+        background-color: transparent;
+        max-width: 15%;
+        text-align: left;
+    }
+    .mainpage__timetable td{
+        min-width: 100px;
+    }
+    
+    .mainpage__locationtable{
+        /* display: block; */
+        float: left;
+        background-color: transparent;
+        max-width: 40%;
+        text-align: left;
+    }
+
+    .mainpage__tablesection{
+        margin: auto;
+        width: 35%;
+    }
+
+    .mainpage__tablesection > h1{
+        text-align: center;
+    }
+    
+}
+
+@media screen and (max-width:800px) {
+    h1{
+        text-align: center;
+    }
+
+    p{
+        text-align: left;
+    }
 }

@@ -15,8 +15,14 @@
 }
 
 .menupage__table{
+    border: 10px;
+    border-collapse: collapse;
 	float: left;
 	margin: 10px 50px;
+}
+
+.menupage__table th{
+    background-color: sandybrown;
 }
 
 .menupage__table > td, tr{
