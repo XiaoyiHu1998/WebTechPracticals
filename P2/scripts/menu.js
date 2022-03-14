@@ -90,7 +90,7 @@ function createMenuTable(_menuSection){
     menuTable = createTableBody(menuTable, _menuSection);
 }
 
-//TODO: add extra special fields per type of food
+//creates base row
 function createBaseHeadRow(){
     var menuTableHead = document.createElement("thead");
     
@@ -139,6 +139,8 @@ function createBaseHeadRow(){
     return menuTableHead;
 }
 
+//Adds extra row
+//TODO: insert rows instead of appending
 function addHeadRowColumn(headRow, columnName){
     var newColumn = document.createElement("th");
     var newColumnName = document.createTextNode(columnName);
@@ -193,12 +195,9 @@ function createTableBody(menuTable, _menuSection){
     }
 
     var tableBody = document.createElement("tbody");
-    var newRows;
-    activeMenuSection.items.forEach();
+    var newRows = [];
+    activeMenuSection.items.forEach(item => newRows.push(createItemRow(item)));
 }
-
-    
-
 
 function makeDishFigures(_section) {
     var section = document.createElement('section');
