@@ -1,7 +1,14 @@
 @import url("./main.css");
 
 
-
+.jobs {
+	font-weight: bold;
+}
+	
+.jobpage__jobtable{
+	text-align: left;
+	margin: 5px 30px;
+}
 
 
 
