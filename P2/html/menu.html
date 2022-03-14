@@ -9,7 +9,7 @@
         <meta name="keywords"       content="Restaurant, Website, Menu, Delivery">
         <meta name="description"    content="Website for The AntiPastor">
         <meta name="author"         content="The AntiPastor">
-        <meta http-equiv="refresh"  content="5"> <!--refresh page every [content] seconds, TODO: reduce the reload frequency in final version-->
+        <!-- <meta http-equiv="refresh"  content="5"> refresh page every [content] seconds, TODO: reduce the reload frequency in final version -->
         <meta name="viewport"       content="width=device-width, initial-scale=1.0"> <!--Screen based website scaling-->
     </head>
 
@@ -26,8 +26,32 @@
                     <li><a href="locations.html">   Locations  </a></li>
                     <li><a href="jobs.html">        Jobs       </a></li>
                     <li><a href="contact.html">     Contact    </a></li>
-		    <li style="float:right"><a class="about" href="about_us.html">    About Us   </a></li>
+                    <li>
+                        <form name="selector">
+                            html tags: 
+                            <select name="htmltag" id="htmltag">
+                                <option value="" selected="selected">Select html tag</option>
+                            </select>
+                        </form>
+                    </li>
+                    <li>
+                        <form name="fontsize">
+                            fontsize: <select name="fontsize" id="fontsize">
+                                <option value="" selected="selected">Select fontsize</option>
+                            </select>
+                        </form>
+                    </li>
+                    <li>
+                        <form name="color">
+                            color: <select name="color" id="color">
+                                <option value="" selected="selected">Select color</option>
+                            </select>
+                        </form>
+                    </li>
+
+		        <li style="float:right"><a class="about" href="about_us.html">    About Us   </a></li>
             </ul>
+    
         </header>
 
         <section id="menupage__menucontainer">
@@ -124,6 +148,7 @@
         <br>
         <hr>
 
+        <div id = "divid"></div>
         <section class="menupage__dishfigures">
             <h1 class="menupage__dishfigure__header">Appetizers</h1>
             <figure>
@@ -160,7 +185,7 @@
 
             <!-- <h2 class="menupage__h2" id="menupage__ossobuco">Ossobuco Milanese, is a delicious recipe. As the name says it most commonly made in Milan. This speciality is veal shank that is cooked in white wine. Served with risotto or pasta.</h2> -->
             <figure>
-                <img id="menupage__img__ossobucomilanese" class="menupage__img" src="./../images/ossobuco-milanese.jpg" alt="A picture of Ossobuco Milanese">
+                <img id="menupage__img__ossobuco" class="menupage__img" src="./../images/ossobuco-milanese.jpg" alt="A picture of Ossobuco Milanese">
                 <!-- <figcaption>Ossobuco Milanese, Milanese specialty with veal shank cooked in wine.</figcaption> -->
                 <figcaption>Ossobuco Milanese</figcaption>
             </figure>
@@ -211,7 +236,8 @@
                 <a href="404.html" class="footer__link">Privacy Policy</a> | <a href="https://www.twitter.com" class="footer__link"> Twitter </a> | <a href="https://www.Facebook.com" class="footer__link"> Facebook </a>
             </nav>
         </footer>
-
+        
+        <script src="./../scripts/menu.js"></script>
     </body>
 
 </html>
