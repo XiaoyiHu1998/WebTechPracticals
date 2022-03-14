@@ -1,5 +1,14 @@
 /*main*/
 
+h1{
+  font-size: 1.5em;
+}
+
+h2{
+  font-size:  1.25em;
+}
+
+
 body {
     background-color: rgb(199, 148, 129);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
