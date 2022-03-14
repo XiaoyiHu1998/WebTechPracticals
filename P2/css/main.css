@@ -15,21 +15,6 @@ body {
     width:100%;
 }
 
-h1{
-}
-
-h2{
-}
-
-/* menu h1&&h2 */
-.menupage__h1{
-	font-size: large;
-	font-style: oblique;
-}
-.menupage__h2{
-	font-size: medium;
-}
-
 /* line between articles */
 hr {
   width: 80%;margin-left: auto;
@@ -133,96 +118,4 @@ li a:hover:not(.active) {
 img{
 	max-width: 100%;
 	height: auto;
-}
-
-/* menu table/
-
-
-.menupage__table > th, td, tr{
-	text-align: left;
-	width: 100%;
-	padding: 0px;
-	border: 1px solid black;
-	border-collapse: collapse;
-}
-
-.menupage__table{
-    border: 10px;
-    border-collapse: collapse;
-	float: left;
-	margin: 10px 50px;
-}
-
-.menupage__table th{
-    background-color: sandybrown;
-}
-
-.menupage__table > td, tr{
-	background-color: #ffcc99;
-}
-
-/* jobs table */
-.jobs {
-	font-weight: bold;
-}
-	
-.jobpage__jobtable{
-	text-align: left;
-	margin: 5px 30px;
-}
-
-
-/* menu css */
-.menupage__img{
-	max-width: 645px;
-	height: auto;
-}
-
-.menupage__dishfigures{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 80%;
-}
-
-.menupage__dishfigures > figure{
-	float: left;
-	margin: 10px 25px;
-}
-
-.menupage__dishfigure__header{
-	text-align: center;
-	margin: 5px;
-}
-
-@media screen and (min-width: 800px) {
-	.menupage__img {
-		width: 300px;
-		height: auto;
-	}
-
-	#menupage__menucontainer{
-		margin: 10px auto;
-		width: 40%;
-	}
-}
-
-@media screen and (max-width: 800px) {
-	.menupage__img {
-		width: 100%;
-		height: auto;
-	}
-
-	#menupage__menucontainer{
-		margin: 5px auto;
-		width: 100%;
-	}
-
-	.menupage__table{
-		margin: 10px 5px;
-	}
-
-	.menupage__dishfigures{
-		width: 90%;
-	}
 }
