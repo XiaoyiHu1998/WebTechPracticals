@@ -193,6 +193,7 @@ function createItemRow(item, activeMenuSection){
     diet = document.createElement("td");
     console.log(typeof(item));
     console.log(typeof(item.diets));
+    console.log(item.diets.join(","));
     console.log(item.diets);
     dietInfo = document.createTextNode(item.diets.join(","));
     diet.appendChild(dietInfo)
@@ -291,6 +292,9 @@ function makeDishFigure(food){
     return figure;
 }
 
+<<<<<<< HEAD
+createPage(mainCourses);
+=======
 
 function populateHtmlMenu(){
     var htmlNodes = getElementsByTagNames(["body", "header", "footer", "aside", "article", "section"]);
@@ -315,6 +319,10 @@ function getElementsByTagNames(names){
     }
     return elements
 }
-createPage(deserts);
+
+console.log("kip");
+makeDishFigures(deserts);
 populateHtmlMenu();
+createPage(deserts);
+>>>>>>> 199064c0ecc898b86bb6d74df640560b8483a769
 //#endregion
