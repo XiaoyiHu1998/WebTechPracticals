@@ -27,6 +27,7 @@ class meatDish extends food{
     constructor(name, price, diets, meatType){
         super(name, price, diets);
         this.meatType = meatType;
+        this.diets = diets;
     }
 }
 
@@ -135,8 +136,7 @@ function createBaseHeadRow(){
     headRow.append(amount);
 
     menuTableHead.appendChild(headRow);
-
-    console.log("hey")
+    
     return menuTableHead;
 }
 
@@ -191,6 +191,10 @@ function createItemRow(item, activeMenuSection){
     newRow.appendChild(dish);
 
     diet = document.createElement("td");
+    console.log(typeof(item));
+    console.log(typeof(item.diets));
+    console.log(item.diets.join(","));
+    console.log(item.diets);
     dietInfo = document.createTextNode(item.diets.join(","));
     diet.appendChild(dietInfo)
     newRow.appendChild(diet);
@@ -254,8 +258,7 @@ function createItemRow(item, activeMenuSection){
             newRow.appendChild(caffeine);
             break;
     }
-
-    console.log(newRow)
+    
     return newRow;
 }
 
@@ -289,5 +292,5 @@ function makeDishFigure(food){
     return figure;
 }
 
-createPage(deserts);
+createPage(mainCourses);
 //#endregion
