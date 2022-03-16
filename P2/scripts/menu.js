@@ -320,4 +320,5 @@ function getElementsByTagNames(names){
 console.log("kip");
 makeDishFigures(deserts);
 populateHtmlMenu();
+
 //#endregion
