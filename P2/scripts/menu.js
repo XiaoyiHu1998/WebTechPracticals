@@ -292,5 +292,32 @@ function makeDishFigure(food){
     return figure;
 }
 
-createPage(mainCourses);
+
+function populateHtmlMenu(){
+    var htmlNodes = getElementsByTagNames(["body", "header", "footer", "aside", "article", "section"]);
+    
+    var htmlForm = document.getElementById("htmltag");
+    var htmlOptions = htmlNodes.map(x => document.createElement('option'));
+    for (let i = 0; i < htmlOptions.length; i++) {
+        htmlOptions[i].setAttribute("value", "");
+        htmlOptions[i].setAttribute("selected", "selected");
+        htmlOptions[i].appendChild(document.createTextNode(htmlNodes[i].nodeName));
+        htmlForm.appendChild(htmlOptions[i]);
+      }
+
+
+
+}
+
+function getElementsByTagNames(names){
+    var elements = [];
+    for (let i = 0; i < names.length; i++) {
+        Array.from(document.getElementsByTagName(names[i])).forEach(x => elements.push(x));
+    }
+    return elements
+}
+
+console.log("kip");
+makeDishFigures(deserts);
+populateHtmlMenu();
 //#endregion
