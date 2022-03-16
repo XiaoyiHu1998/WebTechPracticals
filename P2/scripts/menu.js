@@ -317,4 +317,5 @@ function getElementsByTagNames(names){
 }
 createPage(drinks);
 populateHtmlMenu();
+
 //#endregion
