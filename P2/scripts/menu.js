@@ -154,7 +154,7 @@ function addHeadRowColumn(headRow, columnName){
 function createTableHead(_menuSection){
     var tableHead = document.createElement("thead");
     switch(_menuSection.name){
-        case "Appetizer":
+        case "Appetizers":
             tableHead = addHeadRowColumn(createBaseHeadRow(), "Meat Type");
             break;
         case "Main Courses":
@@ -225,7 +225,7 @@ function createItemRow(item, activeMenuSection){
     newRow.appendChild(amount);
 
     switch(activeMenuSection.name){
-        case "Appetizer":   //meatType
+        case "Appetizers":   //meatType
             var meatTypeString = "-";
             if(item.constructor.name == meatDish)
                 meatTypeString = item.meatType;
@@ -315,7 +315,7 @@ function getElementsByTagNames(names){
     }
     return elements
 }
-createPage(drinks);
+createPage(deserts);
 populateHtmlMenu();
 
 //#endregion
