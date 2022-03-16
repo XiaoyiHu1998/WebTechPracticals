@@ -120,12 +120,12 @@ function createBaseHeadRow(){
     headRow.append(price);
 
     var add = document.createElement("th");
-    var addText = document.createTextNode("Add");
+    var addText = document.createTextNode("+");
     add.appendChild(addText);
     headRow.append(add);
 
     var remove = document.createElement("th");
-    var removeText = document.createTextNode("Remove");
+    var removeText = document.createTextNode("-");
     remove.appendChild(removeText);
     headRow.append(remove);
 
@@ -172,24 +172,8 @@ function createTableHead(_menuSection){
 }
 
 function createTableBody(menuTable, _menuSection){
-    var activeMenuSection;
-    switch(_menuSection.name){
-        case "Appetizer":
-            activeMenuSection = _menu.appetizers;
-            break;
-        case "Main Courses":
-            activeMenuSection = _menu.mainCourses;
-            break;
-        case "Deserts":
-            activeMenuSection = _menu.deserts;
-            break;
-        case "Drinks":
-            activeMenuSection = _menu.drinks;
-            break;
-    }
-
     var tableBody = document.createElement("tbody");
-    activeMenuSection.items.forEach(item => tableBody.appendChild(createItemRow(item, activeMenuSection)));
+    _menuSection.items.forEach(item => tableBody.appendChild(createItemRow(item, _menuSection)));
     menuTable.appendChild(tableBody);
 
     return menuTable;
