@@ -55,6 +55,20 @@
 	margin: 5px;
 }
 
+.menupage__menusection__nav{
+    margin: 20px auto;
+    max-width: 20%;
+    font-size: larger;
+
+    text-decoration: none;
+    color: black;
+};
+
+.menupage__menusection__link{
+    margin: 10px 10px;
+    text-decoration: none;
+}
+
 @media screen and (min-width: 800px) {
 	.menupage__img {
 		width: 300px;

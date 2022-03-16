@@ -78,8 +78,44 @@ var _menu = new menu(appetizers, mainCourses, deserts, drinks);
 
 //#region menuConstruction
 function createPage(_menuSection){
+    createSectionSelector();
     createMenuTable(_menuSection);
     makeDishFigures(_menuSection);
+}
+
+function createSectionSelector(){
+    var sectionSelector = document.createElement("nav");
+    sectionSelector.setAttribute("class", "menupage__menusection__nav");
+
+    var appetizersLink = document.createElement("a");
+    var mainCoursesLink = document.createElement("a");
+    var desertsLink = document.createElement("a");
+    var drinksLink = document.createElement("a");
+
+    var appetizersLinkText = document.createTextNode("Appetizers");
+    var mainCoursesLinkText = document.createTextNode("Main Courses");
+    var desertsLinkText = document.createTextNode("Deserts");
+    var drinksLinkText = document.createTextNode("Drinks");
+
+    appetizersLink.appendChild(appetizersLinkText);
+    mainCoursesLink.appendChild(mainCoursesLinkText);
+    desertsLink.appendChild(desertsLinkText);
+    drinksLink.appendChild(drinksLinkText);
+
+    appetizersLink.setAttribute("class", "menupage__menusection__link");
+    mainCoursesLink.setAttribute("class", "menupage__menusection__link");
+    desertsLink.setAttribute("class", "menupage__menusection__link");
+    drinksLink.setAttribute("class", "menupage__menusection__link");
+    
+    sectionSelector.appendChild(appetizersLink);
+    sectionSelector.appendChild(mainCoursesLink);
+    sectionSelector.appendChild(desertsLink);
+    sectionSelector.appendChild(drinksLink);
+
+    var body = document.getElementsByTagName("body")[0];
+    var footer = document.getElementsByTagName("footer")[0];
+
+    body.insertBefore(sectionSelector, footer);
 }
 
 function createMenuTable(_menuSection){
