@@ -76,8 +76,10 @@ var _menu = new menu(appetizers, mainCourses, deserts, drinks);
 
 
 //#region menuConstruction
-var menuColumnCount = 0;
-var menuSectionSelected = "";
+function createPage(_menuSection){
+    createMenuTable(_menuSection);
+    makeDishFigures(_menuSection);
+}
 
 function createMenuTable(_menuSection){
     var menuContainer = document.createElement("section");
@@ -86,8 +88,14 @@ function createMenuTable(_menuSection){
     var menuTable = document.createElement("table");
     menuTable.setAttribute("class", "menupage__table");
     
+    console.log(createTableHead(_menuSection));
     menuTable.appendChild(createTableHead(_menuSection));
     menuTable = createTableBody(menuTable, _menuSection);
+
+    menuContainer.appendChild(menuTable);
+    footer = document.getElementsByClassName("footer")[0];
+    body = document.getElementsByTagName("body")[0];
+    body.insertBefore(menuContainer, footer);
 }
 
 //creates base row
@@ -112,19 +120,13 @@ function createBaseHeadRow(){
     headRow.append(price);
 
     var add = document.createElement("th");
-    var addButton = document.createElement("button");
-    addButton.setAttribute("type", "button");
-    var addButtonText = document.createTextNode("+");
-    addButton.appendChild(addButtonText);
-    add.appendChild(addButton);
+    var addText = document.createTextNode("+");
+    add.appendChild(addText);
     headRow.append(add);
 
     var remove = document.createElement("th");
-    var removeButton = document.createElement("button");
-    removeButton.setAttribute("type", "button");
-    var removeButtonText = document.createTextNode("-");
-    removeButton.appendChild(removeButtonText);
-    remove.appendChild(removeButton);
+    var removeText = document.createTextNode("-");
+    remove.appendChild(removeText);
     headRow.append(remove);
 
     var amount = document.createElement("th");
@@ -133,9 +135,8 @@ function createBaseHeadRow(){
     headRow.append(amount);
 
     menuTableHead.appendChild(headRow);
-    
-    menuColumnCount = 6;
 
+    console.log("hey")
     return menuTableHead;
 }
 
@@ -145,32 +146,25 @@ function addHeadRowColumn(headRow, columnName){
     var newColumn = document.createElement("th");
     var newColumnName = document.createTextNode(columnName);
     newColumn.appendChild(newColumnName);
-    headRow.appendChild(newColumn);
+    headRow.firstChild.appendChild(newColumn);
 
     return headRow;
 }
 
 function createTableHead(_menuSection){
-    var tableHead
-    switch(_menuSection){
+    var tableHead = document.createElement("thead");
+    switch(_menuSection.name){
         case "Appetizer":
             tableHead = addHeadRowColumn(createBaseHeadRow(), "Meat Type");
-            menuColumnCount++;
-            menuSectionSelected = _menuSection;
             break;
         case "Main Courses":
             tableHead = addHeadRowColumn(createBaseHeadRow(), "Meat Type");
-            menuColumnCount++;
-            menuSectionSelected = _menuSection;
             break;
         case "Deserts":
             tableHead = createBaseHeadRow();
-            menuSectionSelected = _menuSection;
             break;
         case "Drinks":
             tableHead = addHeadRowColumn(addHeadRowColumn(createBaseHeadRow(), "Alcohol percentage"), "Caffeine Strength");
-            menuColumnCount += 2;
-            menuSectionSelected = _menuSection;
             break;
     }
 
@@ -178,25 +172,91 @@ function createTableHead(_menuSection){
 }
 
 function createTableBody(menuTable, _menuSection){
-    var activeMenuSection;
-    switch(_menuSection){
-        case "Appetizer":
-            activeMenuSection = _menu.appetizers;
+    var tableBody = document.createElement("tbody");
+    _menuSection.items.forEach(item => tableBody.appendChild(createItemRow(item, _menuSection)));
+    menuTable.appendChild(tableBody);
+
+    return menuTable;
+}
+
+function createItemRow(item, activeMenuSection){
+    var newRow = document.createElement("tr");
+
+    dish = document.createElement("td");
+    dishNameLink = document.createElement("a");
+    dishNameLink.setAttribute("href", "#menupage__img__buratta" + item.htmlName);
+    dishNameLinkText = document.createTextNode(item.name);
+    dishNameLink.appendChild(dishNameLinkText);
+    dish.appendChild(dishNameLink);
+    newRow.appendChild(dish);
+
+    diet = document.createElement("td");
+    dietInfo = document.createTextNode(item.diets.join(","));
+    diet.appendChild(dietInfo)
+    newRow.appendChild(diet);
+
+    price = document.createElement("td");
+    priceText = document.createTextNode(item.price);
+    price.appendChild(priceText);
+    newRow.appendChild(price);
+
+    add = document.createElement("td");
+    var addButton = document.createElement("button");
+    addButton.setAttribute("type", "button");
+    var addButtonText = document.createTextNode("+");
+    addButton.appendChild(addButtonText);
+    add.appendChild(addButton);
+    newRow.appendChild(add);
+
+    remove = document.createElement("td");
+    var removeButton = document.createElement("button");
+    removeButton.setAttribute("type", "button");
+    var removeButtonText = document.createTextNode("-");
+    removeButton.appendChild(removeButtonText);
+    remove.appendChild(removeButton);
+    newRow.appendChild(remove);
+
+    amount = document.createElement("td");
+    amountText = document.createTextNode("0");
+    amount.appendChild(amountText);
+    newRow.appendChild(amount);
+
+    switch(activeMenuSection){
+        case "Appetizer":   //meatType
+            var meatTypeString = "-";
+            if(item.constructor.name == meatDish)
+                meatTypeString = item.meatType;
+
+            meatType = document.createElement("td");
+            meatTypeText = document.createTextNode(meatTypeString);
+            meatType.appendChild(meatTypeText);
+            newRow.appendChild(meatType);
             break;
-        case "Main Courses":
-            activeMenuSection = _menu.mainCourses;
+        case "Main Courses":   //meatType
+            var meatTypeString = "-";
+            if(item.constructor.name == meatDish)
+                meatTypeString = item.meatType;
+
+            meatType = document.createElement("td");
+            meatTypeText = document.createTextNode(meatTypeString);
+            meatType.appendChild(meatTypeText);
+            newRow.appendChild(meatType);
             break;
-        case "Deserts":
-            activeMenuSection = _menu.deserts;
-            break;
-        case "Drinks":
-            activeMenuSection = _menu.drinks;
+        case "Drinks":  //alcoholpercentage caffeinestrength
+            alcohol = document.createElement("td");
+            alcoholText = document.createTextNode(item.alcoholStrength);
+            alcohol.appendChild(alcohol);
+            newRow.appendChild(alcohol);
+
+            caffeine = document.createElement("td");
+            caffeineText = document.createTextNode(item.caffeineStrength);
+            caffeine.appendChild(caffeineText);
+            newRow.appendChild(caffeine);
             break;
     }
 
-    var tableBody = document.createElement("tbody");
-    var newRows = [];
-    activeMenuSection.items.forEach(item => newRows.push(createItemRow(item)));
+    console.log(newRow)
+    return newRow;
 }
 
 function makeDishFigures(_section) {
@@ -209,10 +269,10 @@ function makeDishFigures(_section) {
     section.appendChild(heading1);
     _section.items.forEach(element => section.appendChild(makeDishFigure(element)));
     section.appendChild(document.createElement('hr'));
-    var div = document.getElementsByTagName("Body")[0];
-    console.log(div);
-    div.appendChild(section);
-    console.log(div);
+    var footer = document.getElementsByClassName("footer")[0];
+    var body = document.getElementsByTagName("body")[0];
+
+    body.insertBefore(section, footer);
 }
 
 function makeDishFigure(food){
@@ -257,4 +317,5 @@ function getElementsByTagNames(names){
 console.log("kip");
 makeDishFigures(deserts);
 populateHtmlMenu();
+createPage(deserts);
 //#endregion
