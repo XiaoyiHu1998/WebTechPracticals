@@ -83,6 +83,36 @@ function createPage(_menuSection){
     makeDishFigures(_menuSection);
 }
 
+function replaceBody(menuSectionString){
+    var html = document.getElementsByTagName("html")[0];
+    var header = document.getElementsByClassName("header")[0];
+    var footer = document.getElementsByClassName("footer")[0];
+    var oldBody = document.getElementsByTagName("body")[0];
+    var newBody = document.createElement("body");
+
+    html.removeChild(oldBody);
+    newBody.appendChild(header);
+    newBody.appendChild(footer);
+    html.appendChild(newBody);
+
+    switch(menuSectionString){
+        case "Appetizers":
+            createPage(appetizers);
+            break;
+        case "Main Courses":
+            createPage(mainCourses);
+            break;
+        case "Deserts":
+            createPage(deserts);
+            break;
+        case "Drinks":
+            createPage(drinks);
+            break;
+    }
+
+}
+
+
 function createSectionSelector(){
     var sectionSelector = document.createElement("nav");
     sectionSelector.setAttribute("class", "menupage__menusection__nav");
@@ -93,40 +123,45 @@ function createSectionSelector(){
     var tableHead = document.createElement("thead");
     var headRow = document.createElement("tr");
 
-    var appetizersLink = document.createElement("a");
-    var mainCoursesLink = document.createElement("a");
-    var desertsLink = document.createElement("a");
-    var drinksLink = document.createElement("a");
+    var appetizersButton = document.createElement("button");
+    var mainCoursesButton = document.createElement("button");
+    var desertsButton = document.createElement("button");
+    var drinksButton = document.createElement("button");
 
-    var appetizersLinkText = document.createTextNode("Appetizers");
-    var mainCoursesLinkText = document.createTextNode("Main Courses");
-    var desertsLinkText = document.createTextNode("Deserts");
-    var drinksLinkText = document.createTextNode("Drinks");
+    var appetizersButtonText = document.createTextNode("Appetizers");
+    var mainCoursesButtonText = document.createTextNode("Main Courses");
+    var desertsButtonText = document.createTextNode("Deserts");
+    var drinksButtonText = document.createTextNode("Drinks");
 
-    appetizersLink.appendChild(appetizersLinkText);
-    mainCoursesLink.appendChild(mainCoursesLinkText);
-    desertsLink.appendChild(desertsLinkText);
-    drinksLink.appendChild(drinksLinkText);
+    appetizersButton.addEventListener("click", function() {replaceBody(this.textContent);});
+    mainCoursesButton.addEventListener("click", function() {replaceBody(this.textContent);});
+    desertsButton.addEventListener("click", function() {replaceBody(this.textContent);});
+    drinksButton.addEventListener("click", function() {replaceBody(this.textContent);});
 
-    appetizersLink.setAttribute("href", "");
-    mainCoursesLink.setAttribute("href", "");
-    desertsLink.setAttribute("href", "");
-    drinksLink.setAttribute("href", "");
+    appetizersButton.appendChild(appetizersButtonText);
+    mainCoursesButton.appendChild(mainCoursesButtonText);
+    desertsButton.appendChild(desertsButtonText);
+    drinksButton.appendChild(drinksButtonText);
 
-    appetizersLink.setAttribute("class", "menupage__menusection__link");
-    mainCoursesLink.setAttribute("class", "menupage__menusection__link");
-    desertsLink.setAttribute("class", "menupage__menusection__link");
-    drinksLink.setAttribute("class", "menupage__menusection__link");
+    appetizersButton.setAttribute("href", "");
+    mainCoursesButton.setAttribute("href", "");
+    desertsButton.setAttribute("href", "");
+    drinksButton.setAttribute("href", "");
+
+    appetizersButton.setAttribute("class", "menupage__menusection__button");
+    mainCoursesButton.setAttribute("class", "menupage__menusection__button");
+    desertsButton.setAttribute("class", "menupage__menusection__button");
+    drinksButton.setAttribute("class", "menupage__menusection__button");
     
     var appetizersColumn = document.createElement("th");
     var mainCoursesColumn = document.createElement("th");
     var desertsColumn = document.createElement("th");
     var drinksColumn = document.createElement("th");
 
-    appetizersColumn.appendChild(appetizersLink);
-    mainCoursesColumn.appendChild(mainCoursesLink);
-    desertsColumn.appendChild(desertsLink);
-    drinksColumn.appendChild(drinksLink);
+    appetizersColumn.appendChild(appetizersButton);
+    mainCoursesColumn.appendChild(mainCoursesButton);
+    desertsColumn.appendChild(desertsButton);
+    drinksColumn.appendChild(drinksButton);
 
     headRow.appendChild(appetizersColumn);
     headRow.appendChild(mainCoursesColumn);
