@@ -80,13 +80,25 @@ var total;
 function createPage(_menuSection){
     createSectionSelector();
     createMenuTable(_menuSection);
-    makeOrderButton();
+    makeOrderSection();
     makeDishFigures(_menuSection);
 
-    registerEvents();
+    registerOurButtonEvents();
+
+    // var buttons = document.getElementsByTagName("button");
+    // for (let index = 0; index < buttons.length; index++) {
+    //     if(buttons[index].firstChild.nodeValue == "+"){
+    //         console.log(buttons[index].firstChild.nodeValue);
+    //         buttons[index].addEventListener("click", increaseDish);
+    //     }
+    //     else if(buttons[index].firstChild.nodeValue == "-"){
+    //         console.log(buttons[index].firstChild.nodeValue);
+    //         buttons[index].addEventListener("click", decreaseDish);
+    //     }        
+    // }
 }
 
-function makeOrderButton() {
+function makeOrderSection() {
     section = document.createElement("section");
     section.setAttribute("id", "ordersection");
     text = document.createTextNode("Total = ");
@@ -98,6 +110,7 @@ function makeOrderButton() {
     button = document.createElement("button");
     button.setAttribute("class", "button");
     button.appendChild(document.createTextNode("Place your order"));
+    button.addEventListener("click", function() {window.alert("Your order has been received, it will arrive in never ;)");})
     section.appendChild(button);
     body.insertBefore(section, footer);
 
@@ -332,8 +345,8 @@ function createItemRow(item, activeMenuSection){
 
     switch(activeMenuSection.name){
         case "Appetizers":   //meatType
-            var meatTypeString = "-";
-            if(item.constructor.name == meatDish)
+            var meatTypeString = "Meatless";
+            if(item.constructor.name == "meatDish")
                 meatTypeString = item.meatType;
 
             meatType = document.createElement("td");
@@ -342,8 +355,8 @@ function createItemRow(item, activeMenuSection){
             newRow.appendChild(meatType);
             break;
         case "Main Courses":   //meatType
-            var meatTypeString = "-";
-            if(item.constructor.name == meatDish)
+            var meatTypeString = "Meatless";
+            if(item.constructor.name == "meatDish")
                 meatTypeString = item.meatType;
 
             meatType = document.createElement("td");
@@ -418,7 +431,8 @@ function decreaseDish(e) {
     
 }
 
-function registerEvents() {
+function registerOurButtonEvents() {
+    console.log("registerEvents");
     var buttons = document.getElementsByTagName("button");
     for (let index = 0; index < buttons.length; index++) {
         if(buttons[index].firstChild.nodeValue == "+"){
