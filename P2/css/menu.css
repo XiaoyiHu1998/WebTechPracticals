@@ -77,10 +77,12 @@
 	
 	.menupage__menusection__table{
 		margin: 20px auto;
+		max-width: 70%;
+		font-size: 1.5em;
 	}
 
 	.menupage__menusection__table th{
-		padding: 5px 100px;
+		padding: 5px auto;
 		background-color: transparent;
 		text-align: center;
 	}
@@ -93,12 +95,15 @@
 	}
 
 	#menupage__menucontainer{
-		margin: 5px auto;
-		width: 100%;
+		margin: auto;
+		max-width: 95%;
 	}
 
 	.menupage__table{
-		margin: 10px 5px;
+		margin: 10px auto;
+		max-width: 95%;
+		font-size: 60%;
+		font-weight: 700;
 	}
 
 	.menupage__dishfigures{
@@ -107,12 +112,11 @@
 	
 	.menupage__menusection__table{
 		margin: 20px auto;
-		min-width: 70%;
+		font-size: 75%;
 	}
 
 	.menupage__menusection__table th{
 		padding: 5px auto;
-		min-width: 100px;
 		background-color: transparent;
 		text-align: center;
 	}

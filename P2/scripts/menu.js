@@ -82,6 +82,7 @@ function createPage(_menuSection){
     createSectionSelector();
     createMenuTable(_menuSection);
     makeDishFigures(_menuSection);
+    registerEvents();
 }
 
 function replaceBody(menuSectionString){
@@ -143,11 +144,6 @@ function createSectionSelector(){
     mainCoursesButton.appendChild(mainCoursesButtonText);
     desertsButton.appendChild(desertsButtonText);
     drinksButton.appendChild(drinksButtonText);
-
-    appetizersButton.setAttribute("href", "");
-    mainCoursesButton.setAttribute("href", "");
-    desertsButton.setAttribute("href", "");
-    drinksButton.setAttribute("href", "");
 
     appetizersButton.setAttribute("class", "menupage__menusection__button");
     mainCoursesButton.setAttribute("class", "menupage__menusection__button");
@@ -288,15 +284,12 @@ function createItemRow(item, activeMenuSection){
     newRow.appendChild(dish);
 
     diet = document.createElement("td");
-    // console.log(typeof(item));
-    // console.log(typeof(item.diets));
-    // console.log(item.diets);
     dietInfo = document.createTextNode(item.diets.join(","));
     diet.appendChild(dietInfo)
     newRow.appendChild(diet);
 
     price = document.createElement("td");
-    priceText = document.createTextNode(item.price);
+    priceText = document.createTextNode(item.price + "€");
     price.appendChild(priceText);
     newRow.appendChild(price);
 
@@ -426,7 +419,7 @@ function registerEvents() {
 }
 
 
-createPage(deserts);
+createPage(appetizers);
 registerEvents();
 
 
