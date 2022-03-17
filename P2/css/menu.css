@@ -16,6 +16,7 @@
 	border: 2px solid black;
 	/* float:right; */
 	margin: auto;
+	min-width: 120px;
 
 }
 
