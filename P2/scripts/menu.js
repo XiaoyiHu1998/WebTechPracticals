@@ -41,13 +41,13 @@ class drink extends food{
 
 //#region foods
 var buratta  = new food("Buratta", "buratta", 7, ["Lactose"]);
-var ciccheti = new meatDish("Ciccheti", "ciccheti",  8, ["Lactose", "Gluten", "Meat"], "Pork");
-var focaccia = new meatDish("Focaccia", "focaccia", 8, ["Gluten", "Meat"], "Beef");
+var ciccheti = new meatDish("Ciccheti", "ciccheti",  8, ["Lactose", "Gluten"], "Pork");
+var focaccia = new meatDish("Focaccia", "focaccia", 8, ["Gluten"], "Beef");
 
 var melanzane    = new food("Melanzane alla Parmigiana", "melanzane", 17, ["Lactose"]);
-var ossobuco     = new meatDish("Ossobuco Milanese", "ossobuco", 20, ["Meat"], "Veal");
+var ossobuco     = new meatDish("Ossobuco Milanese", "ossobuco", 20, [], "Veal");
 var montaraPizza = new food("Montara Pizza", "montarapizza", 17, ["Lactose"]);
-var zuppaToscana = new meatDish("Zuppa Toscana", "zuppatoscana", 17, ["Meat"], "Chicken, Pork");
+var zuppaToscana = new meatDish("Zuppa Toscana", "zuppatoscana", 17, [], "Chicken, Pork");
 
 var pannaCotta = new food("Panna cotta", "pannacotta",  9, ["Lactose"]);
 var semifreddo = new food("Triple chocolat semifreddo", "semifreddo", 12, ["Lactose"]);
