@@ -29,7 +29,7 @@ function createHeaderMenus(){
         for (let i = 0; i < htmlOptions.length; i++) {
             htmlOptions[i].setAttribute("value", i);
             htmlOptions[i].setAttribute("selected", "selected");
-            htmlOptions[i].appendChild(document.createTextNode(htmlNodes[i].nodeName));
+            htmlOptions[i].appendChild(document.createTextNode(i+1 + ". " + htmlNodes[i].nodeName));
             htmlSelector.appendChild(htmlOptions[i]);
         }
         //populating
@@ -62,7 +62,6 @@ function createHeaderMenus(){
         li.appendChild(form);
         return li;
     }
-
 }
 
 function changeColor(){
