@@ -82,7 +82,6 @@ function createPage(_menuSection){
     createMenuTable(_menuSection);
     makeOrderSection();
     makeDishFigures(_menuSection);
-
     registerOurButtonEvents();
 
     // var buttons = document.getElementsByTagName("button");
