@@ -74,8 +74,8 @@ var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMorett
 //#endregion
 
 var _menu = new menu(appetizers, mainCourses, deserts, drinks);
-var total;
-
+var total = 0;
+var menuArray = [];
 //#region menuConstruction
 function createPage(_menuSection){
     createSectionSelector();
@@ -101,10 +101,11 @@ function makeOrderSection() {
     section = document.createElement("section");
     section.setAttribute("id", "ordersection");
     text = document.createTextNode("Total = ");
-    total = document.createTextNode("0");
+    totalNode = document.createTextNode("");
+    totalNode.nodeValue = String(total);
     euro = document.createTextNode("€ ");
     section.appendChild(text);
-    section.appendChild(total);
+    section.appendChild(totalNode);
     section.appendChild(euro);
     button = document.createElement("button");
     button.setAttribute("class", "button");
@@ -338,7 +339,7 @@ function createItemRow(item, activeMenuSection){
     newRow.appendChild(remove);
 
     amount = document.createElement("td");
-    amountText = document.createTextNode("0");
+    amountText = document.createTextNode(menuArray[item.name]);
     amount.appendChild(amountText);
     newRow.appendChild(amount);
 
@@ -414,8 +415,16 @@ function increaseDish(e) {
     price = parseInt(row.children[2].firstChild.nodeValue);
     row.children[5].firstChild.nodeValue = parseInt(row.children[5].firstChild.nodeValue) + 1;
     amount = document.getElementById("ordersum");
-    total.nodeValue = String(parseInt(total.nodeValue) + price);
+    total = parseInt(totalNode.nodeValue) + price
+    totalNode.nodeValue = String(total);
+    acces = row.children[0].children[0].childNodes[0].nodeValue;
+    
+    menuArray[acces] += 1;
+    console.log(acces);
+    console.log(typeof(acces));
 
+
+    console.log(menuArray);
 
 }
 
@@ -425,8 +434,26 @@ function decreaseDish(e) {
     if(row.children[5].firstChild.nodeValue >= 1){
         row.children[5].firstChild.nodeValue = parseInt(row.children[5].firstChild.nodeValue) - 1;
         amount = document.getElementById("ordersum");
-        total.nodeValue = String(parseInt(total.nodeValue) - price);
+        total = parseInt(totalNode.nodeValue) - price
+        totalNode.nodeValue = String(total);
+        acces = row.children[0].children[0].childNodes[0].nodeValue;
+        menuArray[acces] -= 1;
+        console.log(acces);
+        console.log(typeof(acces));
+
+        console.log(menuArray);
+
     }
+
+    
+}
+
+function initializeFoodMenu() {
+    _menu.appetizers.items.forEach(item => menuArray[item.name] = 0);
+    _menu.mainCourses.items.forEach(item => menuArray[item.name] = 0);
+    _menu.deserts.items.forEach(item => menuArray[item.name] = 0);
+    _menu.drinks.items.forEach(item => menuArray[item.name] = 0);
+    _menu.drinks.items.forEach(item => console.log(typeof(item.name)));
     
 }
 
@@ -445,7 +472,7 @@ function registerOurButtonEvents() {
     }
 }
 
-
+initializeFoodMenu();
 createPage(appetizers);
 
 
