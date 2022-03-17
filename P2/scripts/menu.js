@@ -99,14 +99,14 @@ function createPage(_menuSection){
 
 function makeOrderSection() {
     section = document.createElement("section");
-    section.setAttribute("id", "ordersection");
+    section.setAttribute("id", "menupage__ordersection");
     text = document.createTextNode("Total = ");
     totalNode = document.createTextNode("");
     totalNode.nodeValue = String(total);
     euro = document.createTextNode("€ ");
     section.appendChild(text);
-    section.appendChild(totalNode);
     section.appendChild(euro);
+    section.appendChild(totalNode);
     button = document.createElement("button");
     button.setAttribute("class", "button");
     button.appendChild(document.createTextNode("Place Order"));
@@ -318,7 +318,7 @@ function createItemRow(item, activeMenuSection){
     newRow.appendChild(diet);
 
     price = document.createElement("td");
-    priceText = document.createTextNode(item.price + "€");
+    priceText = document.createTextNode("€" + item.price);
     price.appendChild(priceText);
     newRow.appendChild(price);
 
