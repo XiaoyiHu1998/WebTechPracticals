@@ -45,9 +45,9 @@ var ciccheti = new meatDish("Ciccheti", "ciccheti",  8, ["Lactose", "Gluten"], "
 var focaccia = new meatDish("Focaccia", "focaccia", 8, ["Gluten"], "Beef");
 
 var melanzane    = new food("Melanzane alla Parmigiana", "melanzane", 17, ["Lactose"]);
-var ossobuco     = new meatDish("Ossobuco Milanese", "ossobuco", 20, [], "Veal");
+var ossobuco     = new meatDish("Ossobuco Milanese", "ossobuco", 20, ["-"], "Veal");
 var montaraPizza = new food("Montara Pizza", "montarapizza", 17, ["Lactose"]);
-var zuppaToscana = new meatDish("Zuppa Toscana", "zuppatoscana", 17, [], "Chicken, Pork");
+var zuppaToscana = new meatDish("Zuppa Toscana", "zuppatoscana", 17, ["-"], "Chicken, Pork");
 
 var pannaCotta = new food("Panna cotta", "pannacotta",  9, ["Lactose"]);
 var semifreddo = new food("Triple chocolat semifreddo", "semifreddo", 12, ["Lactose"]);
@@ -57,7 +57,7 @@ var espresso        = new drink("Espresso", "espresso", 4, [], 0, "strong");
 var capuccino       = new drink("Capuccino", "capuccino",  4, ["Lactose"], 0, "medium");
 var spritz          = new drink("Spritz", "spritz", 5, [], 11.0, "none");
 var birraMoretti    = new drink("Birra Moretti", "birramoretti",  4, ["Gluten"], 4.6, "none");
-var mineralWater    = new drink("Mineral Water", "mineralwater", 3, [], 0, "none");
+var mineralWater    = new drink("Mineral Water", "mineralwater", 3, ["-"], 0, "none");
 
 //#endregion
 
@@ -277,16 +277,16 @@ function createTableHead(_menuSection){
     var tableHead = document.createElement("thead");
     switch(_menuSection.name){
         case "Appetizers":
-            tableHead = addHeadRowColumn(createBaseHeadRow(), "Meat Type");
+            tableHead = addHeadRowColumn(createBaseHeadRow(), "Meat ");
             break;
         case "Main Courses":
-            tableHead = addHeadRowColumn(createBaseHeadRow(), "Meat Type");
+            tableHead = addHeadRowColumn(createBaseHeadRow(), "Meat ");
             break;
         case "Deserts":
             tableHead = createBaseHeadRow();
             break;
         case "Drinks":
-            tableHead = addHeadRowColumn(addHeadRowColumn(createBaseHeadRow(), "Alcohol percentage"), "Caffeine Strength");
+            tableHead = addHeadRowColumn(addHeadRowColumn(createBaseHeadRow(), "Alcohol "), "Caffeine ");
             break;
     }
 
