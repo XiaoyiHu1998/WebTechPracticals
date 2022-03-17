@@ -306,7 +306,7 @@ function createItemRow(item, activeMenuSection){
 
     dish = document.createElement("td");
     dishNameLink = document.createElement("a");
-    dishNameLink.setAttribute("href", "#menupage__img__buratta" + item.htmlName);
+    dishNameLink.setAttribute("href", "#menupage__img__" + item.htmlName);
     dishNameLinkText = document.createTextNode(item.name);
     dishNameLink.appendChild(dishNameLinkText);
     dish.appendChild(dishNameLink);
