@@ -11,12 +11,23 @@
 }
 
 #ordersection{
-	background-color: #99ffa2;
+	width: 10%;
+	background-color: sandybrown;
+	border: 2px solid black;
+	/* float:right; */
+	margin: auto;
+
+}
+#ordersection > button{
+	margin: 10px;
+}
+#ordersection{
+	text-align: center;
 }
 .menupage__table{
     border: 10px;
     border-collapse: collapse;
-	float: left;
+	/* float: left; */
 	margin: 10px 50px;
 }
 
