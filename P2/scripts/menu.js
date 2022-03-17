@@ -448,5 +448,4 @@ function registerOurButtonEvents() {
 
 createPage(appetizers);
 
-
 //#endregion
