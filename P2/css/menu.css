@@ -36,12 +36,6 @@
     background-color: sandybrown;
 }
 
-.menupage__table a{
-	color: black;
-	text-decoration: none;
-	cursor: default;
-}
-
 .menupage__table > td, tr{
 	background-color: #ffcc99;
 }

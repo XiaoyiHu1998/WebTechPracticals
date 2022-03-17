@@ -377,7 +377,12 @@ function createItemRow(item, activeMenuSection){
             break;
     }
     
+    newRow.addEventListener("click", changeDishNameColor);
     return newRow;
+}
+
+function changeDishNameColor(){
+    
 }
 
 function makeDishFigures(_section) {
