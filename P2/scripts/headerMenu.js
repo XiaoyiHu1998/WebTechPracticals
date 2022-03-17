@@ -79,7 +79,7 @@ function changeSelectedTag(){
 }
 
 function registerEvents(){
-    fontInput.addEventListener("input", changeFontSize);
+    fontInput.addEventListener("blur", changeFontSize);
     colorInput.addEventListener("input", changeColor);
     htmlSelector.addEventListener("change", changeSelectedTag);
 }
