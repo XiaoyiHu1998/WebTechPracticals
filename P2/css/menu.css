@@ -55,6 +55,24 @@
 	margin: 5px;
 }
 
+.menupage__menusection__nav{
+    display: block;
+    margin: 20px auto;
+    font-size: larger;
+
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    border-style: dotted;
+};
+
+.menupage__menusection__link{
+    display: block;
+    margin: 10px 500px;
+    text-decoration: none;
+    border-style: dotted;
+}
+
 @media screen and (min-width: 800px) {
 	.menupage__img {
 		width: 300px;

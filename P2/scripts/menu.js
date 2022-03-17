@@ -24,16 +24,16 @@ class food{
 };
 
 class meatDish extends food{
-    constructor(name, price, diets, meatType){
-        super(name, price, diets);
+    constructor(name, htmlName, price, diets, meatType){
+        super(name, htmlName, price, diets);
         this.meatType = meatType;
         this.diets = diets;
     }
 }
 
 class drink extends food{
-    constructor(name, price, diets, alcoholStrength, caffeineStrength){
-        super(name, price, diets);
+    constructor(name, htmlName, price, diets, alcoholStrength, caffeineStrength){
+        super(name, htmlName, price, diets);
         this.alcoholStrength = alcoholStrength;
         this.caffeineStrength = caffeineStrength;
     }
@@ -53,11 +53,11 @@ var pannaCotta = new food("Panna cotta", "pannacotta",  9, ["Lactose"]);
 var semifreddo = new food("Triple chocolat semifreddo", "semifreddo", 12, ["Lactose"]);
 var tiramisu   = new food("Tiramisu", "tiramisu", 10, ["Lactose"]);
 
-var espresso        = new drink("Espresso", "espresso", 4, 0, "strong");
-var capuccino       = new drink("Capuccino", "capuccino",  4, 0, "medium");
-var spritz          = new drink("Spritz", "spritz",  5, 11.0, "none");
-var birraMoretti    = new drink("Birra Moretti", "birramoretti",  4, 4.6, "none");
-var mineralWater    = new drink("Mineral Water", "mineralwater", 3, 0, "none");
+var espresso        = new drink("Espresso", "espresso", 4, [], 0, "strong");
+var capuccino       = new drink("Capuccino", "capuccino",  4, ["Lactose"], 0, "medium");
+var spritz          = new drink("Spritz", "spritz", 5, [], 11.0, "none");
+var birraMoretti    = new drink("Birra Moretti", "birramoretti",  4, ["Gluten"], 4.6, "none");
+var mineralWater    = new drink("Mineral Water", "mineralwater", 3, [], 0, "none");
 
 //#endregion
 
@@ -78,8 +78,44 @@ var _menu = new menu(appetizers, mainCourses, deserts, drinks);
 
 //#region menuConstruction
 function createPage(_menuSection){
+    createSectionSelector();
     createMenuTable(_menuSection);
     makeDishFigures(_menuSection);
+}
+
+function createSectionSelector(){
+    var sectionSelector = document.createElement("nav");
+    sectionSelector.setAttribute("class", "menupage__menusection__nav");
+
+    var appetizersLink = document.createElement("a");
+    var mainCoursesLink = document.createElement("a");
+    var desertsLink = document.createElement("a");
+    var drinksLink = document.createElement("a");
+
+    var appetizersLinkText = document.createTextNode("Appetizers");
+    var mainCoursesLinkText = document.createTextNode("Main Courses");
+    var desertsLinkText = document.createTextNode("Deserts");
+    var drinksLinkText = document.createTextNode("Drinks");
+
+    appetizersLink.appendChild(appetizersLinkText);
+    mainCoursesLink.appendChild(mainCoursesLinkText);
+    desertsLink.appendChild(desertsLinkText);
+    drinksLink.appendChild(drinksLinkText);
+
+    appetizersLink.setAttribute("class", "menupage__menusection__link");
+    mainCoursesLink.setAttribute("class", "menupage__menusection__link");
+    desertsLink.setAttribute("class", "menupage__menusection__link");
+    drinksLink.setAttribute("class", "menupage__menusection__link");
+    
+    sectionSelector.appendChild(appetizersLink);
+    sectionSelector.appendChild(mainCoursesLink);
+    sectionSelector.appendChild(desertsLink);
+    sectionSelector.appendChild(drinksLink);
+
+    var body = document.getElementsByTagName("body")[0];
+    var footer = document.getElementsByTagName("footer")[0];
+
+    body.insertBefore(sectionSelector, footer);
 }
 
 function createMenuTable(_menuSection){
@@ -154,7 +190,7 @@ function addHeadRowColumn(headRow, columnName){
 function createTableHead(_menuSection){
     var tableHead = document.createElement("thead");
     switch(_menuSection.name){
-        case "Appetizer":
+        case "Appetizers":
             tableHead = addHeadRowColumn(createBaseHeadRow(), "Meat Type");
             break;
         case "Main Courses":
@@ -191,9 +227,9 @@ function createItemRow(item, activeMenuSection){
     newRow.appendChild(dish);
 
     diet = document.createElement("td");
-    console.log(typeof(item));
-    console.log(typeof(item.diets));
-    console.log(item.diets);
+    // console.log(typeof(item));
+    // console.log(typeof(item.diets));
+    // console.log(item.diets);
     dietInfo = document.createTextNode(item.diets.join(","));
     diet.appendChild(dietInfo)
     newRow.appendChild(diet);
@@ -224,8 +260,8 @@ function createItemRow(item, activeMenuSection){
     amount.appendChild(amountText);
     newRow.appendChild(amount);
 
-    switch(activeMenuSection){
-        case "Appetizer":   //meatType
+    switch(activeMenuSection.name){
+        case "Appetizers":   //meatType
             var meatTypeString = "-";
             if(item.constructor.name == meatDish)
                 meatTypeString = item.meatType;
@@ -247,8 +283,8 @@ function createItemRow(item, activeMenuSection){
             break;
         case "Drinks":  //alcoholpercentage caffeinestrength
             alcohol = document.createElement("td");
-            alcoholText = document.createTextNode(item.alcoholStrength);
-            alcohol.appendChild(alcohol);
+            alcoholText = document.createTextNode(item.alcoholStrength + "%");
+            alcohol.appendChild(alcoholText);
             newRow.appendChild(alcohol);
 
             caffeine = document.createElement("td");
