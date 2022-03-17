@@ -82,7 +82,6 @@ function createPage(_menuSection){
     createMenuTable(_menuSection);
     makeOrderButton();
     makeDishFigures(_menuSection);
-
     registerEvents();
 }
 
