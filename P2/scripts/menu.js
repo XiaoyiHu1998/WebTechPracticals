@@ -74,6 +74,7 @@ var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMorett
 //#endregion
 
 var _menu = new menu(appetizers, mainCourses, deserts, drinks);
+var selectedRow;
 
 
 //#region menuConstruction
@@ -387,8 +388,46 @@ function makeDishFigure(food){
     return figure;
 }
 
+function increaseDish(e) {
+    row = e.target.parentElement.parentElement;
+    price = parseInt(row.children[2].firstChild.nodeValue);
+    row.children[5].firstChild.nodeValue = parseInt(row.children[5].firstChild.nodeValue) + 1;
+}
+
+function decreaseDish(e) {
+    row = e.target.parentElement.parentElement;
+    price = parseInt(row.children[2].firstChild.nodeValue);
+    if(row.children[5].firstChild.nodeValue >= 1){
+        row.children[5].firstChild.nodeValue = parseInt(row.children[5].firstChild.nodeValue) - 1;
+    }
+}
+
+function rowClicked(e) {
+
+}
+
+function registerEvents() {
+    var buttons = document.getElementsByTagName("button");
+    for (let index = 0; index < buttons.length; index++) {
+        buttons[index].parentElement.parentElement.addEventListener("click", rowClicked);
+        if(buttons[index].firstChild.nodeValue == "+"){
+            console.log(buttons[index].firstChild.nodeValue);
+            buttons[index].addEventListener("click", increaseDish);
+        }
+        else if(buttons[index].firstChild.nodeValue == "-"){
+            console.log(buttons[index].firstChild.nodeValue);
+            buttons[index].addEventListener("click", decreaseDish);
+        }
+        else{
+
+        }
+        
+    }
+}
+
 
 createPage(deserts);
+registerEvents();
 
 
 //#endregion

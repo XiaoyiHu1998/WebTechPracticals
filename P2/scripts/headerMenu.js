@@ -5,17 +5,17 @@ var colorInput;
 var htmlNodes;
 
 function createHeaderMenus(){
-    let ul = document.getElementsByTagName("ul")[0];
+    var ul = document.getElementsByTagName("ul")[0];
     ul.appendChild(createHtmlSelector());
     ul.appendChild(createFontMenu());
     ul.appendChild(createColorMenu());
     
     function createHtmlSelector () {
         //creating
-        let li = document.createElement("li");
-        let form = document.createElement("form");
+        var li = document.createElement("li");
+        var form = document.createElement("form");
         form.setAttribute("name", "selector");
-        let text = document.createTextNode("Website part ");
+        var text = document.createTextNode("Website part ");
         htmlSelector = document.createElement("select");
         htmlSelector.setAttribute("id", "htmlselector");
         form.appendChild(text);
@@ -36,13 +36,14 @@ function createHeaderMenus(){
         return li;
     }
     function createFontMenu() {
-        let li = document.createElement("li");
-        let form = document.createElement("form");
+        var li = document.createElement("li");
+        var form = document.createElement("form");
         form.setAttribute("name", "fontsize");
-        let text = document.createTextNode("Fontsize ");
+        var text = document.createTextNode("Fontsize ");
         fontInput = document.createElement("input");
         fontInput.setAttribute("type", "number");
-        fontInput.setAttribute("min", 1);
+        fontInput.setAttribute("min", 7);
+        fontInput.setAttribute("max", 40);
         fontInput.setAttribute("id", "fontinput");
         form.appendChild(text);
         form.appendChild(fontInput);
@@ -50,10 +51,10 @@ function createHeaderMenus(){
         return li;
     }
     function createColorMenu() {
-        let li = document.createElement("li");
-        let form = document.createElement("form");
+        var li = document.createElement("li");
+        var form = document.createElement("form");
         form.setAttribute("name", "color");
-        let text = document.createTextNode("Color ");
+        var text = document.createTextNode("Color ");
         colorInput = document.createElement("input");
         colorInput.setAttribute("type", "color");
         colorInput.setAttribute("id", "colorinput");
@@ -78,7 +79,7 @@ function changeSelectedTag(){
 }
 
 function registerEvents(){
-    fontInput.addEventListener("input", changeFontSize);
+    fontInput.addEventListener("blur", changeFontSize);
     colorInput.addEventListener("input", changeColor);
     htmlSelector.addEventListener("change", changeSelectedTag);
 }
