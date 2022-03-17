@@ -311,6 +311,8 @@ function createItemRow(item, activeMenuSection){
     dishNameLink.appendChild(dishNameLinkText);
     dish.appendChild(dishNameLink);
     newRow.appendChild(dish);
+    
+    newRow.addEventListener("click", changeDishNameColor);
 
     diet = document.createElement("td");
     dietInfo = document.createTextNode(item.diets.join(","));
@@ -377,12 +379,25 @@ function createItemRow(item, activeMenuSection){
             break;
     }
     
-    newRow.addEventListener("click", changeDishNameColor);
     return newRow;
 }
 
-function changeDishNameColor(){
-    
+function changeDishNameColor(e){
+    var row = e.target.parentElement.parentElement;
+    console.log(e.target.parentElement.parentElement);
+    var dishName = row.children[0].children[0].childNodes[0].nodeValue;
+    console.log(dishName);
+
+    if(menuArray[dishName] == 0){
+        var link = e.target;
+        console.log(link);
+        link.style.fontWeight = 500;
+    }
+    else if(menuArray[dishName] != undefined){
+        var link = e.target;
+        console.log(link);
+        link.style.fontWeight = 800;
+    }
 }
 
 function makeDishFigures(_section) {
