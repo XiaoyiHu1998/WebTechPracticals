@@ -10,6 +10,9 @@
 	border-collapse: collapse;
 }
 
+#orderdiv{
+	background-color: #99ffa2;
+}
 .menupage__table{
     border: 10px;
     border-collapse: collapse;

@@ -74,17 +74,34 @@ var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMorett
 //#endregion
 
 var _menu = new menu(appetizers, mainCourses, deserts, drinks);
-var selectedRow;
-
+var total;
 
 //#region menuConstruction
 function createPage(_menuSection){
     createSectionSelector();
     createMenuTable(_menuSection);
+    makeOrderButton();
     makeDishFigures(_menuSection);
+
     registerEvents();
 }
 
+function makeOrderButton() {
+    section = document.createElement("section");
+    section.setAttribute("id", "ordersection");
+    text = document.createTextNode("Total = ");
+    total = document.createTextNode("0");
+    euro = document.createTextNode("€ ");
+    section.appendChild(text);
+    section.appendChild(total);
+    section.appendChild(euro);
+    button = document.createElement("button");
+    button.setAttribute("class", "button");
+    button.appendChild(document.createTextNode("Place your order"));
+    section.appendChild(button);
+    body.insertBefore(section, footer);
+
+}
 function replaceBody(menuSectionString){
     var html = document.getElementsByTagName("html")[0];
     var header = document.getElementsByClassName("header")[0];
@@ -384,6 +401,10 @@ function increaseDish(e) {
     row = e.target.parentElement.parentElement;
     price = parseInt(row.children[2].firstChild.nodeValue);
     row.children[5].firstChild.nodeValue = parseInt(row.children[5].firstChild.nodeValue) + 1;
+    amount = document.getElementById("ordersum");
+    total.nodeValue = String(parseInt(total.nodeValue) + price);
+
+
 }
 
 function decreaseDish(e) {
@@ -391,17 +412,15 @@ function decreaseDish(e) {
     price = parseInt(row.children[2].firstChild.nodeValue);
     if(row.children[5].firstChild.nodeValue >= 1){
         row.children[5].firstChild.nodeValue = parseInt(row.children[5].firstChild.nodeValue) - 1;
+        amount = document.getElementById("ordersum");
+        total.nodeValue = String(parseInt(total.nodeValue) - price);
     }
-}
-
-function rowClicked(e) {
-
+    
 }
 
 function registerEvents() {
     var buttons = document.getElementsByTagName("button");
     for (let index = 0; index < buttons.length; index++) {
-        buttons[index].parentElement.parentElement.addEventListener("click", rowClicked);
         if(buttons[index].firstChild.nodeValue == "+"){
             console.log(buttons[index].firstChild.nodeValue);
             buttons[index].addEventListener("click", increaseDish);
@@ -409,11 +428,7 @@ function registerEvents() {
         else if(buttons[index].firstChild.nodeValue == "-"){
             console.log(buttons[index].firstChild.nodeValue);
             buttons[index].addEventListener("click", decreaseDish);
-        }
-        else{
-
-        }
-        
+        }        
     }
 }
 
