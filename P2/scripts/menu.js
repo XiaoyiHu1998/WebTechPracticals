@@ -111,7 +111,6 @@ function replaceBody(menuSectionString){
             createPage(drinks);
             break;
     }
-
 }
 
 
@@ -420,7 +419,6 @@ function registerEvents() {
 
 
 createPage(appetizers);
-registerEvents();
 
 
 //#endregion
