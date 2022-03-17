@@ -109,7 +109,7 @@ function makeOrderSection() {
     button = document.createElement("button");
     button.setAttribute("class", "button");
     button.appendChild(document.createTextNode("Place your order"));
-    button.addEventListener("click", function() {window.alert("Your order has been received, it will arrive in never ;)");})
+    button.addEventListener("click", function() {window.alert("Your order has been received, it will arrive in never ;)"); location.reload();})
     section.appendChild(button);
     body.insertBefore(section, footer);
 
