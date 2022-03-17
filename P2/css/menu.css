@@ -55,23 +55,13 @@
 	margin: 5px;
 }
 
-/* .menupage__menusection__nav{
-    display: block;
-    margin: 20px auto;
-    font-size: larger;
-
-    text-decoration: none;
-    text-align: center;
-    color: black;
-    border-style: dotted;
-};
-
-.menupage__menusection__link{
-    display: block;
-    margin: 10px 500px;
-    text-decoration: none;
-    border-style: dotted;
-} */
+.menupage__menusection__button{
+    border: none;
+	background-color: transparent;
+	font-size: 1em;
+	font-weight: 700;
+	color: darkred;
+} 
 
 @media screen and (min-width: 800px) {
 	.menupage__img {
@@ -117,7 +107,7 @@
 	
 	.menupage__menusection__table{
 		margin: 20px auto;
-		min-width: 100%;
+		min-width: 70%;
 	}
 
 	.menupage__menusection__table th{
