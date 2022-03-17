@@ -10,20 +10,21 @@
 	border-collapse: collapse;
 }
 
-#menupage__ordersection{
+#ordersection{
 	width: 10%;
 	background-color: sandybrown;
 	border: 2px solid black;
 	/* float:right; */
 	margin: auto;
 	min-width: 120px;
-	text-align: center;
 }
 
-#menupage__ordersection > button{
+#ordersection > button{
 	margin: 10px;
 }
-
+#ordersection{
+	text-align: center;
+}
 .menupage__table{
     border: 10px;
     border-collapse: collapse;
@@ -101,7 +102,7 @@
 		text-align: center;
 	}
 
-	#menupage__ordersection button{
+	#ordersection button{
 		font-weight: 750;
 		font-size: 100%;
 		padding: 5px 5px;
@@ -142,7 +143,7 @@
 		text-align: center;
 	}
 
-	#menupage__ordersection button{
+	#ordersection button{
 		font-weight: 750;
 		font-size: 80%;
 		padding: 5px 5px;
