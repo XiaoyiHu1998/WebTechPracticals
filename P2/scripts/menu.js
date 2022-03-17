@@ -53,9 +53,9 @@ var pannaCotta = new food("Panna cotta", "pannacotta",  9, ["Lactose"]);
 var semifreddo = new food("Triple chocolat semifreddo", "semifreddo", 12, ["Lactose"]);
 var tiramisu   = new food("Tiramisu", "tiramisu", 10, ["Lactose"]);
 
-var espresso        = new drink("Espresso", "espresso", 4, [], 0, "strong");
+var espresso        = new drink("Espresso", "espresso", 4, ["-"], 0, "strong");
 var capuccino       = new drink("Capuccino", "capuccino",  4, ["Lactose"], 0, "medium");
-var spritz          = new drink("Spritz", "spritz", 5, [], 11.0, "none");
+var spritz          = new drink("Spritz", "spritz", 5, ["-"], 11.0, "none");
 var birraMoretti    = new drink("Birra Moretti", "birramoretti",  4, ["Gluten"], 4.6, "none");
 var mineralWater    = new drink("Mineral Water", "mineralwater", 3, ["-"], 0, "none");
 
