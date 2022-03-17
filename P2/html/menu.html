@@ -29,20 +29,20 @@
                 <li>
                     <form name="selector">
                         html tags
-                        <select name="htmltag" id="htmltag">
+                        <select name="htmltag" id="htmlselector">
                         </select>
                     </form>
                 </li>
                 <li>
                     <form name="fontsize">
                         Fontsize
-                        <input type="number" min = 1></input>
+                        <input type="number" min = 1 id="fontinput"></input>
                     </form>
                 </li>
                 <li>
-                    <form name="fontsize">
+                    <form name="color">
                         Color
-                        <input type="color"></input>
+                        <input type="color" id = "colorinput"></input>
                     </form>
                 </li>
 
@@ -148,7 +148,8 @@
             </nav>
         </footer>
         
-        <script src="./../scripts/menu.js"> defer</script>
+        <script src="./../scripts/menu.js"></script>
+        <script src="./../scripts/headerMenu.js"></script>
     </body>
 
 </html>
