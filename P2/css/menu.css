@@ -55,7 +55,7 @@
 	margin: 5px;
 }
 
-.menupage__menusection__nav{
+/* .menupage__menusection__nav{
     display: block;
     margin: 20px auto;
     font-size: larger;
@@ -71,7 +71,7 @@
     margin: 10px 500px;
     text-decoration: none;
     border-style: dotted;
-}
+} */
 
 @media screen and (min-width: 800px) {
 	.menupage__img {
@@ -82,6 +82,17 @@
 	#menupage__menucontainer{
 		margin: 10px auto;
 		width: 40%;
+	}
+
+	
+	.menupage__menusection__table{
+		margin: 20px auto;
+	}
+
+	.menupage__menusection__table th{
+		padding: 5px 100px;
+		background-color: transparent;
+		text-align: center;
 	}
 }
 
@@ -102,5 +113,17 @@
 
 	.menupage__dishfigures{
 		width: 90%;
+	}
+	
+	.menupage__menusection__table{
+		margin: 20px auto;
+		min-width: 100%;
+	}
+
+	.menupage__menusection__table th{
+		padding: 5px auto;
+		min-width: 100px;
+		background-color: transparent;
+		text-align: center;
 	}
 }

@@ -88,6 +88,12 @@ function createSectionSelector(){
     var sectionSelector = document.createElement("nav");
     sectionSelector.setAttribute("class", "menupage__menusection__nav");
 
+    var menuSectionTable = document.createElement("table");
+    menuSectionTable.setAttribute("class", "menupage__menusection__table");
+
+    var tableHead = document.createElement("thead");
+    var headRow = document.createElement("tr");
+
     var appetizersLink = document.createElement("a");
     var mainCoursesLink = document.createElement("a");
     var desertsLink = document.createElement("a");
@@ -103,15 +109,34 @@ function createSectionSelector(){
     desertsLink.appendChild(desertsLinkText);
     drinksLink.appendChild(drinksLinkText);
 
+    appetizersLink.setAttribute("href", "");
+    mainCoursesLink.setAttribute("href", "");
+    desertsLink.setAttribute("href", "");
+    drinksLink.setAttribute("href", "");
+
     appetizersLink.setAttribute("class", "menupage__menusection__link");
     mainCoursesLink.setAttribute("class", "menupage__menusection__link");
     desertsLink.setAttribute("class", "menupage__menusection__link");
     drinksLink.setAttribute("class", "menupage__menusection__link");
     
-    sectionSelector.appendChild(appetizersLink);
-    sectionSelector.appendChild(mainCoursesLink);
-    sectionSelector.appendChild(desertsLink);
-    sectionSelector.appendChild(drinksLink);
+    var appetizersColumn = document.createElement("th");
+    var mainCoursesColumn = document.createElement("th");
+    var desertsColumn = document.createElement("th");
+    var drinksColumn = document.createElement("th");
+
+    appetizersColumn.appendChild(appetizersLink);
+    mainCoursesColumn.appendChild(mainCoursesLink);
+    desertsColumn.appendChild(desertsLink);
+    drinksColumn.appendChild(drinksLink);
+
+    headRow.appendChild(appetizersColumn);
+    headRow.appendChild(mainCoursesColumn);
+    headRow.appendChild(desertsColumn);
+    headRow.appendChild(drinksColumn);
+
+    tableHead.appendChild(headRow);
+    menuSectionTable.appendChild(tableHead);
+    sectionSelector.appendChild(menuSectionTable);
 
     var body = document.getElementsByTagName("body")[0];
     var footer = document.getElementsByTagName("footer")[0];
