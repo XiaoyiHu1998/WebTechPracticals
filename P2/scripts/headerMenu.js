@@ -12,10 +12,10 @@ function createHeaderMenus(){                           //creates menu's in the 
     
     function createDomSelector () {
         //creating the DOM selector
-        var li = document.createElement("li");
-        var form = document.createElement("form");
+        let li = document.createElement("li");
+        let form = document.createElement("form");
         form.setAttribute("name", "selector");
-        var text = document.createTextNode("Website part ");
+        let text = document.createTextNode("Website part ");
         htmlSelector = document.createElement("select");
         htmlSelector.setAttribute("id", "htmlselector");
         form.appendChild(text);
@@ -36,10 +36,10 @@ function createHeaderMenus(){                           //creates menu's in the 
         return li;
     }
     function createFontMenu() {                             //Creates the font menu in the header
-        var li = document.createElement("li");
-        var form = document.createElement("form");
+        let li = document.createElement("li");
+        let form = document.createElement("form");
         form.setAttribute("name", "fontsize");
-        var text = document.createTextNode("Fontsize ");
+        let text = document.createTextNode("Fontsize ");
         fontInput = document.createElement("input");
         fontInput.setAttribute("type", "number");
         fontInput.setAttribute("min", 7);
@@ -51,10 +51,10 @@ function createHeaderMenus(){                           //creates menu's in the 
         return li;
     }
     function createColorMenu() {                        //Creates the color menu in the header
-        var li = document.createElement("li");
-        var form = document.createElement("form");
+        let li = document.createElement("li");
+        let form = document.createElement("form");
         form.setAttribute("name", "color");
-        var text = document.createTextNode("Color ");
+        let text = document.createTextNode("Color ");
         colorInput = document.createElement("input");
         colorInput.setAttribute("type", "color");
         colorInput.setAttribute("id", "colorinput");
@@ -86,7 +86,7 @@ function registerEvents(){                                      //Register event
 
 
 function getElementsByTagNames(names){                          //Function to get multiple elements with different names at once
-    var elements = [];
+    let elements = [];
     for (let i = 0; i < names.length; i++) {
         Array.from(document.getElementsByTagName(names[i])).forEach(x => elements.push(x));
     }
