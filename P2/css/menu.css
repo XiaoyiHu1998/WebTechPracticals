@@ -4,7 +4,6 @@
 
 .menupage__table > th, td, tr{
 	text-align: left;
-	width: 100%;
 	padding: 0px;
 	border: 1px solid black;
 	border-collapse: collapse;
@@ -14,8 +13,7 @@
 	width: 10%;
 	background-color: sandybrown;
 	border: 2px solid black;
-	/* float:right; */
-	margin: auto;
+	margin: 20px auto;
 	min-width: 120px;
 }
 
@@ -25,11 +23,10 @@
 #ordersection{
 	text-align: center;
 }
+
 .menupage__table{
     border: 10px;
     border-collapse: collapse;
-	/* float: left; */
-	margin: 10px 50px;
 }
 
 .menupage__table th{
@@ -84,15 +81,18 @@
 		height: auto;
 	}
 
-	#menupage__menucontainer{
-		margin: 10px auto;
-		width: 40%;
+	.menupage__table{
+		min-width: 100%;
 	}
 
+	#menupage__menucontainer{
+		margin: 10px auto;
+		max-width: 40%;
+	}
 	
 	.menupage__menusection__table{
 		margin: 20px auto;
-		max-width: 70%;
+		width: 40%;
 		font-size: 1.5em;
 	}
 
