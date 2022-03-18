@@ -125,11 +125,11 @@ function makeOrderSection() {
 
 // call this to change the menutable and figuresection
 function replaceBody(menuSectionString){
-    var html = document.getElementsByTagName("html")[0];
-    var header = document.getElementsByClassName("header")[0];
-    var footer = document.getElementsByClassName("footer")[0];
-    var oldBody = document.getElementsByTagName("body")[0];
-    var newBody = document.createElement("body");
+    let html = document.getElementsByTagName("html")[0];
+    let header = document.getElementsByClassName("header")[0];
+    let footer = document.getElementsByClassName("footer")[0];
+    let oldBody = document.getElementsByTagName("body")[0];
+    let newBody = document.createElement("body");
 
     html.removeChild(oldBody);
     newBody.appendChild(header);
@@ -154,24 +154,24 @@ function replaceBody(menuSectionString){
 
 //used for selecting menu section (appetizers, main courses, deserts, drinks)
 function createSectionSelector(){
-    var sectionSelector = document.createElement("nav");
+    let sectionSelector = document.createElement("nav");
     sectionSelector.setAttribute("class", "menupage__menusection__nav");
 
-    var menuSectionTable = document.createElement("table");
+    let menuSectionTable = document.createElement("table");
     menuSectionTable.setAttribute("class", "menupage__menusection__table");
 
-    var tableHead = document.createElement("thead");
-    var headRow = document.createElement("tr");
+    let tableHead = document.createElement("thead");
+    let headRow = document.createElement("tr");
 
-    var appetizersButton = document.createElement("button");
-    var mainCoursesButton = document.createElement("button");
-    var desertsButton = document.createElement("button");
-    var drinksButton = document.createElement("button");
+    let appetizersButton = document.createElement("button");
+    let mainCoursesButton = document.createElement("button");
+    let desertsButton = document.createElement("button");
+    let drinksButton = document.createElement("button");
 
-    var appetizersButtonText = document.createTextNode("Appetizers");
-    var mainCoursesButtonText = document.createTextNode("Main Courses");
-    var desertsButtonText = document.createTextNode("Deserts");
-    var drinksButtonText = document.createTextNode("Drinks");
+    let appetizersButtonText = document.createTextNode("Appetizers");
+    let mainCoursesButtonText = document.createTextNode("Main Courses");
+    let desertsButtonText = document.createTextNode("Deserts");
+    let drinksButtonText = document.createTextNode("Drinks");
 
     appetizersButton.addEventListener("click", function() {replaceBody(this.textContent);});
     mainCoursesButton.addEventListener("click", function() {replaceBody(this.textContent);});
@@ -188,10 +188,10 @@ function createSectionSelector(){
     desertsButton.setAttribute("class", "menupage__menusection__button");
     drinksButton.setAttribute("class", "menupage__menusection__button");
     
-    var appetizersColumn = document.createElement("th");
-    var mainCoursesColumn = document.createElement("th");
-    var desertsColumn = document.createElement("th");
-    var drinksColumn = document.createElement("th");
+    let appetizersColumn = document.createElement("th");
+    let mainCoursesColumn = document.createElement("th");
+    let desertsColumn = document.createElement("th");
+    let drinksColumn = document.createElement("th");
 
     appetizersColumn.appendChild(appetizersButton);
     mainCoursesColumn.appendChild(mainCoursesButton);
@@ -207,8 +207,8 @@ function createSectionSelector(){
     menuSectionTable.appendChild(tableHead);
     sectionSelector.appendChild(menuSectionTable);
 
-    var body = document.getElementsByTagName("body")[0];
-    var footer = document.getElementsByTagName("footer")[0];
+    let body = document.getElementsByTagName("body")[0];
+    let footer = document.getElementsByTagName("footer")[0];
 
     body.insertBefore(sectionSelector, footer);
 }
@@ -218,10 +218,10 @@ function createSectionSelector(){
 //then appending columns specific to the foodclasses contained in the menusection
 //tbody is made row by row according to the items in the active section
 function createMenuTable(_menuSection){
-    var menuContainer = document.createElement("section");
+    let menuContainer = document.createElement("section");
     menuContainer.setAttribute("id", "menupage__menucontainer");
     
-    var menuTable = document.createElement("table");
+    let menuTable = document.createElement("table");
     menuTable.setAttribute("class", "menupage__table");
     
     console.log(createTableHead(_menuSection));
@@ -235,37 +235,37 @@ function createMenuTable(_menuSection){
 }
 
 function createBaseHeadRow(){
-    var menuTableHead = document.createElement("thead");
+    let menuTableHead = document.createElement("thead");
     
-    var headRow = document.createElement("tr");
+    let headRow = document.createElement("tr");
 
-    var dish = document.createElement("th");
-    var dishText = document.createTextNode("Dish");
+    let dish = document.createElement("th");
+    let dishText = document.createTextNode("Dish");
     dish.appendChild(dishText);
     headRow.append(dish);
 
-    var diets = document.createElement("th");
-    var dietsText = document.createTextNode("Diets");
+    let diets = document.createElement("th");
+    let dietsText = document.createTextNode("Diets");
     diets.appendChild(dietsText);
     headRow.append(diets);
 
-    var price = document.createElement("th");
-    var priceText = document.createTextNode("Price");
+    let price = document.createElement("th");
+    let priceText = document.createTextNode("Price");
     price.appendChild(priceText);
     headRow.append(price);
 
-    var add = document.createElement("th");
-    var addText = document.createTextNode("+");
+    let add = document.createElement("th");
+    let addText = document.createTextNode("+");
     add.appendChild(addText);
     headRow.append(add);
 
-    var remove = document.createElement("th");
-    var removeText = document.createTextNode("-");
+    let remove = document.createElement("th");
+    let removeText = document.createTextNode("-");
     remove.appendChild(removeText);
     headRow.append(remove);
 
-    var amount = document.createElement("th");
-    var amountText = document.createTextNode("Amount");
+    let amount = document.createElement("th");
+    let amountText = document.createTextNode("Amount");
     amount.appendChild(amountText);
     headRow.append(amount);
 
@@ -275,8 +275,8 @@ function createBaseHeadRow(){
 }
 
 function addHeadRowColumn(headRow, columnName){
-    var newColumn = document.createElement("th");
-    var newColumnName = document.createTextNode(columnName);
+    let newColumn = document.createElement("th");
+    let newColumnName = document.createTextNode(columnName);
     newColumn.appendChild(newColumnName);
     headRow.firstChild.appendChild(newColumn);
 
@@ -284,7 +284,7 @@ function addHeadRowColumn(headRow, columnName){
 }
 
 function createTableHead(_menuSection){
-    var tableHead = document.createElement("thead");
+    let tableHead = document.createElement("thead");
     switch(_menuSection.name){
         case "Appetizers":
             tableHead = addHeadRowColumn(createBaseHeadRow(), "Meat ");
@@ -304,7 +304,7 @@ function createTableHead(_menuSection){
 }
 
 function createTableBody(menuTable, _menuSection){
-    var tableBody = document.createElement("tbody");
+    let tableBody = document.createElement("tbody");
     _menuSection.forEachItem(item => tableBody.appendChild(createItemRow(item, _menuSection)));
     menuTable.appendChild(tableBody);
 
@@ -312,7 +312,7 @@ function createTableBody(menuTable, _menuSection){
 }
 
 function createItemRow(item, activeMenuSection){
-    var newRow = document.createElement("tr");
+    let newRow = document.createElement("tr");
 
     dish = document.createElement("td");
     dishNameLink = document.createElement("a");
@@ -333,17 +333,17 @@ function createItemRow(item, activeMenuSection){
     newRow.appendChild(price);
 
     add = document.createElement("td");
-    var addButton = document.createElement("button");
+    let addButton = document.createElement("button");
     addButton.setAttribute("type", "button");
-    var addButtonText = document.createTextNode("+");
+    let addButtonText = document.createTextNode("+");
     addButton.appendChild(addButtonText);
     add.appendChild(addButton);
     newRow.appendChild(add);
 
     remove = document.createElement("td");
-    var removeButton = document.createElement("button");
+    let removeButton = document.createElement("button");
     removeButton.setAttribute("type", "button");
-    var removeButtonText = document.createTextNode("-");
+    let removeButtonText = document.createTextNode("-");
     removeButton.appendChild(removeButtonText);
     remove.appendChild(removeButton);
     newRow.appendChild(remove);
@@ -357,11 +357,13 @@ function createItemRow(item, activeMenuSection){
         newRow.style.backgroundColor = "#ccaa88";
     }
 
+    let meatTypeString = "Meatless";
+    let isMeatDish = item.constructor.name == "meatDish";
     switch(activeMenuSection.name){
         case "Appetizers":   //meatType
-            var meatTypeString = "Meatless";
-            if(item.constructor.name == "meatDish")
+            if(isMeatDish){
                 meatTypeString = item.meatType;
+            }
 
             meatType = document.createElement("td");
             meatTypeText = document.createTextNode(meatTypeString);
@@ -369,9 +371,9 @@ function createItemRow(item, activeMenuSection){
             newRow.appendChild(meatType);
             break;
         case "Main Courses":   //meatType
-            var meatTypeString = "Meatless";
-            if(item.constructor.name == "meatDish")
+            if(isMeatDish){
                 meatTypeString = item.meatType;
+            }3
 
             meatType = document.createElement("td");
             meatTypeText = document.createTextNode(meatTypeString);
@@ -396,29 +398,29 @@ function createItemRow(item, activeMenuSection){
 }
 
 function makeDishFigures(_section) {
-    var section = document.createElement('section');
+    let section = document.createElement('section');
     section.appendChild(document.createElement('hr'));
     section.setAttribute("class", "menupage__dishfigures");
-    var heading1 = document.createElement('h1');
+    let heading1 = document.createElement('h1');
     heading1.setAttribute("class", "menupage__dishfigure__header");
     heading1.appendChild(document.createTextNode(_section.name));
     section.appendChild(heading1);
     _section.items.forEach(element => section.appendChild(makeDishFigure(element)));
     section.appendChild(document.createElement('hr'));
-    var footer = document.getElementsByClassName("footer")[0];
-    var body = document.getElementsByTagName("body")[0];
+    let footer = document.getElementsByClassName("footer")[0];
+    let body = document.getElementsByTagName("body")[0];
 
     body.insertBefore(section, footer);
 }
 
 function makeDishFigure(food){
-    var figure = document.createElement('figure');
-    var img = document.createElement('img');
+    let figure = document.createElement('figure');
+    let img = document.createElement('img');
     img.setAttribute("id", "menupage__img__" + food.htmlName);
     img.setAttribute("class", "menupage__img");
     img.setAttribute("src", "./../images/" + food.htmlName + ".jpg");
     img.setAttribute("alt", "A picture of " + food.name);
-    var figCaption = document.createElement('figcaption');
+    let figCaption = document.createElement('figcaption');
     figCaption.appendChild(document.createTextNode(food.name));
     figure.appendChild(img);
     figure.appendChild(figCaption);
@@ -429,9 +431,9 @@ function makeDishFigure(food){
 
 //event for changing row color when that row has more than 0 items selected
 function changeDishNameColor(e){
-    var row = e.target.parentElement.parentElement;
+    let row = e.target.parentElement.parentElement;
     console.log(row);
-    var dishName = row.children[0].children[0].childNodes[0].nodeValue;
+    let dishName = row.children[0].children[0].childNodes[0].nodeValue;
 
     if(menuArray[dishName] == 0){
         row.style.backgroundColor = "#ffcc99";
@@ -473,7 +475,7 @@ function decreaseDish(e) {
 //call this to setup all the events for the + and - buttons in menutable
 function registerButtonEvents() {
     console.log("registerEvents");
-    var buttons = document.getElementsByTagName("button");
+    let buttons = document.getElementsByTagName("button");
     for (let index = 0; index < buttons.length; index++) {
         if(buttons[index].firstChild.nodeValue == "+"){
             console.log(buttons[index].firstChild.nodeValue);
