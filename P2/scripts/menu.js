@@ -274,8 +274,6 @@ function createBaseHeadRow(){
     return menuTableHead;
 }
 
-//Adds extra row
-//TODO: insert rows instead of appending
 function addHeadRowColumn(headRow, columnName){
     var newColumn = document.createElement("th");
     var newColumnName = document.createTextNode(columnName);
@@ -397,22 +395,6 @@ function createItemRow(item, activeMenuSection){
     return newRow;
 }
 
-//event for changing row color when that row has more than 0 items selected
-function changeDishNameColor(e){
-    var row = e.target.parentElement.parentElement;
-    console.log(row);
-    var dishName = row.children[0].children[0].childNodes[0].nodeValue;
-
-    if(menuArray[dishName] == 0){
-        row.style.backgroundColor = "#ffcc99";
-        e.stopPropagation();
-    }
-    else if(menuArray[dishName] != undefined){
-        row.style.backgroundColor = "#ccaa88";
-        e.stopPropagation();
-    }
-}
-
 function makeDishFigures(_section) {
     var section = document.createElement('section');
     section.appendChild(document.createElement('hr'));
@@ -443,6 +425,24 @@ function makeDishFigure(food){
     return figure;
 }
 
+//#region events
+
+//event for changing row color when that row has more than 0 items selected
+function changeDishNameColor(e){
+    var row = e.target.parentElement.parentElement;
+    console.log(row);
+    var dishName = row.children[0].children[0].childNodes[0].nodeValue;
+
+    if(menuArray[dishName] == 0){
+        row.style.backgroundColor = "#ffcc99";
+        e.stopPropagation();
+    }
+    else if(menuArray[dishName] != undefined){
+        row.style.backgroundColor = "#ccaa88";
+        e.stopPropagation();
+    }
+}
+
 //event for + button
 function increaseDish(e) {
     row = e.target.parentElement.parentElement;
@@ -470,12 +470,7 @@ function decreaseDish(e) {
     }
 }
 
-//setup the global menuArray
-function initializeFoodMenu() {
-    _menu.forEachItem(item => menuArray[item.name] = 0);
-}
-
-//call this to setup all the events for the + and 0 buttons in menutable
+//call this to setup all the events for the + and - buttons in menutable
 function registerButtonEvents() {
     console.log("registerEvents");
     var buttons = document.getElementsByTagName("button");
@@ -489,6 +484,13 @@ function registerButtonEvents() {
             buttons[index].addEventListener("click", decreaseDish);
         }        
     }
+}
+//#endregion
+
+
+//setup the global menuArray
+function initializeFoodMenu() {
+    _menu.forEachItem(item => menuArray[item.name] = 0);
 }
 
 //default page setup
