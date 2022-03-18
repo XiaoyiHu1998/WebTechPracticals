@@ -129,7 +129,7 @@ li a:hover:not(.active) {
   border: 2px solid #cc5200;
   background-color: #ffcc99; 
   padding: 15px 32px;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -173,6 +173,10 @@ img{
     font-size: 25px;
   }
 
+  .specialButton{
+    font-size: 2.5rem;
+  }
+
 }
 
 @media  screen and (min-width: 3840px) {
@@ -202,6 +206,10 @@ img{
     width:150px;
     height:60px;
     font-size: 35px;
+  }
+
+  .specialButton{
+    font-size: 5rem;
   }
 
 }
