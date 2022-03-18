@@ -5,12 +5,30 @@ class menu {
         this.deserts = deserts;
         this.drinks = drinks;
     }
+
+    forEachSection(func){
+        this.appetizers.Foreach(section => func(section));
+        this.mainCourses.Foreach(section => func(section));
+        this.deserts.Foreach(section => func(section));
+        this.drinks.Foreach(section => func(section));
+    }
+
+    forEachItem(func){
+        this.appetizers.forEachItem(item => func(item));
+        this.mainCourses.forEachItem(item => func(item));
+        this.deserts.forEachItem(item => func(item));
+        this.drinks.forEachItem(item => func(item));
+    }
 };
 
 class menuSection {
     constructor(section, items){
         this.name = section;
         this.items = items;
+    }
+
+    forEachItem(func){
+        this.items.forEach(item => func(item));
     }
 };
 
@@ -76,6 +94,7 @@ var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMorett
 var _menu = new menu(appetizers, mainCourses, deserts, drinks);
 var total = 0;
 var menuArray = [];
+
 //#region menuConstruction
 function createPage(_menuSection){
     createSectionSelector();
@@ -83,18 +102,6 @@ function createPage(_menuSection){
     makeOrderSection();
     makeDishFigures(_menuSection);
     registerOurButtonEvents();
-
-    // var buttons = document.getElementsByTagName("button");
-    // for (let index = 0; index < buttons.length; index++) {
-    //     if(buttons[index].firstChild.nodeValue == "+"){
-    //         console.log(buttons[index].firstChild.nodeValue);
-    //         buttons[index].addEventListener("click", increaseDish);
-    //     }
-    //     else if(buttons[index].firstChild.nodeValue == "-"){
-    //         console.log(buttons[index].firstChild.nodeValue);
-    //         buttons[index].addEventListener("click", decreaseDish);
-    //     }        
-    // }
 }
 
 function makeOrderSection() {
@@ -343,6 +350,10 @@ function createItemRow(item, activeMenuSection){
     amount.appendChild(amountText);
     newRow.appendChild(amount);
 
+    if(menuArray[item.name] > 0){
+        newRow.style.backgroundColor = "#ccaa88";
+    }
+
     switch(activeMenuSection.name){
         case "Appetizers":   //meatType
             var meatTypeString = "Meatless";
@@ -466,11 +477,13 @@ function decreaseDish(e) {
 }
 
 function initializeFoodMenu() {
-    _menu.appetizers.items.forEach(item => menuArray[item.name] = 0);
-    _menu.mainCourses.items.forEach(item => menuArray[item.name] = 0);
-    _menu.deserts.items.forEach(item => menuArray[item.name] = 0);
-    _menu.drinks.items.forEach(item => menuArray[item.name] = 0);
-    _menu.drinks.items.forEach(item => console.log(typeof(item.name)));
+    // _menu.appetizers.items.forEach(item => menuArray[item.name] = 0);
+    // _menu.mainCourses.items.forEach(item => menuArray[item.name] = 0);
+    // _menu.deserts.items.forEach(item => menuArray[item.name] = 0);
+    // _menu.drinks.items.forEach(item => menuArray[item.name] = 0);
+    // _menu.drinks.items.forEach(item => console.log(typeof(item.name)));
+    
+    _menu.forEachItem(item => menuArray[item.name] = 0);
     
 }
 
