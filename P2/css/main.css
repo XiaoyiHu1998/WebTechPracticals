@@ -43,6 +43,7 @@ hr {
     margin: 0%;
     background-color:sandybrown;
 }
+
 /*restaurant name parameters*/
 #header__restaurant__name{
     text-align: center;
@@ -139,14 +140,22 @@ img{
 	height: auto;
 }
 
-@media  screen and (min-width: 2560) {
+@media  screen and (min-width: 2560px) {
   body{
     font-size: 40px;
   }
+
+  img{
+    width: 800px;
+  }
 }
 
-@media  screen and (min-width: 3840) {
+@media  screen and (min-width: 3840px) {
   body{
     font-size: 60px;
+  }
+
+  img{
+    width: 1200px;
   }
 }

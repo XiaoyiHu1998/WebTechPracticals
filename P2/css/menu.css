@@ -148,3 +148,24 @@
 		margin: 5px auto;
 	}
 }
+
+
+@media  screen and (min-width: 2560px) {
+	.menupage__img{
+	  width: 600px;
+	}
+	
+	.menupage__menusection__table{
+		font-size: 40px;
+	}
+}
+  
+@media  screen and (min-width: 3840px) {
+	.menupage__img{
+		width: 1200px;
+	}
+
+	.menupage__menusection__table{
+		font-size: 60px;
+	}
+}
