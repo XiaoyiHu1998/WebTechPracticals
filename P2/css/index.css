@@ -27,7 +27,6 @@ table > thead{
 
 @media screen and (min-width: 800px) {
     .mainpage__timetable{
-        /* display: block; */
         float: left;
         background-color: transparent;
         max-width: 15%;
@@ -39,7 +38,6 @@ table > thead{
     }
     
     .mainpage__locationtable{
-        /* display: block; */
         float: left;
         background-color: transparent;
         max-width: 40%;

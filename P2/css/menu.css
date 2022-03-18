@@ -15,11 +15,12 @@
 	min-width: 120px;
 }
 
-#menupage__ordersection > button{
-	margin: 10px;
-}
 #menupage__ordersection{
 	text-align: center;
+}
+
+#menupage__ordersection > button{
+	margin: 10px;
 }
 
 .menupage__table{
