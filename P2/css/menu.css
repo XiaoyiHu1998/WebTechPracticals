@@ -1,10 +1,7 @@
 @import url("./main.css");
 
-
-
 .menupage__table > th, td, tr{
 	text-align: left;
-	width: 100%;
 	padding: 0px;
 	border: 1px solid black;
 	border-collapse: collapse;
@@ -14,8 +11,7 @@
 	width: 10%;
 	background-color: sandybrown;
 	border: 2px solid black;
-	/* float:right; */
-	margin: auto;
+	margin: 20px auto;
 	min-width: 120px;
 }
 
@@ -25,11 +21,10 @@
 #ordersection{
 	text-align: center;
 }
+
 .menupage__table{
     border: 10px;
     border-collapse: collapse;
-	/* float: left; */
-	margin: 10px 50px;
 }
 
 .menupage__table th{
@@ -78,38 +73,6 @@
 	color: darkred;
 } 
 
-@media screen and (min-width: 800px) {
-	.menupage__img {
-		width: 300px;
-		height: auto;
-	}
-
-	#menupage__menucontainer{
-		margin: 10px auto;
-		width: 40%;
-	}
-
-	
-	.menupage__menusection__table{
-		margin: 20px auto;
-		max-width: 70%;
-		font-size: 1.5em;
-	}
-
-	.menupage__menusection__table th{
-		padding: 5px auto;
-		background-color: transparent;
-		text-align: center;
-	}
-
-	#ordersection button{
-		font-weight: 750;
-		font-size: 100%;
-		padding: 5px 5px;
-		margin: 5px auto;
-	}
-}
-
 @media screen and (max-width: 800px) {
 	.menupage__img {
 		width: 100%;
@@ -148,5 +111,77 @@
 		font-size: 80%;
 		padding: 5px 5px;
 		margin: 5px auto;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.menupage__img {
+		width: 300px;
+		height: auto;
+	}
+
+	.menupage__table{
+		min-width: 100%;
+	}
+
+	#menupage__menucontainer{
+		margin: 10px auto;
+		max-width: 40%;
+	}
+	
+	.menupage__menusection__table{
+		margin: 20px auto;
+		width: 40%;
+		font-size: 1.5rem;
+	}
+
+	.menupage__menusection__table th{
+		padding: 5px auto;
+		background-color: transparent;
+		text-align: center;
+	}
+
+	#ordersection button{
+		font-weight: 750;
+		font-size: 100%;
+		padding: 5px 5px;
+		margin: 5px auto;
+	}
+	
+	.menutable__button{
+		width: 30px;
+		height: 30px;
+	}
+}
+
+@media  screen and (min-width: 2560px) {
+	.menupage__img{
+	  width: 600px;
+	}
+	
+	.menupage__menusection__table{
+		font-size: 40px;
+	}
+
+	.menutable__button{
+	  width: 70px;
+	  height: 70px;
+	  font-size: 40px;
+	}
+}
+  
+@media  screen and (min-width: 3840px) {
+	.menupage__img{
+		width: 1200px;
+	}
+
+	.menupage__menusection__table{
+		font-size: 60px;
+	}
+
+	.menutable__button{
+	  width: 100px;
+	  height: 100px;
+	  font-size: 60px;
 	}
 }

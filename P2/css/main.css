@@ -43,12 +43,14 @@ hr {
     margin: 0%;
     background-color:sandybrown;
 }
+
 /*restaurant name parameters*/
 #header__restaurant__name{
     text-align: center;
     font-weight: 525;
     font-size: 40px;
     font-family: "Brush Script MT", "Brush Script Std", "cursive";
+    margin: 10px;
 }
 
 
@@ -121,15 +123,17 @@ li a:hover:not(.active) {
 }
 
 /*button class section*/
-.button {
+.specialButton {
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border: 2px solid #cc5200;
   background-color: #ffcc99; 
   padding: 15px 32px;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-.button:hover {
+.specialButton:hover {
   background-color: #cc5200;
   color: white;
 }
@@ -137,4 +141,67 @@ li a:hover:not(.active) {
 img{
 	max-width: 100%;
 	height: auto;
+}
+
+@media  screen and (min-width: 2560px) {
+  body{
+    font-size: 40px;
+  }
+
+  img{
+    width: 800px;
+  }
+
+    
+  #header__restaurant__name{
+    text-align: center;
+    font-weight: 525;
+    font-size: 60px;
+    font-family: "Brush Script MT", "Brush Script Std", "cursive";
+    margin: 10px;
+  }
+
+  .header__selector{
+    width:200px;
+    height:60px;
+    font-size: 25px;
+  }
+
+  .header__menu{
+    width:100px;
+    height:50px;
+    font-size: 25px;
+  }
+
+}
+
+@media  screen and (min-width: 3840px) {
+  body{
+    font-size: 60px;
+  }
+
+  img{
+    width: 1200px;
+  }
+
+  #header__restaurant__name{
+    text-align: center;
+    font-weight: 525;
+    font-size: 80px;
+    font-family: "Brush Script MT", "Brush Script Std", "cursive";
+    margin: 10px;
+  }
+
+  .header__selector{
+    width:250px;
+    height:70px;
+    font-size: 35px;
+  }
+
+  .header__menu{
+    width:150px;
+    height:60px;
+    font-size: 35px;
+  }
+
 }

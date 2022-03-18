@@ -77,9 +77,13 @@
                     <br>
                     We also offer several arrangements from business dinners to private events. Please contact us in advance so we can offer the best experience.
                 </p>
-                <button class="button">
+                <button class="specialButton">
                     Make a reservation
                 </button>
+                <script>
+                    let button = document.getElementsByTagName("button")[0];
+                    button.addEventListener("click", function() {window.alert("we have received your reservation!");})
+                </script>
             </article>
 
             <hr>

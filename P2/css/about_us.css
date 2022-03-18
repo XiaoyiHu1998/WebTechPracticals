@@ -7,17 +7,54 @@
 
 .personel__article > p{
     /* float: right; */
-    max-width: 400px;
+    width: 400px;
 }
 
 .personel__image{
     /* display: block; */
     /* float: left; */
-    max-width: 200px;
-    max-height: 200px;
+    width: 200px;
+    max-height: auto;
 }
 
 .personel{
     margin: auto;
-    max-width: 80%;
+    width: 80%;
+}
+
+@media  screen and (min-width: 2560px) {
+	.personel__image{
+	  width: 500px;
+	}
+	
+	.menupage__menusection__table{
+		font-size: 40px;
+	}
+
+    .personel__article{
+        margin: 20px 80px;
+    }
+
+    .personel__article > p{
+        /* float: right; */
+        width: 500px;
+    }
+}
+  
+@media  screen and (min-width: 3840px) {
+	.personel__image{
+		width: 800px;
+	}
+
+    .personel__article{
+        margin: 20px 100px;
+    }
+
+	.menupage__menusection__table{
+		font-size: 60px;
+	}
+
+    .personel__article > p{
+        width: 800px;
+    }
 }
