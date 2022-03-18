@@ -115,7 +115,7 @@ function makeOrderSection() {
     section.appendChild(totalNode);
     section.appendChild(euro);
     button = document.createElement("button");
-    button.setAttribute("class", "button");
+    button.setAttribute("class", "specialButton");
     button.appendChild(document.createTextNode("Place Order"));
     button.addEventListener("click", function() {window.alert("Your order has been received, it will arrive in never ;)"); location.reload();})
     section.appendChild(button);
