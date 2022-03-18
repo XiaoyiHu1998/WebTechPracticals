@@ -61,8 +61,7 @@ var mineralWater    = new drink("Mineral Water", "mineralwater", 3, ["-"], 0, "n
 
 //#endregion
 
-//#region menuSections
-
+//#region globalVars
 var appetizers = new menuSection("Appetizers", [buratta, ciccheti, focaccia]);
 
 var mainCourses = new menuSection("Main Courses", [melanzane, ossobuco, montaraPizza, zuppaToscana]);
@@ -71,50 +70,15 @@ var deserts = new menuSection("Deserts", [pannaCotta, semifreddo, tiramisu]);
 
 var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMoretti, mineralWater]);
 
-//#endregion
-
 var _menu = new menu(appetizers, mainCourses, deserts, drinks);
 var total = 0;
 var menuArray = [];
+
+//#endregion
+
+
 //#region menuConstruction
-function createPage(_menuSection){
-    createSectionSelector();
-    createMenuTable(_menuSection);
-    makeOrderSection();
-    makeDishFigures(_menuSection);
-    registerOurButtonEvents();
-
-    // var buttons = document.getElementsByTagName("button");
-    // for (let index = 0; index < buttons.length; index++) {
-    //     if(buttons[index].firstChild.nodeValue == "+"){
-    //         console.log(buttons[index].firstChild.nodeValue);
-    //         buttons[index].addEventListener("click", increaseDish);
-    //     }
-    //     else if(buttons[index].firstChild.nodeValue == "-"){
-    //         console.log(buttons[index].firstChild.nodeValue);
-    //         buttons[index].addEventListener("click", decreaseDish);
-    //     }        
-    // }
-}
-
-function makeOrderSection() {
-    section = document.createElement("section");
-    section.setAttribute("id", "ordersection");
-    text = document.createTextNode("Total = ");
-    totalNode = document.createTextNode("");
-    totalNode.nodeValue = String(total);
-    euro = document.createTextNode("€ ");
-    section.appendChild(text);
-    section.appendChild(totalNode);
-    section.appendChild(euro);
-    button = document.createElement("button");
-    button.setAttribute("class", "button");
-    button.appendChild(document.createTextNode("Place Order"));
-    button.addEventListener("click", function() {window.alert("Your order has been received, it will arrive in never ;)"); location.reload();})
-    section.appendChild(button);
-    body.insertBefore(section, footer);
-
-}
+// call this to replace the body of menu.html
 function replaceBody(menuSectionString){
     var html = document.getElementsByTagName("html")[0];
     var header = document.getElementsByClassName("header")[0];
@@ -143,6 +107,33 @@ function replaceBody(menuSectionString){
     }
 }
 
+//constructs menu.html body by inserting nodes before footer in order
+function createPage(_menuSection){
+    createSectionSelector();
+    createMenuTable(_menuSection);
+    makeOrderSection();
+    makeDishFigures(_menuSection);
+    registerOurButtonEvents();
+}
+
+function makeOrderSection() {
+    section = document.createElement("section");
+    section.setAttribute("id", "ordersection");
+    text = document.createTextNode("Total = ");
+    totalNode = document.createTextNode("");
+    totalNode.nodeValue = String(total);
+    euro = document.createTextNode("€ ");
+    section.appendChild(text);
+    section.appendChild(totalNode);
+    section.appendChild(euro);
+    button = document.createElement("button");
+    button.setAttribute("class", "button");
+    button.appendChild(document.createTextNode("Place Order"));
+    button.addEventListener("click", function() {window.alert("Your order has been received, it will arrive in never ;)"); location.reload();})
+    section.appendChild(button);
+    body.insertBefore(section, footer);
+
+}
 
 function createSectionSelector(){
     var sectionSelector = document.createElement("nav");
@@ -204,6 +195,8 @@ function createSectionSelector(){
     body.insertBefore(sectionSelector, footer);
 }
 
+//menutables are constructed by first constructing the base columns in the thead, 
+//then appending relevant food info unto it, tbody then gets made according to which menusection is given
 function createMenuTable(_menuSection){
     var menuContainer = document.createElement("section");
     menuContainer.setAttribute("id", "menupage__menucontainer");
@@ -221,7 +214,6 @@ function createMenuTable(_menuSection){
     body.insertBefore(menuContainer, footer);
 }
 
-//creates base row
 function createBaseHeadRow(){
     var menuTableHead = document.createElement("thead");
     
@@ -262,8 +254,7 @@ function createBaseHeadRow(){
     return menuTableHead;
 }
 
-//Adds extra row
-//TODO: insert rows instead of appending
+//appends extra columns onto the given headRow
 function addHeadRowColumn(headRow, columnName){
     var newColumn = document.createElement("th");
     var newColumnName = document.createTextNode(columnName);
@@ -344,7 +335,7 @@ function createItemRow(item, activeMenuSection){
     newRow.appendChild(amount);
 
     switch(activeMenuSection.name){
-        case "Appetizers":   //meatType
+        case "Appetizers":   //add meatType
             var meatTypeString = "Meatless";
             if(item.constructor.name == "meatDish")
                 meatTypeString = item.meatType;
@@ -354,7 +345,7 @@ function createItemRow(item, activeMenuSection){
             meatType.appendChild(meatTypeText);
             newRow.appendChild(meatType);
             break;
-        case "Main Courses":   //meatType
+        case "Main Courses":   //add meatType
             var meatTypeString = "Meatless";
             if(item.constructor.name == "meatDish")
                 meatTypeString = item.meatType;
@@ -364,7 +355,7 @@ function createItemRow(item, activeMenuSection){
             meatType.appendChild(meatTypeText);
             newRow.appendChild(meatType);
             break;
-        case "Drinks":  //alcoholpercentage caffeinestrength
+        case "Drinks":  //add alcoholpercentage caffeinestrength
             alcohol = document.createElement("td");
             alcoholText = document.createTextNode(item.alcoholStrength + "%");
             alcohol.appendChild(alcoholText);
@@ -385,7 +376,6 @@ function changeDishNameColor(e){
     var row = e.target.parentElement.parentElement;
     console.log(row);
     var dishName = row.children[0].children[0].childNodes[0].nodeValue;
-    // console.log(dishName);
 
     if(menuArray[dishName] == 0){
         row.style.backgroundColor = "#ffcc99";
@@ -427,6 +417,7 @@ function makeDishFigure(food){
     return figure;
 }
 
+//event on + button click
 function increaseDish(e) {
     row = e.target.parentElement.parentElement;
     price = parseInt(row.children[2].firstChild.nodeValue);
@@ -437,14 +428,9 @@ function increaseDish(e) {
     acces = row.children[0].children[0].childNodes[0].nodeValue;
     
     menuArray[acces] += 1;
-    // console.log(acces);
-    // console.log(typeof(acces));
-
-
-    // console.log(menuArray);
-
 }
 
+//event on - button click
 function decreaseDish(e) {
     row = e.target.parentElement.parentElement;
     price = parseInt(row.children[2].firstChild.nodeValue);
@@ -455,14 +441,7 @@ function decreaseDish(e) {
         totalNode.nodeValue = String(total);
         acces = row.children[0].children[0].childNodes[0].nodeValue;
         menuArray[acces] -= 1;
-        // console.log(acces);
-        // console.log(typeof(acces));
-
-        // console.log(menuArray);
-
     }
-
-    
 }
 
 function initializeFoodMenu() {
