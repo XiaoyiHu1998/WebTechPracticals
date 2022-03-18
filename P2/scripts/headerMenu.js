@@ -1,4 +1,4 @@
-var selectedHtmlTag;
+ var selectedHtmlTag;
 var htmlSelector;
 var fontInput;
 var colorInput;
@@ -35,6 +35,10 @@ function createHeaderMenus(){                           //creates menu's in the 
         //populating
         return li;
     }
+
+    //IMPORTANT!
+    //Font size only changes when clicking on page outside of input field!
+    //enter forces page reload which undoes the font change!
     function createFontMenu() {                             //Creates the font menu in the header
         let li = document.createElement("li");
         let form = document.createElement("form");
