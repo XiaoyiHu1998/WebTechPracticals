@@ -71,9 +71,9 @@ var pannaCotta = new food("Panna cotta", "pannacotta",  9, ["Lactose"]);
 var semifreddo = new food("Triple chocolat semifreddo", "semifreddo", 12, ["Lactose"]);
 var tiramisu   = new food("Tiramisu", "tiramisu", 10, ["Lactose"]);
 
-var espresso        = new drink("Espresso", "espresso", 4, [], 0, "strong");
+var espresso        = new drink("Espresso", "espresso", 4, ["-"], 0, "strong");
 var capuccino       = new drink("Capuccino", "capuccino",  4, ["Lactose"], 0, "medium");
-var spritz          = new drink("Spritz", "spritz", 5, [], 11.0, "none");
+var spritz          = new drink("Spritz", "spritz", 5, ["-"], 11.0, "none");
 var birraMoretti    = new drink("Birra Moretti", "birramoretti",  4, ["Gluten"], 4.6, "none");
 var mineralWater    = new drink("Mineral Water", "mineralwater", 3, ["-"], 0, "none");
 
@@ -101,7 +101,7 @@ function createPage(_menuSection){
     createMenuTable(_menuSection);
     makeOrderSection();
     makeDishFigures(_menuSection);
-    registerOurButtonEvents();
+    registerButtonEvents();
 }
 
 function makeOrderSection() {
@@ -448,11 +448,6 @@ function increaseDish(e) {
     acces = row.children[0].children[0].childNodes[0].nodeValue;
     
     menuArray[acces] += 1;
-    // console.log(acces);
-    // console.log(typeof(acces));
-
-
-    // console.log(menuArray);
 
 }
 
@@ -466,11 +461,6 @@ function decreaseDish(e) {
         totalNode.nodeValue = String(total);
         acces = row.children[0].children[0].childNodes[0].nodeValue;
         menuArray[acces] -= 1;
-        // console.log(acces);
-        // console.log(typeof(acces));
-
-        // console.log(menuArray);
-
     }
 
     
@@ -487,7 +477,7 @@ function initializeFoodMenu() {
     
 }
 
-function registerOurButtonEvents() {
+function registerButtonEvents() {
     console.log("registerEvents");
     var buttons = document.getElementsByTagName("button");
     for (let index = 0; index < buttons.length; index++) {
