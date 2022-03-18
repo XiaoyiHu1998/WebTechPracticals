@@ -4,14 +4,14 @@ var fontInput;
 var colorInput;
 var htmlNodes;
 
-function createHeaderMenus(){
+function createHeaderMenus(){                           //creates menu's in the header for changing the fonts and colors
     var ul = document.getElementsByTagName("ul")[0];
-    ul.appendChild(createHtmlSelector());
+    ul.appendChild(createDomSelector());
     ul.appendChild(createFontMenu());
     ul.appendChild(createColorMenu());
     
-    function createHtmlSelector () {
-        //creating
+    function createDomSelector () {
+        //creating the DOM selector
         var li = document.createElement("li");
         var form = document.createElement("form");
         form.setAttribute("name", "selector");
@@ -21,22 +21,21 @@ function createHeaderMenus(){
         form.appendChild(text);
         form.appendChild(htmlSelector);
         li.appendChild(form);
-        //creating
-        //populating
-        htmlNodes = getElementsByTagNames(["body", "header", "footer", "aside", "article", "section"]);
+        //populating the DOM selector
+        htmlNodes = getElementsByTagNames(["body", "header", "footer", "aside", "article", "section"]); //Retrieves all the elements with one of the given tags
     
         var htmlOptions = htmlNodes.map(x => document.createElement('option'));
-        for (let i = 0; i < htmlOptions.length; i++) {
+        for (let i = 0; i < htmlOptions.length; i++) {                                                  //Making the options for the dropdown menu and attaching them to the dropdown
             htmlOptions[i].setAttribute("value", i);
             htmlOptions[i].setAttribute("selected", "selected");
             htmlOptions[i].appendChild(document.createTextNode(i+1 + ". " + htmlNodes[i].nodeName));
-            htmlSelector.appendChild(htmlOptions[i]);
+            htmlSelector.appendChild(htmlOptions[i]);                                                   
         }
         changeSelectedTag();
         //populating
         return li;
     }
-    function createFontMenu() {
+    function createFontMenu() {                             //Creates the font menu in the header
         var li = document.createElement("li");
         var form = document.createElement("form");
         form.setAttribute("name", "fontsize");
@@ -51,7 +50,7 @@ function createHeaderMenus(){
         li.appendChild(form);
         return li;
     }
-    function createColorMenu() {
+    function createColorMenu() {                        //Creates the color menu in the header
         var li = document.createElement("li");
         var form = document.createElement("form");
         form.setAttribute("name", "color");
@@ -66,32 +65,32 @@ function createHeaderMenus(){
     }
 }
 
-function changeColor(){
-    selectedHtmlTag.style.color = document.getElementById("colorinput").value;
+function changeColor(){                                                         //The color event which is fired when the color is changed
+    selectedHtmlTag.style.color = document.getElementById("colorinput").value;  //Change the color of selected DOM element.
 }
 
-function changeFontSize(e){
-    selectedHtmlTag.style.fontSize = document.getElementById("fontinput").value + "px";
+function changeFontSize(e){                                                             //The font event which is fired when the font is changed (Please dont use enter to submit the font this reloads the page, instead click outside the form) 
+    selectedHtmlTag.style.fontSize = document.getElementById("fontinput").value + "px"; //Changes the fontsize of the selected DOM element
     e.stopPropagation();
 }
 
-function changeSelectedTag(){
+function changeSelectedTag(){                                   //Changes the selected DOM element
     selectedHtmlTag = htmlNodes[htmlSelector.selectedIndex];
 }
 
-function registerEvents(){
-    fontInput.addEventListener("blur", changeFontSize);
-    colorInput.addEventListener("input", changeColor);
-    htmlSelector.addEventListener("change", changeSelectedTag);
+function registerEvents(){                                      //Register events
+    fontInput.addEventListener("blur", changeFontSize);         //Activates when fontsize form is out focus (Again don't use enter)
+    colorInput.addEventListener("input", changeColor);          //Activates when colorform changed
+    htmlSelector.addEventListener("change", changeSelectedTag); //Activates when selected DOM element changed
 }
 
 
-function getElementsByTagNames(names){
+function getElementsByTagNames(names){                          //Function to get multiple elements with different names at once
     var elements = [];
     for (let i = 0; i < names.length; i++) {
         Array.from(document.getElementsByTagName(names[i])).forEach(x => elements.push(x));
     }
     return elements
 }
-createHeaderMenus();
-registerEvents();
+createHeaderMenus();                                           //makes the header menu's 
+registerEvents();                                              //register the events

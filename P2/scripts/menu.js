@@ -82,7 +82,7 @@ function createPage(_menuSection){
     createMenuTable(_menuSection);
     makeOrderSection();
     makeDishFigures(_menuSection);
-    registerOurButtonEvents();
+    registerButtonEvents();
 
     // var buttons = document.getElementsByTagName("button");
     // for (let index = 0; index < buttons.length; index++) {
@@ -437,11 +437,6 @@ function increaseDish(e) {
     acces = row.children[0].children[0].childNodes[0].nodeValue;
     
     menuArray[acces] += 1;
-    // console.log(acces);
-    // console.log(typeof(acces));
-
-
-    // console.log(menuArray);
 
 }
 
@@ -455,11 +450,6 @@ function decreaseDish(e) {
         totalNode.nodeValue = String(total);
         acces = row.children[0].children[0].childNodes[0].nodeValue;
         menuArray[acces] -= 1;
-        // console.log(acces);
-        // console.log(typeof(acces));
-
-        // console.log(menuArray);
-
     }
 
     
@@ -474,7 +464,7 @@ function initializeFoodMenu() {
     
 }
 
-function registerOurButtonEvents() {
+function registerButtonEvents() {
     console.log("registerEvents");
     var buttons = document.getElementsByTagName("button");
     for (let index = 0; index < buttons.length; index++) {
