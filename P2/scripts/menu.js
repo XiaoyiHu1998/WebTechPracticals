@@ -419,7 +419,7 @@ function makeDishFigure(food){
     img.setAttribute("id", "menupage__img__" + food.htmlName);
     img.setAttribute("class", "menupage__img");
     img.setAttribute("src", "./../images/" + food.htmlName + ".jpg");
-    img.setAttribute("alt", "A picture of " + food.name);
+    img.setAttribute("alt", "A picture of a " + food.name);
     let figCaption = document.createElement('figcaption');
     figCaption.appendChild(document.createTextNode(food.name));
     figure.appendChild(img);

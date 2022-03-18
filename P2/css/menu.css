@@ -1,7 +1,5 @@
 @import url("./main.css");
 
-
-
 .menupage__table > th, td, tr{
 	text-align: left;
 	padding: 0px;
@@ -93,7 +91,7 @@
 	.menupage__menusection__table{
 		margin: 20px auto;
 		width: 40%;
-		font-size: 1.5em;
+		font-size: 1.5rem;
 	}
 
 	.menupage__menusection__table th{
