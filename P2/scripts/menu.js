@@ -79,7 +79,7 @@ var mineralWater    = new drink("Mineral Water", "mineralwater", 3, ["-"], 0, "n
 
 //#endregion
 
-//#region menuSections
+//#region globalVars
 
 var appetizers = new menuSection("Appetizers", [buratta, ciccheti, focaccia]);
 
@@ -89,11 +89,11 @@ var deserts = new menuSection("Deserts", [pannaCotta, semifreddo, tiramisu]);
 
 var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMoretti, mineralWater]);
 
-//#endregion
-
 var _menu = new menu(appetizers, mainCourses, deserts, drinks);
 var total = 0;
-var menuArray = [];
+var menuArray = []; //used to store amounts of each item so they are not lost when changing the active menu
+
+//#endregion
 
 //#region menuConstruction
 function createPage(_menuSection){
@@ -122,6 +122,8 @@ function makeOrderSection() {
     body.insertBefore(section, footer);
 
 }
+
+// call this to change the menutable and figuresection
 function replaceBody(menuSectionString){
     var html = document.getElementsByTagName("html")[0];
     var header = document.getElementsByClassName("header")[0];
@@ -150,7 +152,7 @@ function replaceBody(menuSectionString){
     }
 }
 
-
+//used for selecting menu section (appetizers, main courses, deserts, drinks)
 function createSectionSelector(){
     var sectionSelector = document.createElement("nav");
     sectionSelector.setAttribute("class", "menupage__menusection__nav");
@@ -211,6 +213,10 @@ function createSectionSelector(){
     body.insertBefore(sectionSelector, footer);
 }
 
+
+//table is constructed by making a thead with base row (dish, diets, price, etc)
+//then appending columns specific to the foodclasses contained in the menusection
+//tbody is made row by row according to the items in the active section
 function createMenuTable(_menuSection){
     var menuContainer = document.createElement("section");
     menuContainer.setAttribute("id", "menupage__menucontainer");
@@ -228,7 +234,6 @@ function createMenuTable(_menuSection){
     body.insertBefore(menuContainer, footer);
 }
 
-//creates base row
 function createBaseHeadRow(){
     var menuTableHead = document.createElement("thead");
     
@@ -302,7 +307,7 @@ function createTableHead(_menuSection){
 
 function createTableBody(menuTable, _menuSection){
     var tableBody = document.createElement("tbody");
-    _menuSection.items.forEach(item => tableBody.appendChild(createItemRow(item, _menuSection)));
+    _menuSection.forEachItem(item => tableBody.appendChild(createItemRow(item, _menuSection)));
     menuTable.appendChild(tableBody);
 
     return menuTable;
@@ -392,11 +397,11 @@ function createItemRow(item, activeMenuSection){
     return newRow;
 }
 
+//event for changing row color when that row has more than 0 items selected
 function changeDishNameColor(e){
     var row = e.target.parentElement.parentElement;
     console.log(row);
     var dishName = row.children[0].children[0].childNodes[0].nodeValue;
-    // console.log(dishName);
 
     if(menuArray[dishName] == 0){
         row.style.backgroundColor = "#ffcc99";
@@ -438,6 +443,7 @@ function makeDishFigure(food){
     return figure;
 }
 
+//event for + button
 function increaseDish(e) {
     row = e.target.parentElement.parentElement;
     price = parseInt(row.children[2].firstChild.nodeValue);
@@ -448,9 +454,9 @@ function increaseDish(e) {
     acces = row.children[0].children[0].childNodes[0].nodeValue;
     
     menuArray[acces] += 1;
-
 }
 
+//event for - button
 function decreaseDish(e) {
     row = e.target.parentElement.parentElement;
     price = parseInt(row.children[2].firstChild.nodeValue);
@@ -462,21 +468,14 @@ function decreaseDish(e) {
         acces = row.children[0].children[0].childNodes[0].nodeValue;
         menuArray[acces] -= 1;
     }
-
-    
 }
 
+//setup the global menuArray
 function initializeFoodMenu() {
-    // _menu.appetizers.items.forEach(item => menuArray[item.name] = 0);
-    // _menu.mainCourses.items.forEach(item => menuArray[item.name] = 0);
-    // _menu.deserts.items.forEach(item => menuArray[item.name] = 0);
-    // _menu.drinks.items.forEach(item => menuArray[item.name] = 0);
-    // _menu.drinks.items.forEach(item => console.log(typeof(item.name)));
-    
     _menu.forEachItem(item => menuArray[item.name] = 0);
-    
 }
 
+//call this to setup all the events for the + and 0 buttons in menutable
 function registerButtonEvents() {
     console.log("registerEvents");
     var buttons = document.getElementsByTagName("button");
@@ -492,6 +491,7 @@ function registerButtonEvents() {
     }
 }
 
+//default page setup
 initializeFoodMenu();
 createPage(appetizers);
 
