@@ -19,6 +19,7 @@ function createDomSelector () {
     let text = document.createTextNode("Website part ");
     htmlSelector = document.createElement("select");
     htmlSelector.setAttribute("id", "htmlselector");
+    htmlSelector.setAttribute("class", "header__selector");
     form.appendChild(text);
     form.appendChild(htmlSelector);
     li.appendChild(form);
@@ -50,6 +51,7 @@ function createFontMenu() {                             //Creates the font menu 
     fontInput.setAttribute("min", 7);
     fontInput.setAttribute("max", 40);
     fontInput.setAttribute("id", "fontinput");
+    fontInput.setAttribute("class", "header__menu");
     form.appendChild(text);
     form.appendChild(fontInput);
     li.appendChild(form);
@@ -64,6 +66,7 @@ function createColorMenu() {                        //Creates the color menu in 
     colorInput = document.createElement("input");
     colorInput.setAttribute("type", "color");
     colorInput.setAttribute("id", "colorinput");
+    colorInput.setAttribute("class", "header__menu");
     form.appendChild(text);
     form.appendChild(colorInput);
     li.appendChild(form);

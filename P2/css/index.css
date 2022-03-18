@@ -60,7 +60,7 @@ table > thead{
 @media  screen and (min-width: 2560px) {
     
     .mainpage__timetable{
-        max-width: 15%;
+        max-width: 25%;
     }
 
     .mainpage__timetable td{
@@ -72,7 +72,8 @@ table > thead{
     }
 
     .mainpage__tablesection{
-        width: 40%;
+        width: 50%;
+        white-space: nowrap;
     }
 
     .mainpage__tablesection > h1{
