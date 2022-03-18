@@ -73,41 +73,6 @@
 	color: darkred;
 } 
 
-@media screen and (min-width: 800px) {
-	.menupage__img {
-		width: 300px;
-		height: auto;
-	}
-
-	.menupage__table{
-		min-width: 100%;
-	}
-
-	#menupage__menucontainer{
-		margin: 10px auto;
-		max-width: 40%;
-	}
-	
-	.menupage__menusection__table{
-		margin: 20px auto;
-		width: 40%;
-		font-size: 1.5rem;
-	}
-
-	.menupage__menusection__table th{
-		padding: 5px auto;
-		background-color: transparent;
-		text-align: center;
-	}
-
-	#ordersection button{
-		font-weight: 750;
-		font-size: 100%;
-		padding: 5px 5px;
-		margin: 5px auto;
-	}
-}
-
 @media screen and (max-width: 800px) {
 	.menupage__img {
 		width: 100%;
@@ -149,6 +114,45 @@
 	}
 }
 
+@media screen and (min-width: 800px) {
+	.menupage__img {
+		width: 300px;
+		height: auto;
+	}
+
+	.menupage__table{
+		min-width: 100%;
+	}
+
+	#menupage__menucontainer{
+		margin: 10px auto;
+		max-width: 40%;
+	}
+	
+	.menupage__menusection__table{
+		margin: 20px auto;
+		width: 40%;
+		font-size: 1.5rem;
+	}
+
+	.menupage__menusection__table th{
+		padding: 5px auto;
+		background-color: transparent;
+		text-align: center;
+	}
+
+	#ordersection button{
+		font-weight: 750;
+		font-size: 100%;
+		padding: 5px 5px;
+		margin: 5px auto;
+	}
+	
+	.menutable__button{
+		width: 30px;
+		height: 30px;
+	}
+}
 
 @media  screen and (min-width: 2560px) {
 	.menupage__img{
@@ -157,6 +161,12 @@
 	
 	.menupage__menusection__table{
 		font-size: 40px;
+	}
+
+	.menutable__button{
+	  width: 70px;
+	  height: 70px;
+	  font-size: 40px;
 	}
 }
   
@@ -167,5 +177,11 @@
 
 	.menupage__menusection__table{
 		font-size: 60px;
+	}
+
+	.menutable__button{
+	  width: 100px;
+	  height: 100px;
+	  font-size: 60px;
 	}
 }

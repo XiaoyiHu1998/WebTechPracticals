@@ -14,6 +14,17 @@ table > thead{
     text-align: left;
 }
 
+
+@media screen and (max-width:800px) {
+    h1{
+        text-align: center;
+    }
+
+    p{
+        text-align: left;
+    }
+}
+
 @media screen and (min-width: 800px) {
     .mainpage__timetable{
         /* display: block; */
@@ -46,12 +57,30 @@ table > thead{
     
 }
 
-@media screen and (max-width:800px) {
-    h1{
-        text-align: center;
+@media  screen and (min-width: 2560px) {
+    
+    .mainpage__timetable{
+        max-width: 15%;
     }
 
-    p{
-        text-align: left;
+    .mainpage__timetable td{
+        min-width: 100px;
     }
+    
+    .mainpage__locationtable{
+        max-width: 40%;
+    }
+
+    .mainpage__tablesection{
+        width: 40%;
+    }
+
+    .mainpage__tablesection > h1{
+        text-align: center;
+    }
+  
+}
+  
+@media  screen and (min-width: 3840px) {
+
 }

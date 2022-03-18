@@ -335,6 +335,7 @@ function createItemRow(item, activeMenuSection){
     add = document.createElement("td");
     let addButton = document.createElement("button");
     addButton.setAttribute("type", "button");
+    addButton.setAttribute("class", "menutable__button");
     let addButtonText = document.createTextNode("+");
     addButton.appendChild(addButtonText);
     add.appendChild(addButton);
@@ -343,6 +344,7 @@ function createItemRow(item, activeMenuSection){
     remove = document.createElement("td");
     let removeButton = document.createElement("button");
     removeButton.setAttribute("type", "button");
+    removeButton.setAttribute("class", "menutable__button");
     let removeButtonText = document.createTextNode("-");
     removeButton.appendChild(removeButtonText);
     remove.appendChild(removeButton);

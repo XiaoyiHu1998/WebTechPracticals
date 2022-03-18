@@ -50,6 +50,7 @@ hr {
     font-weight: 525;
     font-size: 40px;
     font-family: "Brush Script MT", "Brush Script Std", "cursive";
+    margin: 10px;
 }
 
 
@@ -128,6 +129,8 @@ li a:hover:not(.active) {
   border: 2px solid #cc5200;
   background-color: #ffcc99; 
   padding: 15px 32px;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .specialButton:hover {
@@ -148,6 +151,16 @@ img{
   img{
     width: 800px;
   }
+
+    
+  #header__restaurant__name{
+    text-align: center;
+    font-weight: 525;
+    font-size: 60px;
+    font-family: "Brush Script MT", "Brush Script Std", "cursive";
+    margin: 10px;
+  }
+
 }
 
 @media  screen and (min-width: 3840px) {
@@ -157,5 +170,13 @@ img{
 
   img{
     width: 1200px;
+  }
+
+  #header__restaurant__name{
+    text-align: center;
+    font-weight: 525;
+    font-size: 80px;
+    font-family: "Brush Script MT", "Brush Script Std", "cursive";
+    margin: 10px;
   }
 }
