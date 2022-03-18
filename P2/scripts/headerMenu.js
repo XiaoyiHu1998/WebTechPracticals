@@ -32,6 +32,7 @@ function createHeaderMenus(){
             htmlOptions[i].appendChild(document.createTextNode(i+1 + ". " + htmlNodes[i].nodeName));
             htmlSelector.appendChild(htmlOptions[i]);
         }
+        changeSelectedTag();
         //populating
         return li;
     }
@@ -69,13 +70,13 @@ function changeColor(){
     selectedHtmlTag.style.color = document.getElementById("colorinput").value;
 }
 
-function changeFontSize(){
+function changeFontSize(e){
     selectedHtmlTag.style.fontSize = document.getElementById("fontinput").value + "px";
+    e.stopPropagation();
 }
 
 function changeSelectedTag(){
-    var value = htmlSelector.options[htmlSelector.selectedIndex].value;
-    selectedHtmlTag = htmlNodes[value];
+    selectedHtmlTag = htmlNodes[htmlSelector.selectedIndex];
 }
 
 function registerEvents(){
@@ -83,6 +84,7 @@ function registerEvents(){
     colorInput.addEventListener("input", changeColor);
     htmlSelector.addEventListener("change", changeSelectedTag);
 }
+
 
 function getElementsByTagNames(names){
     var elements = [];
