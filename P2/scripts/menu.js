@@ -98,14 +98,14 @@ var menuArray = []; //used to store amounts of each item so they are not lost wh
 function createPage(_menuSection){
     createSectionSelector();
     createMenuTable(_menuSection);
-    makeOrderSection();
+    makemenupage__ordersection();
     makeDishFigures(_menuSection);
     registerButtonEvents();
 }
 
-function makeOrderSection() {
+function makemenupage__ordersection() {
     section = document.createElement("section");
-    section.setAttribute("id", "ordersection");
+    section.setAttribute("id", "menupage__ordersection");
     text = document.createTextNode("Total = ");
     totalNode = document.createTextNode("");
     totalNode.nodeValue = String(total);
@@ -114,7 +114,7 @@ function makeOrderSection() {
     section.appendChild(totalNode);
     section.appendChild(euro);
     button = document.createElement("button");
-    button.setAttribute("class", "specialButton");
+    button.setAttribute("class", "site__submission__button");
     button.appendChild(document.createTextNode("Place Order"));
     button.addEventListener("click", function() {window.alert("Your order has been received, it will arrive in never ;)"); location.reload();})
     section.appendChild(button);
@@ -334,7 +334,7 @@ function createItemRow(item, activeMenuSection){
     add = document.createElement("td");
     let addButton = document.createElement("button");
     addButton.setAttribute("type", "button");
-    addButton.setAttribute("class", "menutable__button");
+    addButton.setAttribute("class", "menupage__table__button");
     let addButtonText = document.createTextNode("+");
     addButton.appendChild(addButtonText);
     add.appendChild(addButton);
@@ -343,7 +343,7 @@ function createItemRow(item, activeMenuSection){
     remove = document.createElement("td");
     let removeButton = document.createElement("button");
     removeButton.setAttribute("type", "button");
-    removeButton.setAttribute("class", "menutable__button");
+    removeButton.setAttribute("class", "menupage__table__button");
     let removeButtonText = document.createTextNode("-");
     removeButton.appendChild(removeButtonText);
     remove.appendChild(removeButton);

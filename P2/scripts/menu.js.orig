@@ -99,7 +99,7 @@ var menuArray = [];
 function createPage(_menuSection){
     createSectionSelector();
     createMenuTable(_menuSection);
-    makeOrderSection();
+    makemenupage__ordersection();
     makeDishFigures(_menuSection);
 <<<<<<< HEAD
     registerOurButtonEvents();
@@ -120,9 +120,9 @@ function createPage(_menuSection){
 >>>>>>> bc8124aae5f49543b33151927fff9eb8035599fa
 }
 
-function makeOrderSection() {
+function makemenupage__ordersection() {
     section = document.createElement("section");
-    section.setAttribute("id", "ordersection");
+    section.setAttribute("id", "menupage__ordersection");
     text = document.createTextNode("Total = ");
     totalNode = document.createTextNode("");
     totalNode.nodeValue = String(total);

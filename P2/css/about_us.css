@@ -6,13 +6,10 @@
 }
 
 .personel__article > p{
-    /* float: right; */
     width: 400px;
 }
 
 .personel__image{
-    /* display: block; */
-    /* float: left; */
     width: 200px;
     max-height: auto;
 }

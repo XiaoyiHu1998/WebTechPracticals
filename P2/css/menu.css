@@ -7,7 +7,7 @@
 	border-collapse: collapse;
 }
 
-#ordersection{
+#menupage__ordersection{
 	width: 10%;
 	background-color: sandybrown;
 	border: 2px solid black;
@@ -15,10 +15,10 @@
 	min-width: 120px;
 }
 
-#ordersection > button{
+#menupage__ordersection > button{
 	margin: 10px;
 }
-#ordersection{
+#menupage__ordersection{
 	text-align: center;
 }
 
@@ -106,7 +106,7 @@
 		text-align: center;
 	}
 
-	#ordersection button{
+	#menupage__ordersection button{
 		font-weight: 750;
 		font-size: 80%;
 		padding: 5px 5px;
@@ -141,14 +141,14 @@
 		text-align: center;
 	}
 
-	#ordersection button{
+	#menupage__ordersection button{
 		font-weight: 750;
 		font-size: 100%;
 		padding: 5px 5px;
 		margin: 5px auto;
 	}
 	
-	.menutable__button{
+	.menupage__table__button{
 		width: 30px;
 		height: 30px;
 	}
@@ -163,7 +163,7 @@
 		font-size: 40px;
 	}
 
-	.menutable__button{
+	.menupage__table__button{
 	  width: 70px;
 	  height: 70px;
 	  font-size: 40px;
@@ -179,7 +179,7 @@
 		font-size: 60px;
 	}
 
-	.menutable__button{
+	.menupage__table__button{
 	  width: 100px;
 	  height: 100px;
 	  font-size: 60px;
