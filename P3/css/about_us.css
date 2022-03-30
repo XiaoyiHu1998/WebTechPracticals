@@ -1,0 +1,56 @@
+@import url("./main.css");
+
+.personel__article{
+    margin: 20px 30px;
+    float: left;
+}
+
+.personel__article > p{
+    width: 400px;
+}
+
+.personel__image{
+    width: 200px;
+    max-height: auto;
+}
+
+.personel{
+    margin: auto;
+    width: 80%;
+}
+
+@media  screen and (min-width: 2560px) {
+	.personel__image{
+	  width: 500px;
+	}
+	
+	.menupage__menusection__table{
+		font-size: 40px;
+	}
+
+    .personel__article{
+        margin: 20px 80px;
+    }
+
+    .personel__article > p{
+        width: 500px;
+    }
+}
+  
+@media  screen and (min-width: 3840px) {
+	.personel__image{
+		width: 800px;
+	}
+
+    .personel__article{
+        margin: 20px 100px;
+    }
+
+	.menupage__menusection__table{
+		font-size: 60px;
+	}
+
+    .personel__article > p{
+        width: 800px;
+    }
+}
