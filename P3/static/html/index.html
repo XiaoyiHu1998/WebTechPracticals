@@ -1,0 +1,169 @@
+<!doctype html>
+
+<!-- reference websites: -->
+<!-- https://www.meneersmakers.nl/ -->
+<!-- https://restaurantsyr.nl/ -->
+<!-- https://www.reisroutes.be/blog/italie/typische-italiaanse-gerechten/ -->
+<!-- https://girlswhomagazine.nl/italiaanse-recepten/ -->
+<!-- https://www.taste.com.au/recipes/triple-choc-semifreddo/wvwsetzj -->
+
+<html lang = "en">
+
+    <head>
+        <title>The AntiPastor</title>
+        <link rel="stylesheet" href="./../css/index.css">
+        <meta charset="UTF-8">
+        <meta name="keywords"       content="Restaurant, Website, Menu, Delivery,">
+        <meta name="description"    content="Website for The AntiPastor">
+        <meta name="author"         content="The AntiPastor">
+        <!-- <meta http-equiv="refresh"  content="1"> refresh page every [content] seconds, TODO: reduce the reload frequency in final version -->
+        <meta name="viewport"       content="width=device-width, initial-scale=1.0"> <!--Screen based website scaling-->
+    </head>
+    
+    <body>
+        <header class="header">
+            <!-- restaurant title and header image-->
+            <p id="header__restaurant__name">
+                The AntiPastor
+            </p>
+            <!-- horizontal navigationbar in header -->
+            <nav>
+                <ul>
+                    <li><a href="index.html">       Home       </a></li>
+                    <li><a href="menu.html">        Menu       </a></li>
+                    <li><a href="locations.html">   Locations  </a></li>
+                    <li><a href="jobs.html">        Jobs       </a></li>
+                    <li><a href="contact.html">     Contact    </a></li>
+                <li style="float:right"><a class="about" href="about_us.html">    About Us   </a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <article class="mainpage__article">
+                <h1>
+                    Our Story
+                </h1>
+                <P>
+                    Italian food is a unique and varied cuisine that is enjoyed all over the world. It's most known for its delicious and healthy pasta's and of course the pizza.
+                    <br>
+                    But there is much more to be had from antipasti's to seafood and rice dishes, these are the lesser known treasures we want to share to to the world so anyone can have an authentic italian food experience.
+                    <br>
+                    Our restaurant opened in 2006 with this goal in mind and has since grown in size and reputation with a michelin star as testament to oud dedication, we invite anyone to come by and enjoy a good meal with friends.
+                </p>
+            </article>
+
+            <hr>
+
+            <article class="mainpage__article">
+                <h1>
+                    Drinks and Beverages
+                </h1>
+                <P>
+                    Italy is well known for its delicious wines, but also has a wide array of refreshing locally popular cocktails.
+                    <br>
+                    We offer a wide array of beverages to give you a chance to experience them, of course coffees are also on the menu!
+                </p>
+            </article>
+
+            <hr>
+
+            <article class="mainpage__article">
+                <h1>
+                    Group Events and Reservations
+                </h1>
+                <p>
+                    Want to make sure you can get the seat you want or impress someone? Make a reservation! 
+                    <br>
+                    We also offer several arrangements from business dinners to private events. Please contact us in advance so we can offer the best experience.
+                </p>
+                <button class="site__submission__button">
+                    Make a reservation
+                </button>
+                <script>
+                    let button = document.getElementsByTagName("button")[0];
+                    button.addEventListener("click", function() {window.alert("we have received your reservation!");})
+                </script>
+            </article>
+
+            <hr>
+
+            <section class="mainpage__tablesection">
+                <!-- <h1>Opening Times and Locations</h1> -->
+                <table class="mainpage__timetable">
+                    <thead>
+                        <tr>
+                            <th>Opening Times</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Monday</td>
+                            <td>Closed</td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td>11:00-20:00</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>11:00-20:00</td>
+                        </tr>
+                        <tr>
+                            <td>Thursday</td>
+                            <td>11:00-20:00</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>11:00-22:00</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>11:00-22:00</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>11:00-22:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="mainpage__locationtable">
+                    <thead>
+                        <tr>
+                            <th>Locations</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Amsterdam:</td> 
+                            <td>italianenstraat 523</td>
+                        </tr>
+                        <tr>
+                            <td>Rotterdam:</td> 
+                            <td>pizzastreek 302</td>
+                        </tr>
+                        <tr>
+                            <td>Utrecht:</td> 
+                            <td>pastalaan 12</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+
+        </section>
+
+        <footer class="footer">
+            <nav>
+                <a href="404.html" class="footer__link">Privacy Policy</a> | <a href="https://www.twitter.com" class="footer__link"> Twitter </a> | <a href="https://www.Facebook.com" class="footer__link"> Facebook </a>
+            </nav>
+        </footer>
+        <script src="./../scripts/headerMenu.js"></script>
+    </body>
+    
+</html>
