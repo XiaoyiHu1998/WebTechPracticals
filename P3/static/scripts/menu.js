@@ -80,6 +80,8 @@ var mineralWater    = new drink("Mineral Water", "mineralwater", 3, ["-"], 0, "n
 //#endregion
 
 //#region globalVars
+var currentSection = "Appetizers";
+var sectionsLoaded = 0;
 var appetizers = new menuSection("Appetizers", [buratta, ciccheti, focaccia]);
 
 var mainCourses = new menuSection("Main Courses", [melanzane, ossobuco, montaraPizza, zuppaToscana]);
@@ -99,7 +101,7 @@ function createPage(_menuSection){
     createSectionSelector();
     createMenuTable(_menuSection);
     makemenupage__ordersection();
-    makeDishFigures(_menuSection);
+    //makeDishFigures(_menuSection);
     registerButtonEvents();
 }
 
@@ -134,7 +136,8 @@ function replaceBody(menuSectionString){
     newBody.appendChild(header);
     newBody.appendChild(footer);
     html.appendChild(newBody);
-
+    currentSection = menuSectionString;
+    sectionsLoaded = 0;
     switch(menuSectionString){
         case "Appetizers":
             createPage(appetizers);
@@ -428,6 +431,20 @@ function makeDishFigure(food){
     return figure;
 }
 
+function makeNextFigure(food){
+    let figure = document.createElement('figure');
+    let img = document.createElement('img');
+    img.setAttribute("id", "menupage__img__" + food.htmlName);
+    img.setAttribute("class", "menupage__img");
+    img.setAttribute("src", "./../images/" + food.htmlName + ".jpg");
+    img.setAttribute("alt", "A picture of a " + food.name);
+    let figCaption = document.createElement('figcaption');
+    figCaption.appendChild(document.createTextNode(food.name));
+    figure.appendChild(img);
+    figure.appendChild(figCaption);
+    body.insertBefore(figure, footer)
+}
+
 //#region events
 
 //event for changing row color when that row has more than 0 items selected
@@ -496,8 +513,42 @@ function initializeFoodMenu() {
     _menu.forEachItem(item => menuArray[item.name] = 0);
 }
 
+function get(url) {
+    console.log("in get");
+    var req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.onreadystatechange = function () {
+        console.log("changed");
+        if (req.readyState === 4 && req.status === 200) {
+            makeNextFigure(JSON.parse(req.responseText));
+            sectionsLoaded +=1;
+        }
+    }
+    req.send();
+}
+
+
+function handleIntersect(entries) {
+    if(entries[0].isIntersecting){
+        var url = "menu/progressiveloading.js?currentSection="+currentSection+"&sectionsLoaded="+ sectionsLoaded; 
+        get(url);
+    }
+}
+
+
+
 //default page setup
 initializeFoodMenu();
 createPage(appetizers);
+let options = {
+    root: null,
+    rootMargins: "0px",
+    treshold: 0.5
+}
+const observer = new IntersectionObserver(handleIntersect, options);
+observer.observe(document.getElementsByTagName("footer")[0]);
+
+
+
 
 //#endregion

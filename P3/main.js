@@ -6,6 +6,13 @@ var path = require("path")
 
 var app = express();
 
+const menuRouter = require("./menu_router");
+
+app.use("/menu", menuRouter);
+// app.get('/progressiveloading.js', function (req, res) {
+// 	res.send(req.query.currentSection + " " + req.query.sectionsLoaded);
+// })
+
 var staticPath = path.join(__dirname, "static/");
 app.use(express.static(staticPath));
 
