@@ -1,96 +1,97 @@
-class menu {
-    constructor(appetizers, mainCourses, deserts, drinks){
-        this.appetizers = appetizers;
-        this.mainCourses = mainCourses;
-        this.deserts = deserts;
-        this.drinks = drinks;
-    }
+// class menu {
+//     constructor(appetizers, mainCourses, deserts, drinks){
+//         this.appetizers = appetizers;
+//         this.mainCourses = mainCourses;
+//         this.deserts = deserts;
+//         this.drinks = drinks;
+//     }
 
-    forEachSection(func){
-        this.appetizers.Foreach(section => func(section));
-        this.mainCourses.Foreach(section => func(section));
-        this.deserts.Foreach(section => func(section));
-        this.drinks.Foreach(section => func(section));
-    }
 
-    forEachItem(func){
-        this.appetizers.forEachItem(item => func(item));
-        this.mainCourses.forEachItem(item => func(item));
-        this.deserts.forEachItem(item => func(item));
-        this.drinks.forEachItem(item => func(item));
-    }
-};
+//     forEachSection(func){
+//         this.appetizers.Foreach(section => func(section));
+//         this.mainCourses.Foreach(section => func(section));
+//         this.deserts.Foreach(section => func(section));
+//         this.drinks.Foreach(section => func(section));
+//     }
 
-class menuSection {
-    constructor(section, items){
-        this.name = section;
-        this.items = items;
-    }
+//     forEachItem(func){
+//         this.appetizers.forEachItem(item => func(item));
+//         this.mainCourses.forEachItem(item => func(item));
+//         this.deserts.forEachItem(item => func(item));
+//         this.drinks.forEachItem(item => func(item));
+//     }
+// };
 
-    forEachItem(func){
-        this.items.forEach(item => func(item));
-    }
-};
+// class menuSection {
+//     constructor(section, items){
+//         this.name = section;
+//         this.items = items;
+//     }
 
-class food{
-    constructor(name, htmlName, price, diets){
-        this.name = name;
-        this.htmlName = htmlName;
-        this.price = price;
-        this.diets = diets;
-    }
-};
+//     forEachItem(func){
+//         this.items.forEach(item => func(item));
+//     }
+// };
 
-class meatDish extends food{
-    constructor(name, htmlName, price, diets, meatType){
-        super(name, htmlName, price, diets);
-        this.meatType = meatType;
-        this.diets = diets;
-    }
-}
+// class food{
+//     constructor(name, htmlName, price, diets){
+//         this.name = name;
+//         this.htmlName = htmlName;
+//         this.price = price;
+//         this.diets = diets;
+//     }
+// };
 
-class drink extends food{
-    constructor(name, htmlName, price, diets, alcoholStrength, caffeineStrength){
-        super(name, htmlName, price, diets);
-        this.alcoholStrength = alcoholStrength;
-        this.caffeineStrength = caffeineStrength;
-    }
-}
+// class meatDish extends food{
+//     constructor(name, htmlName, price, diets, meatType){
+//         super(name, htmlName, price, diets);
+//         this.meatType = meatType;
+//         this.diets = diets;
+//     }
+// }
+
+// class drink extends food{
+//     constructor(name, htmlName, price, diets, alcoholStrength, caffeineStrength){
+//         super(name, htmlName, price, diets);
+//         this.alcoholStrength = alcoholStrength;
+//         this.caffeineStrength = caffeineStrength;
+//     }
+// }
 
 //#region foods
-var buratta  = new food("Buratta", "buratta", 7, ["Lactose"]);
-var ciccheti = new meatDish("Ciccheti", "ciccheti",  8, ["Lactose", "Gluten"], "Pork");
-var focaccia = new meatDish("Focaccia", "focaccia", 8, ["Gluten"], "Beef");
+// var buratta  = new food("Buratta", "buratta", 7, ["Lactose"]);
+// var ciccheti = new meatDish("Ciccheti", "ciccheti",  8, ["Lactose", "Gluten"], "Pork");
+// var focaccia = new meatDish("Focaccia", "focaccia", 8, ["Gluten"], "Beef");
 
-var melanzane    = new food("Melanzane alla Parmigiana", "melanzane", 17, ["Lactose"]);
-var ossobuco     = new meatDish("Ossobuco Milanese", "ossobuco", 20, ["-"], "Veal");
-var montaraPizza = new food("Montara Pizza", "montarapizza", 17, ["Lactose"]);
-var zuppaToscana = new meatDish("Zuppa Toscana", "zuppatoscana", 17, ["-"], "Chicken, Pork");
+// var melanzane    = new food("Melanzane alla Parmigiana", "melanzane", 17, ["Lactose"]);
+// var ossobuco     = new meatDish("Ossobuco Milanese", "ossobuco", 20, ["-"], "Veal");
+// var montaraPizza = new food("Montara Pizza", "montarapizza", 17, ["Lactose"]);
+// var zuppaToscana = new meatDish("Zuppa Toscana", "zuppatoscana", 17, ["-"], "Chicken, Pork");
 
-var pannaCotta = new food("Panna cotta", "pannacotta",  9, ["Lactose"]);
-var semifreddo = new food("Triple chocolat semifreddo", "semifreddo", 12, ["Lactose"]);
-var tiramisu   = new food("Tiramisu", "tiramisu", 10, ["Lactose"]);
+// var pannaCotta = new food("Panna cotta", "pannacotta",  9, ["Lactose"]);
+// var semifreddo = new food("Triple chocolat semifreddo", "semifreddo", 12, ["Lactose"]);
+//var tiramisu   = new food("Tiramisu", "tiramisu", 10, ["Lactose"]);
 
-var espresso        = new drink("Espresso", "espresso", 4, ["-"], 0, "strong");
-var capuccino       = new drink("Capuccino", "capuccino",  4, ["Lactose"], 0, "medium");
-var spritz          = new drink("Spritz", "spritz", 5, ["-"], 11.0, "none");
-var birraMoretti    = new drink("Birra Moretti", "birramoretti",  4, ["Gluten"], 4.6, "none");
-var mineralWater    = new drink("Mineral Water", "mineralwater", 3, ["-"], 0, "none");
+//var espresso        = new drink("Espresso", "espresso", 4, ["-"], 0, "strong");
+//var capuccino       = new drink("Capuccino", "capuccino",  4, ["Lactose"], 0, "medium");
+//var spritz          = new drink("Spritz", "spritz", 5, ["-"], 11.0, "none");
+//var birraMoretti    = new drink("Birra Moretti", "birramoretti",  4, ["Gluten"], 4.6, "none");
+//var mineralWater    = new drink("Mineral Water", "mineralwater", 3, ["-"], 0, "none");
 
 //#endregion
 
 //#region globalVars
 var currentSection = "Appetizers";
-var sectionsLoaded = 0;
-var appetizers = new menuSection("Appetizers", [buratta, ciccheti, focaccia]);
+var dishesLoaded = 0;
+//var appetizers = new menuSection("Appetizers", [buratta, ciccheti, focaccia]);
 
-var mainCourses = new menuSection("Main Courses", [melanzane, ossobuco, montaraPizza, zuppaToscana]);
+//var mainCourses = new menuSection("Main Courses", [melanzane, ossobuco, montaraPizza, zuppaToscana]);
 
-var deserts = new menuSection("Deserts", [pannaCotta, semifreddo, tiramisu]);
+//var deserts = new menuSection("Deserts", [pannaCotta, semifreddo, tiramisu]);
 
-var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMoretti, mineralWater]);
+//var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMoretti, mineralWater]);
 
-var _menu = new menu(appetizers, mainCourses, deserts, drinks);
+//var _menu = new menu(appetizers, mainCourses, deserts, drinks);
 var total = 0;
 var menuArray = []; //used to store amounts of each item so they are not lost when changing the active menu
 
@@ -121,12 +122,11 @@ function makemenupage__ordersection() {
     button.addEventListener("click", function() {window.alert("Your order has been received, it will arrive in never ;)"); location.reload();})
     section.appendChild(button);
     body.insertBefore(section, footer);
-
 }
 
 // call this to change the menutable and figuresection
-function replaceBody(menuSectionString){
-    let html = document.getElementsByTagName("html")[0];
+function replaceBody(menuSection){
+     let html = document.getElementsByTagName("html")[0];
     let header = document.getElementsByClassName("header")[0];
     let footer = document.getElementsByClassName("footer")[0];
     let oldBody = document.getElementsByTagName("body")[0];
@@ -136,22 +136,9 @@ function replaceBody(menuSectionString){
     newBody.appendChild(header);
     newBody.appendChild(footer);
     html.appendChild(newBody);
-    currentSection = menuSectionString;
-    sectionsLoaded = 0;
-    switch(menuSectionString){
-        case "Appetizers":
-            createPage(appetizers);
-            break;
-        case "Main Courses":
-            createPage(mainCourses);
-            break;
-        case "Deserts":
-            createPage(deserts);
-            break;
-        case "Drinks":
-            createPage(drinks);
-            break;
-    }
+    currentSection = menuSection.name;
+    dishesLoaded = 0;
+    createPage(menuSection);
 }
 
 //used for selecting menu section (appetizers, main courses, deserts, drinks)
@@ -175,10 +162,10 @@ function createSectionSelector(){
     let desertsButtonText = document.createTextNode("Deserts");
     let drinksButtonText = document.createTextNode("Drinks");
 
-    appetizersButton.addEventListener("click", function() {replaceBody(this.textContent);});
-    mainCoursesButton.addEventListener("click", function() {replaceBody(this.textContent);});
-    desertsButton.addEventListener("click", function() {replaceBody(this.textContent);});
-    drinksButton.addEventListener("click", function() {replaceBody(this.textContent);});
+    appetizersButton.addEventListener("click", function() {getMenuPage(this.textContent);});
+    mainCoursesButton.addEventListener("click", function() {getMenuPage(this.textContent);});
+    desertsButton.addEventListener("click", function() {getMenuPage(this.textContent);});
+    drinksButton.addEventListener("click", function() {getMenuPage(this.textContent);});
 
     appetizersButton.appendChild(appetizersButtonText);
     mainCoursesButton.appendChild(mainCoursesButtonText);
@@ -307,9 +294,10 @@ function createTableHead(_menuSection){
 
 function createTableBody(menuTable, _menuSection){
     let tableBody = document.createElement("tbody");
-    _menuSection.forEachItem(item => tableBody.appendChild(createItemRow(item, _menuSection)));
+    for (let index = 0; index < _menuSection.items.length; index++) {
+        tableBody.appendChild(createItemRow(_menuSection.items[index], _menuSection));
+    }
     menuTable.appendChild(tableBody);
-
     return menuTable;
 }
 
@@ -353,9 +341,11 @@ function createItemRow(item, activeMenuSection){
     newRow.appendChild(remove);
 
     amount = document.createElement("td");
-    amountText = document.createTextNode(menuArray[item.name]);
+    amountText = document.createTextNode(String(0));
+    requestUpdateDish(item.name);
     amount.appendChild(amountText);
     newRow.appendChild(amount);
+    requestUpdateDish(item.name);
 
     if(menuArray[item.name] > 0){
         newRow.style.backgroundColor = "#ccaa88";
@@ -377,8 +367,7 @@ function createItemRow(item, activeMenuSection){
         case "Main Courses":   //meatType
             if(isMeatDish){
                 meatTypeString = item.meatType;
-            }3
-
+            }
             meatType = document.createElement("td");
             meatTypeText = document.createTextNode(meatTypeString);
             meatType.appendChild(meatTypeText);
@@ -463,89 +452,137 @@ function changeDishNameColor(e){
     }
 }
 
-//event for + button
-function increaseDish(e) {
-    row = e.target.parentElement.parentElement;
-    price = parseInt(row.children[2].firstChild.nodeValue);
-    row.children[5].firstChild.nodeValue = parseInt(row.children[5].firstChild.nodeValue) + 1;
-    amount = document.getElementById("ordersum");
-    total = parseInt(totalNode.nodeValue) + price
-    totalNode.nodeValue = String(total);
-    acces = row.children[0].children[0].childNodes[0].nodeValue;
-    
-    menuArray[acces] += 1;
-}
-
-//event for - button
-function decreaseDish(e) {
-    row = e.target.parentElement.parentElement;
-    price = parseInt(row.children[2].firstChild.nodeValue);
-    if(row.children[5].firstChild.nodeValue >= 1){
-        row.children[5].firstChild.nodeValue = parseInt(row.children[5].firstChild.nodeValue) - 1;
-        amount = document.getElementById("ordersum");
-        total = parseInt(totalNode.nodeValue) - price
-        totalNode.nodeValue = String(total);
-        acces = row.children[0].children[0].childNodes[0].nodeValue;
-        menuArray[acces] -= 1;
-    }
-}
 
 //call this to setup all the events for the + and - buttons in menutable
 function registerButtonEvents() {
-    console.log("registerEvents");
     let buttons = document.getElementsByTagName("button");
     for (let index = 0; index < buttons.length; index++) {
         if(buttons[index].firstChild.nodeValue == "+"){
-            console.log(buttons[index].firstChild.nodeValue);
-            buttons[index].addEventListener("click", increaseDish);
+            buttons[index].addEventListener("click", requestIncreaseDish);
         }
         else if(buttons[index].firstChild.nodeValue == "-"){
-            console.log(buttons[index].firstChild.nodeValue);
-            buttons[index].addEventListener("click", decreaseDish);
+            buttons[index].addEventListener("click", requestDecreaseDish);
         }        
     }
 }
 //#endregion
 
 
-//setup the global menuArray
-function initializeFoodMenu() {
-    _menu.forEachItem(item => menuArray[item.name] = 0);
+//event for - button
+function requestDecreaseDish(e) {
+    row = e.target.parentElement.parentElement;
+    dishName = row.children[0].children[0].childNodes[0].nodeValue;
+    var url = "menu/decreaseDish.js?dishName="+dishName;
+    getWithFunction(url, updateDish);
 }
 
-function get(url) {
-    console.log("in get");
+function requestIncreaseDish(e) {
+    row = e.target.parentElement.parentElement;
+    dishName = row.children[0].children[0].childNodes[0].nodeValue;
+    var url = "menu/increaseDish.js?dishName="+dishName;
+    getWithFunction(url, updateDish);
+}
+function requestUpdateDish(dishName) {
+    var url = "menu/updateDish.js?dishName="+dishName;
+    getWithFunction(url, updateDish);
+}
+
+function updateDish(result) {   
+    if(null){
+        return;
+    }
+    table = document.getElementsByTagName("tbody")[0];
+    console.log(table);
+    for (let index = 0; index < table.children.length; index++) {
+        if(table.children[index].children[0].children[0].childNodes[0].nodeValue == result[0]){
+            amount = table.children[index].children[5].firstChild;
+            console.log(amount);
+            amount.nodeValue = String(result[1]);
+        }
+    }
+    totalNode.nodeValue = String(result[2]);
+}
+
+//setup the global menuArray
+// function initializeFoodMenu() {
+//     _menu.forEachItem(item => menuArray[item.name] = 0);
+// }
+
+function getWithFunction(url, func) {
     var req = new XMLHttpRequest();
     req.open("GET", url, true);
     req.onreadystatechange = function () {
-        console.log("changed");
         if (req.readyState === 4 && req.status === 200) {
-            makeNextFigure(JSON.parse(req.responseText));
-            sectionsLoaded +=1;
+            func(JSON.parse(req.responseText));
         }
     }
     req.send();
 }
 
+function get(url) {
+    var req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            return req.responseText;
+        }
+    }
+    req.send();
+}
 
-function handleIntersect(entries) {
+function getObject(url) {
+    var req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            console.log(req.responseText);
+            return JSON.parse(req.responseText);
+        }
+    }
+    req.send();
+}
+
+function makeFoodFigure(food){
+    let figure = document.createElement('figure');
+    let img = document.createElement('img');
+    img.setAttribute("id", "menupage__img__" + food.htmlName);
+    img.setAttribute("class", "menupage__img");
+    img.setAttribute("src", "./../images/" + food.htmlName + ".jpg");
+    img.setAttribute("alt", "A picture of a " + food.name);
+    let figCaption = document.createElement('figcaption');
+    figCaption.appendChild(document.createTextNode(food.name));
+    figure.appendChild(img);
+    figure.appendChild(figCaption);
+    body.insertBefore(figure, footer);
+    dishesLoaded+=1;
+}
+
+function handleFooterIntersection(entries) {
     if(entries[0].isIntersecting){
-        var url = "menu/progressiveloading.js?currentSection="+currentSection+"&sectionsLoaded="+ sectionsLoaded; 
-        get(url);
+        var url = "menu/progressiveloading.js?currentSection="+currentSection+"&sectionsLoaded="+ dishesLoaded; 
+        getWithFunction(url, makeFoodFigure);
     }
 }
 
+function getMenuPage(menusection) {
+    var url = "menu/getMenuPage.js?menuSection="+menusection;
+    getWithFunction(url, replaceBody);
+}
 
+function setupMenu(menusection) {
+    var url = "menu/setupMenu.js";
+    get(url);
+}
 
 //default page setup
-initializeFoodMenu();
-createPage(appetizers);
+setupMenu();
+getMenuPage("Appetizers");
 let options = {
     root: null,
     rootMargins: "0px",
     treshold: 0.5
 }
-const observer = new IntersectionObserver(handleIntersect, options);
+const observer = new IntersectionObserver(handleFooterIntersection, options);
 observer.observe(document.getElementsByTagName("footer")[0]);
 
 
