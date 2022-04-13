@@ -4,11 +4,15 @@ var express = require("express");
 var morgan = require("morgan");
 var path = require("path")
 var database = require("./database");
+var ses = require('express-session');
+var options = {secret: 'None would guess'};
 
 var app = express();
 
 const menuRouter = require("./menu_router");
 const userRouter = require("./user_router");
+
+app.use(ses(options));
 
 app.use(morgan('tiny'));
 

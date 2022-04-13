@@ -11,23 +11,20 @@ router.get('/getMenuPage.js', (req, res) =>{
 })
 
 router.get('/increaseDish.js', (req, res) =>{
-	res.send(menu.increaseDish(req.query.dishName));
+	res.send(menu.increaseDish(req.query.dishName, req));
 })
 
 router.get('/decreaseDish.js', (req, res) =>{
-	res.send(menu.decreaseDish(req.query.dishName));
+	res.send(menu.decreaseDish(req.query.dishName,req));
 })
 
 router.get('/updateDish.js', (req, res) =>{
-	res.send(menu.updateDish(req.query.dishName));
+	res.send(menu.updateDish(req.query.dishName,req));
 })
 
 router.get('/setupMenu.js', (req, res) =>{
-	res.send(menu.setupMenu());
+	res.send(menu.setupMenu(req));
 })
 
-router.get('/', (req, res) => {
-	res.send("test1");
-})
 
 module.exports = router;

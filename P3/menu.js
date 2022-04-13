@@ -32,6 +32,8 @@ class menuSection {
     }
 };
 
+
+
 class food{
     constructor(name, htmlName, price, diets){
         this.name = name;
@@ -91,6 +93,7 @@ var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMorett
 var _menu = new menu(appetizers, mainCourses, deserts, drinks);
 
 var total = 0;
+var userSelections = [];
 var menuArray = []; //used to store amounts of each item so they are not lost when changing the active menu
 
 exports.getFood = (_menusection, foodsLoaded) =>{
@@ -119,34 +122,40 @@ exports.getMenuSection = (_menusection) =>{
         }
     };
 
-exports.decreaseDish = (dishName) =>{
-    if(menuArray[dishName] < 1){
+exports.decreaseDish = (dishName, req) =>{
+    if(userSelections[req.session.id][dishName] < 1){
         return null;
     }
     _menu.forEachItem(item => item.name == dishName ? total-= item.price : 0);
-    menuArray[dishName]--;
-    return [dishName, menuArray[dishName], total];
+    userSelections[req.session.id][dishName]--;
+    return [dishName, userSelections[req.session.id][dishName], total];
     };
 
-exports.increaseDish = (dishName) =>{
+exports.increaseDish = (dishName,req) =>{
     _menu.forEachItem(item => item.name == dishName ? total += item.price : 0);
-    menuArray[dishName]++;
-    return [dishName, menuArray[dishName], total];
+    userSelections[req.session.id][dishName]++;
+    return [dishName, userSelections[req.session.id][dishName], total];
     };
 
-exports.updateDish = (dishName) =>{
-    return [dishName, menuArray[dishName], total];
+exports.updateDish = (dishName,req) =>{
+    return [dishName, userSelections[req.session.id][dishName], total];
     };
 
 
-exports.setupMenu = () =>{
-    initializeFoodMenu();
-    return "succes";
+exports.setupMenu = (req) =>{
+    console.log(userSelections[req.session.id]);
+    if(userSelections[req.session.id] != undefined){
+        return;
+    }
+    initializeFoodMenu(req);
     };
 
     //setup the global menuArray
-function initializeFoodMenu() {
-    _menu.forEachItem(item => menuArray[item.name] = 0);
+function initializeFoodMenu(req) {
+    mySelection = [];
+    _menu.forEachItem(item => mySelection[item.name] = 0);
+    userSelections[req.session.id] = mySelection;
+    console.log(mySelection);
 }
 
     // price = parseInt(row.children[2].firstChild.nodeValue);
