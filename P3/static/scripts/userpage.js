@@ -19,6 +19,7 @@ function createLoginSection() {
     loginForm.appendChild(usernameInput);
     loginForm.appendChild(passwordInput);
     loginForm.appendChild(submitInput);
+    loginForm.addEventListener("submit", requestLogin);
     return loginForm;
 }
 
@@ -49,7 +50,26 @@ function createRegisterSection() {
     registerForm.appendChild(passwordInput);
     registerForm.appendChild(adresInput);
     registerForm.appendChild(submitInput);
+    registerForm.addEventListener("submit", requestRegister);
+
     return registerForm;
 }
+
+function requestRegister(e){
+    console.log("evnt");
+    e.target.childNodes.forEach(element => {
+        console.log(element.value);
+    });
+    e.preventDefault();
+}
+
+function requestLogin(e){
+    console.log("login");
+    e.target.childNodes.forEach(element => {
+        console.log(element.value);
+    });
+    e.preventDefault();
+}
+
 
 createPage();
