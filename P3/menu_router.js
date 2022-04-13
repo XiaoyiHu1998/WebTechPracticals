@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var menu = require("./menu")
+var menu = require("./menu");
 
 router.get('/progressiveloading.js', (req, res) =>{
 	res.send(menu.getFood(req.query.currentSection, req.query.sectionsLoaded));

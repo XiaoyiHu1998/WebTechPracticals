@@ -60,16 +60,56 @@ function requestRegister(e){
     e.target.childNodes.forEach(element => {
         console.log(element.value);
     });
+ 
     e.preventDefault();
 }
 
 function requestLogin(e){
     console.log("login");
-    e.target.childNodes.forEach(element => {
-        console.log(element.value);
-    });
+    username = e.target.childNodes[0].value;
+    password = e.target.childNodes[1].value;
+    var url = "user/requestLogin?username="+ username + "&password="+ password; 
+    getWithFunction(url, result);
     e.preventDefault();
+}
+
+function result(test){
+    console.log(test);
 }
 
 
 createPage();
+
+function getWithFunction(url, func) {
+    var req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            func(JSON.parse(req.responseText));
+        }
+    }
+    req.send();
+}
+
+function get(url) {
+    var req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            return req.responseText;
+        }
+    }
+    req.send();
+}
+
+function getObject(url) {
+    var req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            console.log(req.responseText);
+            return JSON.parse(req.responseText);
+        }
+    }
+    req.send();
+}

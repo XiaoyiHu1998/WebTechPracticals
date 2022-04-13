@@ -5,8 +5,11 @@ var file = "database.db";
 var exists = fs.existsSync();
 
 if(!exists){
-    fs.openSync(file, "w");
+     fs.openSync(file, "w");
 }
+
+
+
 
 // premade users
 {
@@ -38,12 +41,12 @@ if(!exists){
         }
     )
     
-}
+ }
 
-function userExists(login, password){
+ exports.userExists = (login, password) =>{
     var checkUser = db.prepare("SELECT COUNT(*) FROM Users WHERE \"login\"=\"?\" AND \"password\"=\"?\"");
     return checkUser.run(login, password) == 1;
-}
+    };
 
 function registerUser(fullname, login, password, email, adress, callback){
     var userID = db.all("SELECT COUNT(*) FROM Users");
@@ -53,9 +56,8 @@ function registerUser(fullname, login, password, email, adress, callback){
     callback();
 }
 
-
 // console.log(userExists("kip", "haan"));
 // console.log(userExists("theOnlyJuan", "hertog"));
 
 
-module.exports = db;
+exports = db;
