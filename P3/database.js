@@ -52,10 +52,10 @@ function registerUser(fullname, login, password, email, adress, callback){
 
     callback();
 }
-
-
+ 
 // console.log(userExists("kip", "haan"));
 // console.log(userExists("theOnlyJuan", "hertog"));
 
-
+exports.userExists = userExists;
+exports.registerUser = registerUser;
 module.exports = db;
