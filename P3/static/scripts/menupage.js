@@ -1,7 +1,5 @@
 var currentSection = "Appetizers";
 var dishesLoaded = 0;
-var total = 0;
-var menuArray = [];
 
 
 //#region menuConstruction
@@ -18,7 +16,6 @@ function makemenupage__ordersection() {
     section.setAttribute("id", "menupage__ordersection");
     text = document.createTextNode("Total = ");
     totalNode = document.createTextNode("");
-    totalNode.nodeValue = String(total);
     euro = document.createTextNode("€ ");
     section.appendChild(text);
     section.appendChild(totalNode);
@@ -254,9 +251,9 @@ function createItemRow(item, activeMenuSection){
     newRow.appendChild(amount);
     requestUpdateDish(item.name);
 
-    if(menuArray[item.name] > 0){
-        newRow.style.backgroundColor = "#ccaa88";
-    }
+    // if(menuArray[item.name] > 0){
+    //     newRow.style.backgroundColor = "#ccaa88";
+    // }
 
     let meatTypeString = "Meatless";
     let isMeatDish = item.constructor.name == "meatDish";
@@ -293,7 +290,7 @@ function createItemRow(item, activeMenuSection){
             break;
     }
     
-    newRow.addEventListener("click", changeDishNameColor);
+    //newRow.addEventListener("click", changeDishNameColor);
     return newRow;
 }
 
@@ -344,20 +341,20 @@ function makeNextFigure(food){
 //#region events
 
 //event for changing row color when that row has more than 0 items selected
-function changeDishNameColor(e){
-    let row = e.target.parentElement.parentElement;
-    console.log(row);
-    let dishName = row.children[0].children[0].childNodes[0].nodeValue;
+// function changeDishNameColor(e){
+//     let row = e.target.parentElement.parentElement;
+//     console.log(row);
+//     let dishName = row.children[0].children[0].childNodes[0].nodeValue;
 
-    if(menuArray[dishName] == 0){
-        row.style.backgroundColor = "#ffcc99";
-        e.stopPropagation();
-    }
-    else if(menuArray[dishName] != undefined){
-        row.style.backgroundColor = "#ccaa88";
-        e.stopPropagation();
-    }
-}
+//     if(menuArray[dishName] == 0){
+//         row.style.backgroundColor = "#ffcc99";
+//         e.stopPropagation();
+//     }
+//     else if(menuArray[dishName] != undefined){
+//         row.style.backgroundColor = "#ccaa88";
+//         e.stopPropagation();
+//     }
+// }
 
 
 //call this to setup all the events for the + and - buttons in menutable
