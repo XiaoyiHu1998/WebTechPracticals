@@ -40,8 +40,9 @@ if(!exists){
     
 }
 
-function attemptLogin(){
-    return false;
+function userExists(login, password){
+    var checkUser = db.prepare("SELECT COUNT(*) FROM Users WHERE \"login\"=\"?\" AND \"password\"=\"?\"");
+    return checkUser.run(login, password) == 1;
 }
 
 function registerUser(fullname, login, password, email, adress, callback){
@@ -52,6 +53,9 @@ function registerUser(fullname, login, password, email, adress, callback){
     callback();
 }
 
+
+// console.log(userExists("kip", "haan"));
+// console.log(userExists("theOnlyJuan", "hertog"));
 
 
 module.exports = db;
