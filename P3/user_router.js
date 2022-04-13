@@ -2,12 +2,13 @@ var express = require("express");
 var router = express.Router();
 var database = require("./database");
 
-var queryResult;
 
 router.get('/requestLogin', (req, res) =>{
-    database.userExists(req.query.username, req.query.password,callBack, res);
-    queryResult
-    console.log(queryResult);
+    database.login(req.query.username, req.query.password,req, res);
+})
+
+router.get('/requestUserInfo', (req, res) =>{
+    database.GetUserInfo(req,res);
 })
 
 function callBack(name, login, email, password, adress){

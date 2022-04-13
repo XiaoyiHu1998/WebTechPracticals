@@ -69,7 +69,7 @@ function requestLogin(e){
     username = e.target.childNodes[0].value;
     password = e.target.childNodes[1].value;
     var url = "user/requestLogin?username="+ username + "&password="+ password; 
-    console.log(get(url));
+    getWithFunction(url, OnLogin);
     e.preventDefault();
 }
 
@@ -80,12 +80,31 @@ function result(test){
 
 createPage();
 
+function OnLogin(yo){
+    var url = "user/requestUserInfo";
+    myvalue = getObject(url);
+    console.myvalue;
+}
+
+function getObjectWithFunction(url, func) {
+    var req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            console.log(req.responseText);
+            func(JSON.parse(req.responseText));
+        }
+    }
+    req.send();
+}
+
 function getWithFunction(url, func) {
     var req = new XMLHttpRequest();
     req.open("GET", url, true);
     req.onreadystatechange = function () {
         if (req.readyState === 4 && req.status === 200) {
-            func(JSON.parse(req.responseText));
+            console.log(req.responseText);
+            func(req.responseText);
         }
     }
     req.send();
