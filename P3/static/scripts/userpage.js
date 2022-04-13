@@ -69,7 +69,7 @@ function requestLogin(e){
     username = e.target.childNodes[0].value;
     password = e.target.childNodes[1].value;
     var url = "user/requestLogin?username="+ username + "&password="+ password; 
-    getWithFunction(url, result);
+    console.log(get(url));
     e.preventDefault();
 }
 
@@ -96,6 +96,8 @@ function get(url) {
     req.open("GET", url, true);
     req.onreadystatechange = function () {
         if (req.readyState === 4 && req.status === 200) {
+            console.log(req.responseText);
+            
             return req.responseText;
         }
     }

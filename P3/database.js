@@ -43,10 +43,16 @@ if(!exists){
     
  }
 
- exports.userExists = (login, password) =>{
-    var checkUser = db.prepare("SELECT COUNT(*) FROM Users WHERE \"login\"=\"?\" AND \"password\"=\"?\"");
-    return checkUser.run(login, password) == 1;
+ exports.userExists = (login, password, callback,res) =>{
+    var query = "SELECT * FROM Users WHERE login=? AND password=?";
+
+    db.each(query, [login, password], function (err, row) {
+        res.send(row.name + row.login+ row.email + row.adress)
+    });
     };
+
+
+
 
 function registerUser(fullname, login, password, email, adress, callback){
     var userID = db.all("SELECT COUNT(*) FROM Users");
