@@ -18,13 +18,16 @@ router.get('/requestUserInfo', (req, res) => {
 });
 
 router.get('/placeOrder', (req, res) => {
-    if (req.query.userID == database.loggedInUser){
+    if (database.loggedInUser(req) != undefined){
         console.log("order has just been placed");
         database.insertOrder(menu.getTotal());
         menu.resetSelection(req);
     
-        res.send("resetAll")
+        res.send(true);
+        return;
     }
+	console.log("not logged in");
+	res.send(false);
 });
 
 module.exports = router;

@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var menu = require("./menu");
+var database = require("./database");
 
 router.get('/progressiveloading.js', (req, res) =>{
 	res.send(menu.getFood(req.query.currentSection, req.query.sectionsLoaded));
@@ -11,11 +12,21 @@ router.get('/getMenuPage.js', (req, res) =>{
 })
 
 router.get('/increaseDish.js', (req, res) =>{
-	res.send(menu.increaseDish(req.query.dishName, req));
+	if (database.loggedInUser(req) != undefined){
+		res.send(menu.increaseDish(req.query.dishName, req));
+		return;
+	}
+	console.log("not logged in");
+	res.send(false);
 })
 
 router.get('/decreaseDish.js', (req, res) =>{
-	res.send(menu.decreaseDish(req.query.dishName,req));
+	if (database.loggedInUser(req) != undefined){
+		res.send(menu.decreaseDish(req.query.dishName,req));
+		return;
+	}
+	console.log("not logged in");
+	res.send(false);
 })
 
 router.get('/updateDish.js', (req, res) =>{

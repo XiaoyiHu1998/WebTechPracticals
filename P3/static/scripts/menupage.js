@@ -29,13 +29,17 @@ function makemenupage__ordersection() {
     button = document.createElement("button");
     button.setAttribute("class", "site__submission__button");
     button.appendChild(document.createTextNode("Place Order"));
-    button.addEventListener("click", function() {get("/user/placeOrder"); window.alert("Your order has been received, it will arrive in never ;P"); getMenuPage(currentSection);});
+    button.addEventListener("click", function() {getWithFunction("/user/placeOrder", OnOrder); getMenuPage(currentSection);});
     section.appendChild(button);
     body.insertBefore(section, footer);
 }
 
 // call this to change the menutable and figuresection
 function replaceBody(menuSection){
+    if(!menuSection){
+        window.alert("Not logged in");
+        return;
+    }
     let html = document.getElementsByTagName("html")[0];
     let header = document.getElementsByClassName("header")[0];
     let footer = document.getElementsByClassName("footer")[0];
@@ -397,8 +401,18 @@ function requestUpdateDish(dishName) {
     getWithFunction(url, updateDish);
 }
 
+function OnOrder(result) {
+    console.log(result);
+    if(!result){
+        window.alert("You are not logged in");
+        return;
+    }
+    window.alert("Your order has been received it will arrive in never ;P");
+}
+
 function updateDish(result) {   
-    if(null){
+    if(!result){
+        window.alert("Not logged in");
         return;
     }
     table = document.getElementsByTagName("tbody")[0];
