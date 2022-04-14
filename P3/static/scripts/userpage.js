@@ -80,7 +80,7 @@ function result(test){
 
 createPage();
 
-function OnLogin(yo){
+function OnLogin(emptyVar){
     var url = "user/requestUserInfo";
     myvalue = getObject(url);
     console.myvalue;

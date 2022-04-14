@@ -93,7 +93,7 @@ var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMorett
 var _menu = new menu(appetizers, mainCourses, deserts, drinks);
 
 var total = 0;
-var userSelections = [];
+var userSelections;
 var menuArray = []; //used to store amounts of each item so they are not lost when changing the active menu
 
 exports.getFood = (_menusection, foodsLoaded) =>{
@@ -123,28 +123,28 @@ exports.getMenuSection = (_menusection) =>{
     };
 
 exports.decreaseDish = (dishName, req) =>{
-    if(userSelections[req.session.id][dishName] < 1){
+    if(userSelections[dishName] < 1){
         return null;
     }
     _menu.forEachItem(item => item.name == dishName ? total-= item.price : 0);
-    userSelections[req.session.id][dishName]--;
-    return [dishName, userSelections[req.session.id][dishName], total];
+    userSelections[dishName]--;
+    return [dishName, userSelections[dishName], total];
     };
 
 exports.increaseDish = (dishName,req) =>{
     _menu.forEachItem(item => item.name == dishName ? total += item.price : 0);
-    userSelections[req.session.id][dishName]++;
-    return [dishName, userSelections[req.session.id][dishName], total];
+    userSelections[dishName]++;
+    return [dishName, userSelections[dishName], total];
     };
 
 exports.updateDish = (dishName,req) =>{
-    return [dishName, userSelections[req.session.id][dishName], total];
+    return [dishName, userSelections[dishName], total];
     };
 
 
 exports.setupMenu = (req) =>{
-    console.log(userSelections[req.session.id]);
-    if(userSelections[req.session.id] != undefined){
+    console.log(userSelections);
+    if(userSelections != undefined){
         return;
     }
     initializeFoodMenu(req);
@@ -154,7 +154,7 @@ exports.setupMenu = (req) =>{
 function initializeFoodMenu(req) {
     mySelection = [];
     _menu.forEachItem(item => mySelection[item.name] = 0);
-    userSelections[req.session.id] = mySelection;
+    userSelections = mySelection;
     console.log(mySelection);
 }
 

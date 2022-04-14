@@ -5,7 +5,14 @@ var morgan = require("morgan");
 var path = require("path")
 var database = require("./database");
 var ses = require('express-session');
-var options = {secret: 'None would guess'};
+var options = {secret: 'HonkHonkIsRealSafe',
+			   cookie: {
+					path:"/",
+					httpOnly: true,
+					secure: true,
+					maxAge: 3600*24 
+			   }
+			};
 
 var app = express();
 
