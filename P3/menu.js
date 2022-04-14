@@ -64,15 +64,20 @@ class drink extends food{
 var buratta  = new food("Buratta", "buratta", 7, ["Lactose"], "Buratta, a delicasy from Puglia. This cheese is made from buffalomozarella and cream and will be served with basil, tomatoes and bread.");
 var ciccheti = new meatDish("Ciccheti", "ciccheti",  8, ["Lactose", "Gluten"], "Pork", "Cicchetti, most common in Venetia. This are small delicous snacks on sliced baguettes. This appetizer can be well combined with wine.");
 var focaccia = new meatDish("Focaccia", "focaccia", 8, ["Gluten"], "Beef", "Focaccia alla Genovese, most commonly found in Genua along the Riviera. This is the best focaccia worldwide because of the high quality olive oil and the combination of grains.");
+var antipasti = new meatDish("Antipasti", "antipasti", 9, ["Lactose"], "Beef", "Antipasti are Italian snack that are eaten before the meal. The snacks differ from region to region, of course the Antipastor cannot miss this speciality.");
+var tonnato = new meatDish("Vitello Tonnato", "vitellotonnato", 7, ["Lactose"], "Beef", "Vitello tonnato is an Italian dish of veal, cut into strips covered in a creamy mayonnaise-like sauce seasoned with tuna");
 
 var melanzane    = new food("Melanzane alla Parmigiana", "melanzane", 17, ["Lactose"], "Melanzane alla Parmigiana, a recipe made from thin eggplant slices and tomatoes topped with a crispy layer of parmezan cheese. Delicious to comibine with wine.");
 var ossobuco     = new meatDish("Ossobuco Milanese", "ossobuco", 20, ["-"], "Veal", "Ossobuco Milanese, is a delicious recipe. As the name says it most commonly made in Milan. This speciality is veal shank that is cooked in white wine. Served with risotto or pasta.");
 var montaraPizza = new food("Montara Pizza", "montarapizza", 17, ["Lactose"], "The Montara Pizza is a quite special pizza. This pizza is made in a frying pan after that it also put into the oven the result is a unique and delicious pizza.");
 var zuppaToscana = new meatDish("Zuppa Toscana", "zuppatoscana", 17, ["-"], "Chicken, Pork", "Zuppa toscana, a recipe originally from the region toscana. This is a healthy soup made of kale, zucchini, canelli beans, potatoes, celdery, tomatoes and bacon for the meat-eaters.");
+var lasagna = new food("Lasagna", "lasagna", 14, ["Lactose"], "Everyone knows lasagna so here is a fun fact. The word “lasagna” referred to the pot in which the food was cooked. It is thought that the word “lasagna” for the pot is derived from the Greek word for “chamber pot.");
 
 var pannaCotta = new food("Panna cotta", "pannacotta",  9, ["Lactose"], "Panna cotta, this is one of the most well-known deserts of Italy. Panna cotta means cooked cream this is the most important ingredient. The recipe originates from Piëmont.");
 var semifreddo = new food("Triple chocolat semifreddo", "semifreddo", 12, ["Lactose"], "Semifreddo, is somewhat similar to ice cream since it is a frozen desert. The texture and structure however are more similar to that of something like a chocolat mousse.");
-var tiramisu   = new food("Tiramisu", "tiramisu", 10, ["Lactose"], "Tiramisu is a recipe that can't miss in any Italian restaurant. Since this recipe is not new for most people a funfact. Tiramisu means pull me up, in Italy 'cheer me up' is meant by this. That is also why this recipe is server to people who are recovering from sickness");
+var tiramisu   = new food("Tiramisu", "tiramisu", 10, ["Lactose"], "Tiramisu is a recipe that can't miss in any Italian restaurant. Since this recipe is not new for most people a funfact. Tiramisu means pull me up, in Italy 'cheer me up' is meant by this. That is also why this recipe is server to people who are recovering from sickness.");
+var cannoli    = new food("Cannoli vanilla custard", "cannoli", 8, ["Lactose", "Gluten"],  "A cannolo is a pastry and dessert from Sicilian cuisine. It consists of a rolled biscuit filled with ricotta. It is one of the most famous dishes of Sicilian cuisine.");
+var budino     = new food("Chocolat-hazelnut budino", "hazelnutbudino", 11, ["Nuts", "Lactose"], "Budino is a sweet Italian dish, usually rich and creamy like a custard or pudding.");
 
 var espresso        = new drink("Espresso", "espresso", 4, ["-"], 0, "strong", "");
 var capuccino       = new drink("Capuccino", "capuccino",  4, ["Lactose"], 0, "medium", "");
@@ -83,11 +88,11 @@ var mineralWater    = new drink("Mineral Water", "mineralwater", 3, ["-"], 0, "n
 //#endregion
 
 //#region globalVars
-var appetizers = new menuSection("Appetizers", [buratta, ciccheti, focaccia]);
+var appetizers = new menuSection("Appetizers", [buratta, ciccheti, focaccia, antipasti, tonnato]);
 
-var mainCourses = new menuSection("Main Courses", [melanzane, ossobuco, montaraPizza, zuppaToscana]);
+var mainCourses = new menuSection("Main Courses", [melanzane, ossobuco, montaraPizza, zuppaToscana, lasagna]);
 
-var deserts = new menuSection("Deserts", [pannaCotta, semifreddo, tiramisu]);
+var deserts = new menuSection("Deserts", [pannaCotta, semifreddo, tiramisu, cannoli, budino]);
 
 var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMoretti, mineralWater]);
 
