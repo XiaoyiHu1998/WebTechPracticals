@@ -61,7 +61,8 @@ exports.GetUser = () => {
 exports.GetUserInfo = (req, res) =>{
     console.log(loggedInUser);
     if(loggedInUser == undefined){
-        res.send("not logged in");
+        console.log("send false");
+        res.send(false);
         return;
     }
     var query = "SELECT * FROM Users WHERE userID=?";
