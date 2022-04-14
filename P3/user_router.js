@@ -30,8 +30,8 @@ router.get('/placeOrder', (req, res) => {
 	res.send(false);
 });
 
-router.get('/requestOrderHistory', (req,res) => {
-    database.getOrderHistory(req);
+router.get('/requestOrderHistory', (req, res) => {
+    database.getOrderHistory(req,res);
 });
 
 module.exports = router;

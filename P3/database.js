@@ -90,6 +90,19 @@ exports.insertOrder = function (req) {
     query.run(loggedInUser, total);
 }
 
+exports.getOrderHistory = function (req, res) {
+    if(loggedInUser == undefined){
+        console.log("not logged in");
+        res.send(false);
+        return;
+    }
+    var query = db.prepare("SELECT * FROM Orders WHERE userID=?");
+    db.all("SELECT * FROM Orders WHERE userID="+ loggedInUser, function (err, rows) {
+        console.log(rows);
+        res.send(rows);
+    });
+}
+
 exports.loggedInUser  = (req) => {return loggedInUser;}
 
 exports = db;

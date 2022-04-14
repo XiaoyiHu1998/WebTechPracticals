@@ -29,7 +29,13 @@ function createRegisteredPage(userinfo){
     footer = document.getElementsByTagName("footer")[0];
     body = document.getElementsByTagName("body")[0];
 
+    var url = "user/requestOrderHistory";
+    getWithFunction(url, test);
     body.insertBefore(section, footer);
+}
+
+function test(result){
+    console.log(result);
 }
 
 function deletePage(){
