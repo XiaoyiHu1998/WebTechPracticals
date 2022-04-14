@@ -68,12 +68,15 @@ exports.GetUserInfo = (req, res) =>{
     });
 };
 
+exports.insertUser = (req, userID) => {
+    console.log("new userID:" + userID); 
+    insertUser.run(userID, req.query.fullname, req.query.username, req.query.password, req.query.email, req.query.adress);
+};
 
-exports.registerUser = (fullname, login, password, email, adress) =>{
-    var userID = db.all("SELECT COUNT(*) FROM Users");
-    var insertUser = db.prepare("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?)");
-    insertUser.run(userID, fullname, login, password, email, adress);
-
+exports.registerUser = (req, callback) => {
+    db.all("SELECT COUNT(*) as count FROM Users", function (err, rows){
+        callback(req, rows[0].count);
+    });
 }
 
 // console.log(userExists("kip", "haan"));
