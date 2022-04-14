@@ -1,6 +1,12 @@
 var currentSection = "Appetizers";
 var dishesLoaded = 0;
 
+//send get AJAX request
+function get(url) {
+    var req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.send();
+}
 
 //#region menuConstruction
 function createPage(_menuSection){
@@ -23,14 +29,14 @@ function makemenupage__ordersection() {
     button = document.createElement("button");
     button.setAttribute("class", "site__submission__button");
     button.appendChild(document.createTextNode("Place Order"));
-    button.addEventListener("click", function() {window.alert("Your order has been received, it will arrive in never ;)"); location.reload();})
+    button.addEventListener("click", function() {get("/placeOrder"); window.alert("Your order has been received, it will arrive in never ;P"); location.reload();});
     section.appendChild(button);
     body.insertBefore(section, footer);
 }
 
 // call this to change the menutable and figuresection
 function replaceBody(menuSection){
-     let html = document.getElementsByTagName("html")[0];
+    let html = document.getElementsByTagName("html")[0];
     let header = document.getElementsByClassName("header")[0];
     let footer = document.getElementsByClassName("footer")[0];
     let oldBody = document.getElementsByTagName("body")[0];
@@ -38,6 +44,7 @@ function replaceBody(menuSection){
 
     html.removeChild(oldBody);
     newBody.appendChild(header);
+    newbBody.appendChild(jouding);
     newBody.appendChild(footer);
     html.appendChild(newBody);
     currentSection = menuSection.name;

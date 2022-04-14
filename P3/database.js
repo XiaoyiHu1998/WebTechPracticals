@@ -2,10 +2,11 @@
 var fs = require("fs");
 const { createConnection } = require("net");
 var file = "database.db";
-var exists = fs.existsSync();
+var exists = fs.existsSync(file);
+console.log("does database exist: " + exists);
 
 
-var loggedInUsers;
+var loggedInUser;
 if(!exists){
      fs.openSync(file, "w");
 }
@@ -29,13 +30,13 @@ var db = new sqlite3.Database(file);
             if(!exists){
                 db.run("CREATE TABLE Users (userID INTEGER, name TEXT, login TEXT, password TEXT, email TEXT, address TEXT)");
                 db.run("CREATE TABLE Orders (userID INTEGER, totalPrice REAL)");
-            }
     
-            var insertUser = db.prepare("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?)");
-            for(let userID = 0; userID < 5; userID++){
-                insertUser.run(userID, names[userID], logins[userID], passwords[userID], emails[userID], adresses[userID]);
+                var insertUser = db.prepare("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?)");
+                for(let userID = 0; userID < 5; userID++){
+                    insertUser.run(userID, names[userID], logins[userID], passwords[userID], emails[userID], adresses[userID]);
+                }
+                insertUser.finalize();
             }
-            insertUser.finalize();
         }
     )
     
@@ -44,26 +45,26 @@ var db = new sqlite3.Database(file);
 exports.login = (login, password,req, res) =>{
     var query = "SELECT * FROM Users WHERE login=? AND password=?";
     db.each(query, [login, password], function (err, row) {
-        loggedInUsers = row.userID;
-        console.log("logged in as" + loggedInUsers);
+        loggedInUser = row.userID;
+        console.log("logged in as" + loggedInUser);
         res.send(row.name);
     });
 };
 
 exports.GetUser = () => {
-    if(loggedInUsers != undefined){
-        return loggedInUsers;
+    if(loggedInUser != undefined){
+        return loggedInUser;
     }
 };
 
 exports.GetUserInfo = (req, res) =>{
-    console.log(loggedInUsers);
-    if(loggedInUsers == undefined){
+    console.log(loggedInUser);
+    if(loggedInUser == undefined){
         res.send("not logged in");
         return;
     }
     var query = "SELECT * FROM Users WHERE userID=?";
-    db.each(query, loggedInUsers, function (err, row) {
+    db.each(query, loggedInUser, function (err, row) {
         res.send([row.name, row.email, row.login, row.password, row.address]);
     });
 };
@@ -80,8 +81,10 @@ exports.registerUser = (req, callback) => {
     });
 }
 
-// console.log(userExists("kip", "haan"));
-// console.log(userExists("theOnlyJuan", "hertog"));
+exports.insertOrder = function (req) {
+    var query = db.prepare("INSERT INTO Orders values (?, ?)");
+    query.run(loggedInUser, total);
+}
 
 
 exports = db;

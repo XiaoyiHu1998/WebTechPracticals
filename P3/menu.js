@@ -92,7 +92,7 @@ var drinks = new menuSection("Drinks", [espresso, capuccino, spritz, birraMorett
 
 var _menu = new menu(appetizers, mainCourses, deserts, drinks);
 
-var total = 0;
+total = 0;
 var userSelections;
 var menuArray = []; //used to store amounts of each item so they are not lost when changing the active menu
 
@@ -157,6 +157,11 @@ function initializeFoodMenu(req) {
     userSelections = mySelection;
     console.log(mySelection);
 }
+
+exports.getTotal = () => {
+    return total;
+}
+
 
     // price = parseInt(row.children[2].firstChild.nodeValue);
     // if(row.children[5].firstChild.nodeValue >= 1){
