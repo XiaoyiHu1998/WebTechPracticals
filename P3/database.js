@@ -11,7 +11,9 @@ if(!exists){
 }
 
 
-
+//database stuff
+var sqlite3 = require("sqlite3").verbose();
+var db = new sqlite3.Database(file);
 
 // premade users
 {
@@ -22,13 +24,7 @@ if(!exists){
     let emails = ["jan@hotmail.com", "henkie@spankie.nl", "Geert@gmail.com","mighuelp@sos.mx", "haramman@halal.sa"];
     let adresses = ["janstraat 23 A", "boerenbuurt 69", "waterstraat 231", "Alcatraz 666", "dubaibai -1"];
     
-    
-    //database stuff
-    var sqlite3 = require("sqlite3").verbose();
-    var db = new sqlite3.Database(file);
-    
     db.serialize(
-    
         function(){
             if(!exists){
                 db.run("CREATE TABLE Users (userID INTEGER, name TEXT, login TEXT, password TEXT, email TEXT, address TEXT)");
@@ -43,15 +39,7 @@ if(!exists){
         }
     )
     
- }
-
- exports.userExists = (login, password,res) =>{
-    var query = "SELECT * FROM Users WHERE login=? AND password=?";
-
-    db.each(query, [login, password], function (err, row) {
-        res.send(row.name + row.login + row.email + row.adress)
-    });
-};
+}
 
 exports.login = (login, password,req, res) =>{
     var query = "SELECT * FROM Users WHERE login=? AND password=?";

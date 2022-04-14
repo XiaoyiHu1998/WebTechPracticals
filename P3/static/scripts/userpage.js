@@ -56,10 +56,17 @@ function createRegisterSection() {
 }
 
 function requestRegister(e){
-    console.log("evnt");
+    console.log("event");
     e.target.childNodes.forEach(element => {
         console.log(element.value);
     });
+
+    let username = e.target.childNodes[0].value;
+    let password = e.target.childNodes[1].value;
+    let password = e.target.childNodes[1].value;
+    let password = e.target.childNodes[1].value;
+    let password = e.target.childNodes[1].value;
+
  
     e.preventDefault();
 }
