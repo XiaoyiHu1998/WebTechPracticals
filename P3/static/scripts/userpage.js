@@ -35,7 +35,7 @@ function createRegisteredPage(userinfo){
 }
 
 function test(result){
-    console.log(result);
+    console.log(JSON.parse(result));
 }
 
 function deletePage(){
