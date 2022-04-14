@@ -74,7 +74,6 @@ function requestRegister(e){
 }
 
 function requestLogin(e){
-    console.log("login");
     username = e.target.childNodes[0].value;
     password = e.target.childNodes[1].value;
     var url = "user/requestLogin?username="+ username + "&password="+ password; 
@@ -82,9 +81,6 @@ function requestLogin(e){
     e.preventDefault();
 }
 
-function result(test){
-    console.log(test);
-}
 
 
 createPage();
