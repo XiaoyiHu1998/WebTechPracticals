@@ -42,9 +42,11 @@ var db = new sqlite3.Database(file);
     
 }
 
-exports.login = (login, password,req, res) =>{
+exports.login = (req, res) =>{
+    console.log("loggin in");
     var query = "SELECT * FROM Users WHERE login=? AND password=?";
-    db.each(query, [login, password], function (err, row) {
+    db.each(query, [req.query.username, req.query.password], function (err, row) {
+        console.log(row);
         loggedInUser = row.userID;
         console.log("logged in as" + loggedInUser);
         res.send(row.name);
@@ -60,7 +62,8 @@ exports.GetUser = () => {
 exports.GetUserInfo = (req, res) =>{
     console.log(loggedInUser);
     if(loggedInUser == undefined){
-        res.send("not logged in");
+        console.log("send false");
+        res.send(false);
         return;
     }
     var query = "SELECT * FROM Users WHERE userID=?";
@@ -69,15 +72,16 @@ exports.GetUserInfo = (req, res) =>{
     });
 };
 
-exports.insertUser = (req, userID) => {
+exports.insertUser = (req, res, userID, login) => {
     console.log("new userID:" + userID); 
     var insertUser = db.prepare("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?)");
     insertUser.run(userID, req.query.fullname, req.query.username, req.query.password, req.query.email, req.query.adress);
+    login(req, res);
 };
 
-exports.registerUser = (req, callback) => {
+exports.registerUser = (req, res, callback, login) => {
     db.all("SELECT COUNT(*) as count FROM Users", function (err, rows){
-        callback(req, rows[0].count);
+        callback(req, res, rows[0].count, login);
     });
 }
 

@@ -1,9 +1,50 @@
-function createPage(){
+function createPage(res){
+    console.log(res);
+    if(!res){
+        createAnonymousPage();
+        return;
+    }
+    createRegisteredPage(res);
+}
+
+function createAnonymousPage(){
     body = document.getElementsByTagName("body")[0];
     footer = document.getElementsByTagName("footer")[0];
     body.insertBefore(createLoginSection(), footer);
     body.insertBefore(createRegisterSection(), footer);
 }
+
+function createRegisteredPage(userinfo){
+    console.log(userinfo);
+    deletePage();
+    section = document.createElement("section");
+    h1 = document.createElement("h1");
+    text = document.createTextNode("User Info");
+    h1.appendChild(text);
+    p = document.createElement("p");
+    text = document.createTextNode("name = " + userinfo[0] + "email = " + userinfo[1] + "username = " + userinfo[2] + "password = " + userinfo[3] + "adress = " + userinfo[4]);
+    p.appendChild(text);
+    section.appendChild(h1);
+    section.appendChild(p);
+    footer = document.getElementsByTagName("footer")[0];
+    body = document.getElementsByTagName("body")[0];
+
+    body.insertBefore(section, footer);
+}
+
+function deletePage(){
+    let html = document.getElementsByTagName("html")[0];
+    let header = document.getElementsByClassName("header")[0];
+    let footer = document.getElementsByClassName("footer")[0];
+    let oldBody = document.getElementsByTagName("body")[0];
+    let newBody = document.createElement("body");
+
+    html.removeChild(oldBody);
+    newBody.appendChild(header);
+    newBody.appendChild(footer);
+    html.appendChild(newBody);
+}
+
 
 function createLoginSection() {                           
     loginForm = document.createElement("form");
@@ -68,7 +109,7 @@ function requestRegister(e){
     let adress = e.target.childNodes[4].value;
 
     var url = "user/requestRegister?username="+ username + "&password="+ password + "&fullname=" + fullname + "&email=" + email + "&adress=" + adress; 
-    get(url);
+    getWithFunction(url, OnLogin);
 
     e.preventDefault();
 }
@@ -82,13 +123,12 @@ function requestLogin(e){
 }
 
 
-
-createPage();
+var url = "user/requestUserInfo";
+getObjectWithFunction(url, createPage);
 
 function OnLogin(emptyVar){
     var url = "user/requestUserInfo";
-    myvalue = getObject(url);
-    console.myvalue;
+    getObjectWithFunction(url, createPage);
 }
 
 function getObjectWithFunction(url, func) {
