@@ -5,7 +5,7 @@ var file = "database.db";
 var exists = fs.existsSync();
 
 
-var loggedInUsers = [];
+var loggedInUsers;
 if(!exists){
      fs.openSync(file, "w");
 }
@@ -56,40 +56,36 @@ if(!exists){
 exports.login = (login, password,req, res) =>{
     var query = "SELECT * FROM Users WHERE login=? AND password=?";
     db.each(query, [login, password], function (err, row) {
-        loggedInUsers[req.session.id] = row.userID;
+        loggedInUsers = row.userID;
         console.log("logged in as" + loggedInUsers);
         res.send(row.name);
     });
 };
 
 exports.GetUser = () => {
-    if(loggedInUsers[req.session.id] != undefined){
-        return loggedInUsers[req.session.id];
+    if(loggedInUsers != undefined){
+        return loggedInUsers;
     }
 };
 
 exports.GetUserInfo = (req, res) =>{
-    console.log(loggedInUsers[req.session.id]);
-    if(loggedInUsers[req.session.id] == undefined){
+    console.log(loggedInUsers);
+    if(loggedInUsers == undefined){
         res.send("not logged in");
         return;
     }
     var query = "SELECT * FROM Users WHERE userID=?";
-    db.each(query, loggedInUsers[req.session.id], function (err, row) {
+    db.each(query, loggedInUsers, function (err, row) {
         res.send([row.name, row.email, row.login, row.password, row.address]);
     });
-}
+};
 
 
-
-
-
-function registerUser(fullname, login, password, email, adress, callback){
+exports.registerUser = (fullname, login, password, email, adress) =>{
     var userID = db.all("SELECT COUNT(*) FROM Users");
     var insertUser = db.prepare("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?)");
     insertUser.run(userID, fullname, login, password, email, adress);
 
-    callback();
 }
 
 // console.log(userExists("kip", "haan"));

@@ -56,16 +56,19 @@ function createRegisterSection() {
 }
 
 function requestRegister(e){
-    console.log("evnt");
-    e.target.childNodes.forEach(element => {
-        console.log(element.value);
-    });
+    fullname = e.target.childNodes[0].value;
+    email = e.target.childNodes[1].value;
+    username = e.target.childNodes[2].value;
+    password = e.target.childNodes[3].value;
+    adress = e.target.childNodes[1].value;
+
+    var url = "user/requestRegister?fullname=" + fullname+ "&email="+ email+ "&username="+ username + "&password="+ password + "&address=" + adress; 
+    getWithFunction(url, OnLogin);
  
     e.preventDefault();
 }
 
 function requestLogin(e){
-    console.log("login");
     username = e.target.childNodes[0].value;
     password = e.target.childNodes[1].value;
     var url = "user/requestLogin?username="+ username + "&password="+ password; 
@@ -73,9 +76,6 @@ function requestLogin(e){
     e.preventDefault();
 }
 
-function result(test){
-    console.log(test);
-}
 
 
 createPage();
