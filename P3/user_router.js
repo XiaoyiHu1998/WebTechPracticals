@@ -4,21 +4,13 @@ var database = require("./database");
 
 
 router.get('/requestLogin', (req, res) =>{
-    var query = "SELECT * FROM Users WHERE login=? AND password=?";
-    var amount = 0;
-    db.each(query, [req.query.username, req.query.password], function (err, row) {
-        loggedInUsers[req.session.id] = row.userID;
-        console.log("logged in as" + loggedInUsers);
-        res.send(row.name);
-        amount++;
-    });
+    database.login(req.login, req.password, req, res);
+
+
 });
 
 router.get('/requestRegister', (req, res) => {
-    var userID = db.all("SELECT COUNT(*) FROM Users");
-    console.log(userID);
-    var insertUser = db.prepare("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?)");
-    insertUser.run(userID, fullname, login, password, email, adress);
+    database.registerUser(req, database.insertUser);
 });
 
 router.get('/requestUserInfo', (req, res) => {

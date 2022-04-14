@@ -61,13 +61,15 @@ function requestRegister(e){
         console.log(element.value);
     });
 
-    let username = e.target.childNodes[0].value;
-    let password = e.target.childNodes[1].value;
-    let password = e.target.childNodes[1].value;
-    let password = e.target.childNodes[1].value;
-    let password = e.target.childNodes[1].value;
+    let fullname = e.target.childNodes[0].value;
+    let email = e.target.childNodes[1].value;
+    let username = e.target.childNodes[2].value;
+    let password = e.target.childNodes[3].value;
+    let adress = e.target.childNodes[4].value;
 
- 
+    var url = "user/requestRegister?username="+ username + "&password="+ password + "&fullname=" + fullname + "&email=" + email + "&adress=" + adress; 
+    get(url);
+
     e.preventDefault();
 }
 

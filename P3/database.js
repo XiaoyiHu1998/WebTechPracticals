@@ -69,19 +69,17 @@ exports.GetUserInfo = (req, res) =>{
 }
 
 
-
-
-
-function registerUser(fullname, login, password, email, adress, callback){
-    var userID = db.all("SELECT COUNT(*) FROM Users");
+exports.insertUser = (req, userID) => {
+    console.log("new userID:" + userID);
     var insertUser = db.prepare("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?)");
-    insertUser.run(userID, fullname, login, password, email, adress);
+    insertUser.run(userID, req.query.fullname, req.query.username, req.query.password, req.query.email, req.query.adress);
 
-    callback();
 }
 
-// console.log(userExists("kip", "haan"));
-// console.log(userExists("theOnlyJuan", "hertog"));
-
+exports.registerUser = (req, callback) => {
+    var userID = db.all("SELECT COUNT(*) as count FROM Users", function (err, rows){
+        callback(req, rows[0].count);
+    });
+}
 
 exports = db;
