@@ -29,7 +29,7 @@ function makemenupage__ordersection() {
     button = document.createElement("button");
     button.setAttribute("class", "site__submission__button");
     button.appendChild(document.createTextNode("Place Order"));
-    button.addEventListener("click", function() {get("/placeOrder"); window.alert("Your order has been received, it will arrive in never ;P"); location.reload();});
+    button.addEventListener("click", function() {get("/user/placeOrder"); window.alert("Your order has been received, it will arrive in never ;P"); getMenuPage(currentSection);});
     section.appendChild(button);
     body.insertBefore(section, footer);
 }
@@ -44,7 +44,6 @@ function replaceBody(menuSection){
 
     html.removeChild(oldBody);
     newBody.appendChild(header);
-    newbBody.appendChild(jouding);
     newBody.appendChild(footer);
     html.appendChild(newBody);
     currentSection = menuSection.name;
