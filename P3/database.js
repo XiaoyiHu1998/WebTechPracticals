@@ -70,6 +70,7 @@ exports.GetUserInfo = (req, res) =>{
 
 exports.insertUser = (req, userID) => {
     console.log("new userID:" + userID); 
+    var insertUser = db.prepare("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?)");
     insertUser.run(userID, req.query.fullname, req.query.username, req.query.password, req.query.email, req.query.adress);
 };
 
