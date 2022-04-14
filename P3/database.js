@@ -90,5 +90,6 @@ exports.insertOrder = function (req) {
     query.run(loggedInUser, total);
 }
 
+exports.loggedInUser  = () => {return loggedInUser;}
 
 exports = db;

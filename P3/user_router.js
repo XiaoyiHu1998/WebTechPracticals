@@ -17,10 +17,14 @@ router.get('/requestUserInfo', (req, res) => {
     database.GetUserInfo(req, res);
 });
 
-
 router.get('/placeOrder', (req, res) => {
-    console.log("order has just been placed");
-    database.insertOrder(menu.getTotal());
+    if (req.query.userID == database.loggedInUser){
+        console.log("order has just been placed");
+        database.insertOrder(menu.getTotal());
+        menu.resetSelection(req);
+    
+        res.send("resetAll")
+    }
 });
 
 module.exports = router;

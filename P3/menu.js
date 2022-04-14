@@ -162,6 +162,12 @@ exports.getTotal = () => {
     return total;
 }
 
+exports.resetSelection = (req) => {
+    total = 0;
+    menuArray = [];
+    initializeFoodMenu(req);
+}
+
 
     // price = parseInt(row.children[2].firstChild.nodeValue);
     // if(row.children[5].firstChild.nodeValue >= 1){
