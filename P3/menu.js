@@ -35,49 +35,50 @@ class menuSection {
 
 
 class food{
-    constructor(name, htmlName, price, diets){
+    constructor(name, htmlName, price, diets, background){
         this.name = name;
         this.htmlName = htmlName;
         this.price = price;
         this.diets = diets;
+        this.background = background;
     }
 };
 
 class meatDish extends food{
-    constructor(name, htmlName, price, diets, meatType){
-        super(name, htmlName, price, diets);
+    constructor(name, htmlName, price, diets, meatType, background){
+        super(name, htmlName, price, diets, background);
         this.meatType = meatType;
         this.diets = diets;
     }
 }
 
 class drink extends food{
-    constructor(name, htmlName, price, diets, alcoholStrength, caffeineStrength){
-        super(name, htmlName, price, diets);
+    constructor(name, htmlName, price, diets, alcoholStrength, caffeineStrength, background){
+        super(name, htmlName, price, diets, background);
         this.alcoholStrength = alcoholStrength;
         this.caffeineStrength = caffeineStrength;
     }
 }
 
 //#region foods
-var buratta  = new food("Buratta", "buratta", 7, ["Lactose"]);
-var ciccheti = new meatDish("Ciccheti", "ciccheti",  8, ["Lactose", "Gluten"], "Pork");
-var focaccia = new meatDish("Focaccia", "focaccia", 8, ["Gluten"], "Beef");
+var buratta  = new food("Buratta", "buratta", 7, ["Lactose"], "Buratta, a delicasy from Puglia. This cheese is made from buffalomozarella and cream and will be served with basil, tomatoes and bread.");
+var ciccheti = new meatDish("Ciccheti", "ciccheti",  8, ["Lactose", "Gluten"], "Pork", "Cicchetti, most common in Venetia. This are small delicous snacks on sliced baguettes. This appetizer can be well combined with wine.");
+var focaccia = new meatDish("Focaccia", "focaccia", 8, ["Gluten"], "Beef", "Focaccia alla Genovese, most commonly found in Genua along the Riviera. This is the best focaccia worldwide because of the high quality olive oil and the combination of grains.");
 
-var melanzane    = new food("Melanzane alla Parmigiana", "melanzane", 17, ["Lactose"]);
-var ossobuco     = new meatDish("Ossobuco Milanese", "ossobuco", 20, ["-"], "Veal");
-var montaraPizza = new food("Montara Pizza", "montarapizza", 17, ["Lactose"]);
-var zuppaToscana = new meatDish("Zuppa Toscana", "zuppatoscana", 17, ["-"], "Chicken, Pork");
+var melanzane    = new food("Melanzane alla Parmigiana", "melanzane", 17, ["Lactose"], "Melanzane alla Parmigiana, a recipe made from thin eggplant slices and tomatoes topped with a crispy layer of parmezan cheese. Delicious to comibine with wine.");
+var ossobuco     = new meatDish("Ossobuco Milanese", "ossobuco", 20, ["-"], "Veal", "Ossobuco Milanese, is a delicious recipe. As the name says it most commonly made in Milan. This speciality is veal shank that is cooked in white wine. Served with risotto or pasta.");
+var montaraPizza = new food("Montara Pizza", "montarapizza", 17, ["Lactose"], "The Montara Pizza is a quite special pizza. This pizza is made in a frying pan after that it also put into the oven the result is a unique and delicious pizza.");
+var zuppaToscana = new meatDish("Zuppa Toscana", "zuppatoscana", 17, ["-"], "Chicken, Pork", "Zuppa toscana, a recipe originally from the region toscana. This is a healthy soup made of kale, zucchini, canelli beans, potatoes, celdery, tomatoes and bacon for the meat-eaters.");
 
-var pannaCotta = new food("Panna cotta", "pannacotta",  9, ["Lactose"]);
-var semifreddo = new food("Triple chocolat semifreddo", "semifreddo", 12, ["Lactose"]);
-var tiramisu   = new food("Tiramisu", "tiramisu", 10, ["Lactose"]);
+var pannaCotta = new food("Panna cotta", "pannacotta",  9, ["Lactose"], "Panna cotta, this is one of the most well-known deserts of Italy. Panna cotta means cooked cream this is the most important ingredient. The recipe originates from Piëmont.");
+var semifreddo = new food("Triple chocolat semifreddo", "semifreddo", 12, ["Lactose"], "Semifreddo, is somewhat similar to ice cream since it is a frozen desert. The texture and structure however are more similar to that of something like a chocolat mousse.");
+var tiramisu   = new food("Tiramisu", "tiramisu", 10, ["Lactose"], "Tiramisu is a recipe that can't miss in any Italian restaurant. Since this recipe is not new for most people a funfact. Tiramisu means pull me up, in Italy 'cheer me up' is meant by this. That is also why this recipe is server to people who are recovering from sickness");
 
-var espresso        = new drink("Espresso", "espresso", 4, ["-"], 0, "strong");
-var capuccino       = new drink("Capuccino", "capuccino",  4, ["Lactose"], 0, "medium");
-var spritz          = new drink("Spritz", "spritz", 5, ["-"], 11.0, "none");
-var birraMoretti    = new drink("Birra Moretti", "birramoretti",  4, ["Gluten"], 4.6, "none");
-var mineralWater    = new drink("Mineral Water", "mineralwater", 3, ["-"], 0, "none");
+var espresso        = new drink("Espresso", "espresso", 4, ["-"], 0, "strong", "");
+var capuccino       = new drink("Capuccino", "capuccino",  4, ["Lactose"], 0, "medium", "");
+var spritz          = new drink("Spritz", "spritz", 5, ["-"], 11.0, "none", "");
+var birraMoretti    = new drink("Birra Moretti", "birramoretti",  4, ["Gluten"], 4.6, "none", "");
+var mineralWater    = new drink("Mineral Water", "mineralwater", 3, ["-"], 0, "none", "");
 
 //#endregion
 

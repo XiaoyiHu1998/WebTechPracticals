@@ -1,13 +1,6 @@
 var currentSection = "Appetizers";
 var dishesLoaded = 0;
 
-//send get AJAX request
-function get(url) {
-    var req = new XMLHttpRequest();
-    req.open("GET", url, true);
-    req.send();
-}
-
 //#region menuConstruction
 function createPage(_menuSection){
     createSectionSelector();
@@ -32,6 +25,7 @@ function makemenupage__ordersection() {
     button.addEventListener("click", function() {getWithFunction("/user/placeOrder", OnOrder); getMenuPage(currentSection);});
     section.appendChild(button);
     body.insertBefore(section, footer);
+    body.insertBefore(document.createElement("hr"), footer);
 }
 
 // call this to change the menutable and figuresection
@@ -259,7 +253,6 @@ function createItemRow(item, activeMenuSection){
     requestUpdateDish(item.name);
     amount.appendChild(amountText);
     newRow.appendChild(amount);
-    requestUpdateDish(item.name);
 
     // if(menuArray[item.name] > 0){
     //     newRow.style.backgroundColor = "#ccaa88";
@@ -302,50 +295,6 @@ function createItemRow(item, activeMenuSection){
     
     //newRow.addEventListener("click", changeDishNameColor);
     return newRow;
-}
-
-function makeDishFigures(_section) {
-    let section = document.createElement('section');
-    section.appendChild(document.createElement('hr'));
-    section.setAttribute("class", "menupage__dishfigures");
-    let heading1 = document.createElement('h1');
-    heading1.setAttribute("class", "menupage__dishfigure__header");
-    heading1.appendChild(document.createTextNode(_section.name));
-    section.appendChild(heading1);
-    _section.items.forEach(element => section.appendChild(makeDishFigure(element)));
-    section.appendChild(document.createElement('hr'));
-    let footer = document.getElementsByClassName("footer")[0];
-    let body = document.getElementsByTagName("body")[0];
-
-    body.insertBefore(section, footer);
-}
-
-function makeDishFigure(food){
-    let figure = document.createElement('figure');
-    let img = document.createElement('img');
-    img.setAttribute("id", "menupage__img__" + food.htmlName);
-    img.setAttribute("class", "menupage__img");
-    img.setAttribute("src", "./../images/" + food.htmlName + ".jpg");
-    img.setAttribute("alt", "A picture of a " + food.name);
-    let figCaption = document.createElement('figcaption');
-    figCaption.appendChild(document.createTextNode(food.name));
-    figure.appendChild(img);
-    figure.appendChild(figCaption);
-    return figure;
-}
-
-function makeNextFigure(food){
-    let figure = document.createElement('figure');
-    let img = document.createElement('img');
-    img.setAttribute("id", "menupage__img__" + food.htmlName);
-    img.setAttribute("class", "menupage__img");
-    img.setAttribute("src", "./../images/" + food.htmlName + ".jpg");
-    img.setAttribute("alt", "A picture of a " + food.name);
-    let figCaption = document.createElement('figcaption');
-    figCaption.appendChild(document.createTextNode(food.name));
-    figure.appendChild(img);
-    figure.appendChild(figCaption);
-    body.insertBefore(figure, footer)
 }
 
 //#region events
@@ -427,23 +376,24 @@ function updateDish(result) {
     totalNode.nodeValue = String(result[2]);
 }
 
-//setup the global menuArray
-// function initializeFoodMenu() {
-//     _menu.forEachItem(item => menuArray[item.name] = 0);
-// }
-
 
 function makeFoodFigure(food){
     let figure = document.createElement('figure');
+    figure.setAttribute("class", "menupage__figure");
+    heading1 = document.createElement('h1');
+    heading1.appendChild(document.createTextNode(food.name));
+    figure.appendChild(heading1);
     let img = document.createElement('img');
     img.setAttribute("id", "menupage__img__" + food.htmlName);
     img.setAttribute("class", "menupage__img");
     img.setAttribute("src", "./../images/" + food.htmlName + ".jpg");
     img.setAttribute("alt", "A picture of a " + food.name);
+    figure.appendChild(document.createElement('hr'));
     let figCaption = document.createElement('figcaption');
-    figCaption.appendChild(document.createTextNode(food.name));
+    figCaption.appendChild(document.createTextNode(food.background));
     figure.appendChild(img);
     figure.appendChild(figCaption);
+    figure.appendChild(document.createElement('hr'));
     body.insertBefore(figure, footer);
     dishesLoaded+=1;
 }
