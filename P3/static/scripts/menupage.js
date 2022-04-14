@@ -44,7 +44,6 @@ function replaceBody(menuSection){
 
     html.removeChild(oldBody);
     newBody.appendChild(header);
-    newbBody.appendChild(jouding);
     newBody.appendChild(footer);
     html.appendChild(newBody);
     currentSection = menuSection.name;
