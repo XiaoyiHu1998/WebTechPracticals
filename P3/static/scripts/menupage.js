@@ -22,7 +22,7 @@ function makemenupage__ordersection() {
     button = document.createElement("button");
     button.setAttribute("class", "site__submission__button");
     button.appendChild(document.createTextNode("Place Order"));
-    button.addEventListener("click", function() {getWithFunction("/user/placeOrder", OnOrder); getMenuPage(currentSection);});
+    button.addEventListener("click", function() {getWithFunction("/group33/user/placeOrder", OnOrder); getMenuPage(currentSection);});
     section.appendChild(button);
     body.insertBefore(section, footer);
     body.insertBefore(document.createElement("hr"), footer);
