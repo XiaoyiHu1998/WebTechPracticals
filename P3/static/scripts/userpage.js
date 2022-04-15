@@ -23,18 +23,39 @@ function createRegisteredPage(userinfo){
     h1 = document.createElement("h1");
     text = document.createTextNode("User Info");
     h1.appendChild(text);
-    p = document.createElement("p");
-    text = document.createTextNode("name = " + userinfo[0] + "email = " + userinfo[1] + "username = " + userinfo[2] + "password = " + userinfo[3] + "adress = " + userinfo[4]);
-    p.appendChild(text);
+
+    pUserName = document.createElement("p");
+    pPassword = document.createElement("p");
+    pName = document.createElement("p");
+    pEmail = document.createElement("p");
+    pAdress = document.createElement("p");
+
+    textUserName = document.createTextNode("username = " + userinfo[2]);
+    textPassword = document.createTextNode("password = " + userinfo[3]);
+    textName = document.createTextNode("full name = " + userinfo[0]);
+    textEmail = document.createTextNode("email = " + userinfo[1]);
+    textAdress = document.createTextNode("adress = " + userinfo[4]);
+
+    pUserName.appendChild(textUserName);
+    pPassword.appendChild(textPassword);
+    pName.appendChild(textName);
+    pEmail.appendChild(textEmail);
+    pAdress.appendChild(textAdress);
+
     userInfoSection.appendChild(h1);
-    userInfoSection.appendChild(p);
+    userInfoSection.appendChild(pUserName);
+    userInfoSection.appendChild(pPassword);
+    userInfoSection.appendChild(pName);
+    userInfoSection.appendChild(pEmail);
+    userInfoSection.appendChild(pAdress);
+
     footer = document.getElementsByTagName("footer")[0];
     body = document.getElementsByTagName("body")[0];
 
     //order history
     //header
     orderHistorySection = document.createElement("section");
-    orderHistoryHeader = document.createElement("h2");
+    orderHistoryHeader = document.createElement("h1");
     orderHistoryHeaderText = document.createTextNode("Order History");
     orderHistoryHeader.appendChild(orderHistoryHeaderText);
     orderHistorySection.appendChild(orderHistoryHeader);

@@ -1,0 +1,50 @@
+@import url("./main.css");
+
+p{
+    margin: 5px 5px;
+    padding: 1px;
+}
+
+h1{
+    margin: 5px 0px;
+}
+
+/* section{
+    margin: 0px 20px;
+} */
+
+@media  screen and (min-width: 2560px) {
+	.personel__image{
+	  width: 500px;
+	}
+	
+	.menupage__menusection__table{
+		font-size: 40px;
+	}
+
+    .personel__article{
+        margin: 20px 80px;
+    }
+
+    .personel__article > p{
+        width: 500px;
+    }
+}
+  
+@media  screen and (min-width: 3840px) {
+	.personel__image{
+		width: 800px;
+	}
+
+    .personel__article{
+        margin: 20px 100px;
+    }
+
+	.menupage__menusection__table{
+		font-size: 60px;
+	}
+
+    .personel__article > p{
+        width: 800px;
+    }
+}
