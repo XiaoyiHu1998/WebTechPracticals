@@ -29,7 +29,7 @@ var db = new sqlite3.Database(file);
         function(){
             if(!exists){
                 db.run("CREATE TABLE Users (userID INTEGER, name TEXT, login TEXT, password TEXT, email TEXT, address TEXT)");
-                db.run("CREATE TABLE Orders (userID INTEGER, totalPrice REAL)");
+                db.run("CREATE TABLE Orders (userID INTEGER, totalPrice REAL, date DATE)");
     
                 var insertUser = db.prepare("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?)");
                 for(let userID = 0; userID < 5; userID++){
@@ -86,7 +86,7 @@ exports.registerUser = (req, res, callback, login) => {
 }
 
 exports.insertOrder = function (req) {
-    var query = db.prepare("INSERT INTO Orders values (?, ?)");
+    var query = db.prepare("INSERT INTO Orders values (?, ?, DATE())");
     query.run(loggedInUser, total);
 }
 
@@ -99,7 +99,7 @@ exports.getOrderHistory = function (req, res) {
     var query = db.prepare("SELECT * FROM Orders WHERE userID=?");
     db.all("SELECT * FROM Orders WHERE userID="+ loggedInUser, function (err, rows) {
         console.log(rows);
-        res.send(rows);
+        res.send(JSON.stringify(rows));
     });
 }
 

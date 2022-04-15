@@ -61,7 +61,7 @@ function appendOrderItems(result, orderHistoryList){
         console.log(typeof(orders[i]));
 
         orderItem = document.createElement("p");
-        orderItemText = document.createTextNode("Order cost: " + orderCost);
+        orderItemText = document.createTextNode(orders[i].date + ": €" + orderCost);
 
         orderItem.appendChild(orderItemText);
         orderHistoryList.appendChild(orderItem);
