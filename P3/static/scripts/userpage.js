@@ -14,28 +14,69 @@ function createAnonymousPage(){
     body.insertBefore(createRegisterSection(), footer);
 }
 
+var orderHistoryResponse = [];
 function createRegisteredPage(userinfo){
+    //userInfo
     console.log(userinfo);
     deletePage();
-    section = document.createElement("section");
+    userInfoSection = document.createElement("section");
     h1 = document.createElement("h1");
     text = document.createTextNode("User Info");
     h1.appendChild(text);
     p = document.createElement("p");
     text = document.createTextNode("name = " + userinfo[0] + "email = " + userinfo[1] + "username = " + userinfo[2] + "password = " + userinfo[3] + "adress = " + userinfo[4]);
     p.appendChild(text);
-    section.appendChild(h1);
-    section.appendChild(p);
+    userInfoSection.appendChild(h1);
+    userInfoSection.appendChild(p);
     footer = document.getElementsByTagName("footer")[0];
     body = document.getElementsByTagName("body")[0];
 
+    //order history
+    //header
+    orderHistorySection = document.createElement("section");
+    orderHistoryHeader = document.createElement("h2");
+    orderHistoryHeaderText = document.createTextNode("Order History");
+    orderHistoryHeader.appendChild(orderHistoryHeaderText);
+    orderHistorySection.appendChild(orderHistoryHeader);
+
+    //list
+    orderHistoryList = document.createElement("section");
+    orderHistoryList.setAttribute("id", "userpage__orderhistory__list");
     var url = "user/requestOrderHistory";
-    getWithFunction(url, test);
-    body.insertBefore(section, footer);
+    getWithFunctionParameters(url, appendOrderItems, orderHistoryList);
+
+    body.insertBefore(userInfoSection, footer);
+    body.insertBefore(orderHistoryHeader, footer);
+    body.insertBefore(orderHistoryList, footer);
 }
 
-function test(result){
-    console.log(JSON.parse(result));
+function appendOrderItems(result, orderHistoryList){
+    orders = JSON.parse(result);
+    console.log(orders);
+    console.log(orders.length);
+
+    for(let i = 0; i < orders.length; i++){
+        let orderCost = orders[i].totalPrice;
+        console.log(typeof(orderCost));
+        console.log(typeof(orders[i]));
+
+        orderItem = document.createElement("p");
+        orderItemText = document.createTextNode("Order cost: " + orderCost);
+
+        orderItem.appendChild(orderItemText);
+        orderHistoryList.appendChild(orderItem);
+    }
+    
+    // result.forEach(order => {
+    //     let orderCost = order.totalPrice;
+
+    //     orderItem = document.createElement("li");
+    //     orderItemText = document.createTextNode(orderCost);
+
+    //     orderItem.appendChild(orderItemText);
+    //     orderHistoryList.appendChild(orderItem);
+    // });
+
 }
 
 function deletePage(){
@@ -156,6 +197,18 @@ function getWithFunction(url, func) {
         if (req.readyState === 4 && req.status === 200) {
             console.log(req.responseText);
             func(req.responseText);
+        }
+    }
+    req.send();
+}
+
+function getWithFunctionParameters(url, func, param) {
+    var req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            console.log(req.responseText);
+            func(req.responseText, param);
         }
     }
     req.send();

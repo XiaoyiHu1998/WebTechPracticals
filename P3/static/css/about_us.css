@@ -19,6 +19,11 @@
     width: 80%;
 }
 
+#userpage__orderhistory__list > ol{
+    list-style-type: circle;
+    margin: 0px 500px;
+}
+
 @media  screen and (min-width: 2560px) {
 	.personel__image{
 	  width: 500px;
